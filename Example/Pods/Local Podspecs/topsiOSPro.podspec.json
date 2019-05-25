@@ -18,5 +18,5 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "topsiOSPro/Classes/**/*"
+  "source_files": "topsiOSPro/**/*"
 }

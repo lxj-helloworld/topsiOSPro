@@ -14,7 +14,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+//        let helloWorld = HelloWorld()
+        print("HelloWorld = \(HelloWorld.hello())")
+        print("words = \(HelloWorld.words)")
     }
 
     override func didReceiveMemoryWarning() {
