@@ -4,7 +4,7 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - topsiOSPro (0.1.0)
+  - topsiOSPro (0.1.2)
 
 DEPENDENCIES:
   - FBSnapshotTestCase (~> 2.1.4)
@@ -20,7 +20,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  topsiOSPro: 2e02c9f56f857f80a0410532e64781bd538022dd
+  topsiOSPro: 19c44c72040019cc0cdf0b67533c5aebc2727d04
 
 PODFILE CHECKSUM: 0e959c169683b47e935edc1c766952a2f708c55c
 
