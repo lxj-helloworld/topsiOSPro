@@ -30,7 +30,7 @@
 /* Begin PBXFileReference section */
 		0713674B85490B52D2335BE0 /* Pods_topsiOSPro_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_topsiOSPro_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		536EBE79F209893E4813C824 /* Pods-topsiOSPro_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Tests.release.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Tests/Pods-topsiOSPro_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		6005CFBFF37516680148792D /* topsiOSPro.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = topsiOSPro.podspec; path = ../topsiOSPro.podspec; sourceTree = "<group>"; };
+		6005CFBFF37516680148792D /* topsiOSPro.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = topsiOSPro.podspec; path = ../topsiOSPro.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		607FACD01AFB9204008FA782 /* topsiOSPro_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = topsiOSPro_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,10 +42,10 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		843121EB01BEBF1B36C77B16 /* Pods_topsiOSPro_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_topsiOSPro_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1844D82FF62F9333A3502E6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		A1844D82FF62F9333A3502E6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A990A6ADF99DAAF3A0814CB4 /* Pods-topsiOSPro_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Example.debug.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Example/Pods-topsiOSPro_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A9EBBB1203891DA82F593E7D /* Pods-topsiOSPro_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Tests.debug.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Tests/Pods-topsiOSPro_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		BAEAE84D20FA55631EA6E967 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		BAEAE84D20FA55631EA6E967 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		ECE62669330B8BB4C3B90D13 /* Pods-topsiOSPro_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Example.release.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Example/Pods-topsiOSPro_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,7 +156,6 @@
 				A9EBBB1203891DA82F593E7D /* Pods-topsiOSPro_Tests.debug.xcconfig */,
 				536EBE79F209893E4813C824 /* Pods-topsiOSPro_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -228,6 +227,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
