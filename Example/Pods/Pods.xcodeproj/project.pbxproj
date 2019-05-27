@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		007DD996D7D4A116DDE320B0FD84B8F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D472630CC6C77206E8B0DCDE26410B19 /* Foundation.framework */; };
-		00CB28E3229B957000DC7080 /* utils in Resources */ = {isa = PBXBuildFile; fileRef = 00CB28E2229B957000DC7080 /* utils */; };
+		00CB28E5229B96B800DC7080 /* utils in Resources */ = {isa = PBXBuildFile; fileRef = 00CB28E4229B96B800DC7080 /* utils */; };
 		04F614E60C9379F0EEDDF1DA302D76C8 /* QorumLogs-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D27CEA002EBF4329C855F5EB2B07B60D /* QorumLogs-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0DD4183089B3720B8B22DE275C5DEFD6 /* SwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ED3A34F68D4C8E9C1CF57C3830C76C /* SwiftSupport.swift */; };
 		0E297F4F360620F5D6C1EFAA45960A20 /* QorumLogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF4ACF136500EA73F8E75074FA175C /* QorumLogs.swift */; };
@@ -104,7 +104,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00CB28E2229B957000DC7080 /* utils */ = {isa = PBXFileReference; lastKnownFileType = folder; path = utils; sourceTree = "<group>"; };
+		00CB28E4229B96B800DC7080 /* utils */ = {isa = PBXFileReference; lastKnownFileType = folder; path = utils; sourceTree = "<group>"; };
 		036F5AB39C51D0E28F25F2B84807D51A /* QorumLogs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "QorumLogs-dummy.m"; sourceTree = "<group>"; };
 		13C0D302033E2C7C032D48E8AEBAE517 /* FBSnapshotTestCasePlatform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCasePlatform.h; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.h; sourceTree = "<group>"; };
 		15B34E26D50B19143356FA1AF6DEDB78 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -346,7 +346,7 @@
 		712E6E83A1EE2643E8CC14F32A84EE36 /* topsiOSPro */ = {
 			isa = PBXGroup;
 			children = (
-				00CB28E2229B957000DC7080 /* utils */,
+				00CB28E4229B96B800DC7080 /* utils */,
 				CD267C528ACCB85281450DC4669AF0B1 /* HelloWorld.swift */,
 				2941F62E38F41D03E26FE80E317D126F /* Pod */,
 				D78747828D8264B48B6E8FF103B62196 /* Support Files */,
@@ -729,7 +729,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00CB28E3229B957000DC7080 /* utils in Resources */,
+				00CB28E5229B96B800DC7080 /* utils in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
