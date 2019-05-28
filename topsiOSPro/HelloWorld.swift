@@ -13,6 +13,7 @@ open class HelloWorld:NSObject {
     }
     open class func hello(){
         print("this is in hello !")
+        
     }
-    open static let words = "mine is words !"
+    public static let words = "mine is words !"
 }

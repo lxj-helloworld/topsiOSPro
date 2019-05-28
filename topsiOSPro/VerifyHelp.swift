@@ -8,10 +8,10 @@ import Foundation
 import SwiftyJSON
 import QorumLogs
 
-class VerifyHelp: NSObject {
+public class VerifyHelp: NSObject {
     
     //校验手机号码
-    class func isPhoneNumber(phoneNumber:String) -> Bool {
+    public class func isPhoneNumber(phoneNumber:String) -> Bool {
         if phoneNumber.count == 0 {
             return false
         }
@@ -122,7 +122,7 @@ class VerifyHelp: NSObject {
                 numberFormatter.groupingSize = 3  //分隔位数
                 numberFormatter.minimumFractionDigits = 2 //设置小数点后最少位数
                 numberFormatter.maximumFractionDigits = 9   //设置小数点后最多位数
-                numberFormatter.positiveSuffix = ConstantsHelp.yuan //后缀名
+                numberFormatter.positiveSuffix = "元" //后缀名
                 if money.contains("+"){
                     formatMoney = "+" + numberFormatter.string(from:NumberFormatter().number(from:money.replacingOccurrences(of: "+", with: ""))!)! //格式化
                 }else if money.contains("-"){

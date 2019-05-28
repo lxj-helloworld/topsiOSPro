@@ -45,11 +45,11 @@ class StringUtils: NSObject {
     }
     
     // 获取指定高度字符串宽度
-    class func getStrWidth(str:String,fontSize: CGFloat, height:CGFloat = ConstantsHelp.SCREENHEIGHT) -> CGFloat {
-        let font = UIFont.systemFont(ofSize: fontSize)
-        let rect = NSString(string: str).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: height), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-        return rect.width
-    }
+//    class func getStrWidth(str:String,fontSize: CGFloat, height:CGFloat = ConstantsHelp.SCREENHEIGHT) -> CGFloat {
+//        let font = UIFont.systemFont(ofSize: fontSize)
+//        let rect = NSString(string: str).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: height), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+//        return rect.width
+//    }
     
     // 获取最后一个指定符号后面的信息
     class func getSignBackStr(str:String,sign:String = "\\") -> String {
