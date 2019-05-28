@@ -1,6 +1,6 @@
 {
   "name": "topsiOSPro",
-  "version": "0.1.5.0",
+  "version": "0.1.5.2",
   "summary": "A short description of topsiOSPro.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/lxj-helloworld/topsiOSPro",
@@ -13,13 +13,16 @@
   },
   "source": {
     "git": "https://github.com/lxj-helloworld/topsiOSPro.git",
-    "tag": "0.1.5.0"
+    "tag": "0.1.5.2"
   },
   "platforms": {
     "ios": "8.0"
   },
   "source_files": "topsiOSPro/**/*",
   "dependencies": {
+    "Alamofire": [
+
+    ],
     "SwiftyJSON": [
 
     ],
@@ -27,7 +30,13 @@
 
     ],
     "SnapKit": [
-      "~> 4.0.0"
+
+    ],
+    "Hero": [
+
+    ],
+    "IQKeyboardManagerSwift": [
+
     ]
   }
 }

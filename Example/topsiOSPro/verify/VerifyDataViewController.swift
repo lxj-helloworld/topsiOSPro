@@ -9,12 +9,11 @@
 import UIKit
 import topsiOSPro
 
-class VerifyDataViewController: UIViewController {
+class VerifyDataViewController: BaseUIViewViewController {
     let resultUILabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
     
 
