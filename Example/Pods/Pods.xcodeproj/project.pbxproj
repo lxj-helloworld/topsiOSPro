@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		007DD996D7D4A116DDE320B0FD84B8F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557F7EFC166D95BC572DC7EE2B729126 /* Foundation.framework */; };
-		00B47F8D229D2D62000A256E /* CommonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B47F8B229D2C85000A256E /* CommonViews.swift */; };
+		00B47F8E229D2F2E000A256E /* CommonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B47F8B229D2C85000A256E /* CommonViews.swift */; };
 		04F614E60C9379F0EEDDF1DA302D76C8 /* QorumLogs-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 14DF488F3CFE52AED1737FC890AF4147 /* QorumLogs-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		04F66FA3C83A53525898079B3945E9B6 /* ConstraintConstantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10411CB6B38A38EE0EEB7C5DC054899 /* ConstraintConstantTarget.swift */; };
 		0867E4F35E49CEC11FD92F7B9942BF4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557F7EFC166D95BC572DC7EE2B729126 /* Foundation.framework */; };
@@ -1667,7 +1667,7 @@
 				A5BD386133D2DEDCFB40DEC97857BB42 /* StringUtils.swift in Sources */,
 				23B2CBC6E1B13F21D852FB79F2CEA3E5 /* topsiOSPro-dummy.m in Sources */,
 				979B47ECBFDF7C38CEA1C6291B8253EE /* UIColorUtils.swift in Sources */,
-				00B47F8D229D2D62000A256E /* CommonViews.swift in Sources */,
+				00B47F8E229D2F2E000A256E /* CommonViews.swift in Sources */,
 				B3C80A723AF2341BF7BE054975F969D7 /* VerifyHelp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,6 +14,7 @@ class VerifyDataViewController: BaseUIViewViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
 
