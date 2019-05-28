@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00AC8B10229CC67D0050FBF8 /* StringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC8B0F229CC67D0050FBF8 /* StringViewController.swift */; };
 		5E59730D367E2CF37447579C /* Pods_topsiOSPro_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843121EB01BEBF1B36C77B16 /* Pods_topsiOSPro_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00AC8B0F229CC67D0050FBF8 /* StringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringViewController.swift; sourceTree = "<group>"; };
 		0713674B85490B52D2335BE0 /* Pods_topsiOSPro_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_topsiOSPro_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		536EBE79F209893E4813C824 /* Pods-topsiOSPro_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Tests.release.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Tests/Pods-topsiOSPro_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6005CFBFF37516680148792D /* topsiOSPro.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = topsiOSPro.podspec; path = ../topsiOSPro.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -69,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00AC8B0C229CC6630050FBF8 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				00AC8B0F229CC67D0050FBF8 /* StringViewController.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +103,7 @@
 		607FACD21AFB9204008FA782 /* Example for topsiOSPro */ = {
 			isa = PBXGroup;
 			children = (
+				00AC8B0C229CC6630050FBF8 /* String */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -356,6 +367,7 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				00AC8B10229CC67D0050FBF8 /* StringViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,15 +9,16 @@
 import UIKit
 import topsiOSPro
 
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("HelloWorld = \(HelloWorld.hello())")
-        print("words = \(HelloWorld.words)")
-
-
+        let stringUIButton = UIButton()
+        stringUIButton.setTitle("字符串相关", for: .normal)
+        self.view.addSubview(stringUIButton)
+//        stringUIButton.snp.ma
     }
 
     override func didReceiveMemoryWarning() {

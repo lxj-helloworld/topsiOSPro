@@ -9,7 +9,7 @@ import Foundation
 import QorumLogs
 
 
-class StringUtils: NSObject {
+public class StringUtils: NSObject {
     //获取字符串的前N个字符串
     class func getPrefixNStr(currentStr :String,length : Int) -> String {
         var strResult = ""

@@ -21,7 +21,7 @@ public class VerifyHelp: NSObject {
     }
     
     //校验身份证号
-    class func isIdNumber(idNumber:String) -> Bool {
+    public class func isIdNumber(idNumber:String) -> Bool {
         if idNumber.count == 0 {
             return false
         }

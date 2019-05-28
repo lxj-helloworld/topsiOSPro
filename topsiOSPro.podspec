@@ -42,4 +42,5 @@ TODO: Add long description of the pod here.
   # s.dependency 'AFNetworking', '~> 2.3'
   s.dependency 'SwiftyJSON'
   s.dependency 'QorumLogs'
+  s.dependency 'SnapKit', '~> 4.0.0' #自动布局'
 end
