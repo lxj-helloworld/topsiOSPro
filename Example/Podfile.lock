@@ -10,7 +10,7 @@ PODS:
   - QorumLogs (0.9)
   - SnapKit (4.0.1)
   - SwiftyJSON (5.0.0)
-  - topsiOSPro (0.1.5.3):
+  - topsiOSPro (0.1.5.4):
     - Alamofire
     - Hero
     - IQKeyboardManagerSwift
@@ -44,7 +44,7 @@ SPEC CHECKSUMS:
   QorumLogs: 9a484df6973a3697ac79fe2273140fde6b36dccc
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
-  topsiOSPro: 0b73e335a61b008ec3c95d47f3f7d366d71b169d
+  topsiOSPro: 7b2c6f96bba568e30507668727895f5842b2a749
 
 PODFILE CHECKSUM: 52c78605c762ccac7e90552fa391da2f1ba80826
 

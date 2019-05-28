@@ -11,7 +11,7 @@ import SnapKit
 
 open class BaseUIViewViewController: UIViewController {
 
-    var baseView: UIView!
+    open var baseView: UIView!
     
     override open func viewDidLoad() {
         super.viewDidLoad()
