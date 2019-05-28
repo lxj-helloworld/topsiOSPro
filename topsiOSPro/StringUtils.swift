@@ -11,7 +11,7 @@ import QorumLogs
 
 public class StringUtils: NSObject {
     //获取字符串的前N个字符串
-    class func getPrefixNStr(currentStr :String,length : Int) -> String {
+    public class func getPrefixNStr(currentStr :String,length : Int) -> String {
         var strResult = ""
         if currentStr == "" || currentStr.count < length{
             strResult = currentStr
@@ -22,7 +22,7 @@ public class StringUtils: NSObject {
     }
     
     //获取字符串的后N个字符串
-    class func getSuffixNStr(currentStr :String,length : Int) -> String {
+    public class func getSuffixNStr(currentStr :String,length : Int) -> String {
         var strResult = ""
         if currentStr == "" || currentStr.count < length{
             strResult = currentStr
@@ -33,7 +33,7 @@ public class StringUtils: NSObject {
     }
     
     //截取字符串,按开始、结束位截取
-    class func getIndexStr(currentStr:String,start:Int,end:Int) -> String {
+    public class func getIndexStr(currentStr:String,start:Int,end:Int) -> String {
         var str = ""
         if currentStr == "" || currentStr.count < end {
             str = currentStr
@@ -45,18 +45,11 @@ public class StringUtils: NSObject {
         return str
     }
     
-    // 获取指定高度字符串宽度
-//    class func getStrWidth(str:String,fontSize: CGFloat, height:CGFloat = ConstantsHelp.SCREENHEIGHT) -> CGFloat {
-//        let font = UIFont.systemFont(ofSize: fontSize)
-//        let rect = NSString(string: str).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: height), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-//        return rect.width
-//    }
-    
     // 获取最后一个指定符号后面的信息
-    class func getSignBackStr(str:String,sign:String = "\\") -> String {
+    public class func getSignBackStr(str:String,sign:String = "\\") -> String {
         var result = ""
         if str == "" || !str.contains(sign){
-            result = str
+            result = ""
         }else{
             let list = str.components(separatedBy: sign)
             result = String(list[list.count-1])
@@ -65,7 +58,7 @@ public class StringUtils: NSObject {
     }
     
     //保留小数点后n位小数
-    class func decimalHold(_ Str:String,_ number:Int,_ isForce:Bool) -> String{
+    public class func decimalHold(_ Str:String,_ number:Int,_ isForce:Bool) -> String{
         var tempStr = ""
         if !isForce{
             if Str.contains("."){
@@ -114,7 +107,7 @@ public class StringUtils: NSObject {
 //    }
     
     //字符串转字典
-    class func toDictionary(_ str:String) ->NSDictionary{
+    public class func toDictionary(_ str:String) ->NSDictionary{
         let jsonData:Data = str.data(using: .utf8)!
         let dict = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
         if dict != nil {
@@ -127,7 +120,7 @@ public class StringUtils: NSObject {
 
 extension String{
     // 字符串转 CGFloat
-    func toCGFloat() -> CGFloat {
+    public func toCGFloat() -> CGFloat {
         var float:CGFloat = 0
         if VerifyHelp.isPurnFloat(string: self){
             let double = Double(self)
@@ -139,7 +132,7 @@ extension String{
     }
     
     //字符串转富文本
-    func toNSAttributedString() ->NSAttributedString{
+    public func toNSAttributedString() ->NSAttributedString{
         var result:NSAttributedString = NSAttributedString.init(string: "")
         do{
             result = try NSAttributedString(data: self.data(using: String.Encoding.unicode, allowLossyConversion: true)!, options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)

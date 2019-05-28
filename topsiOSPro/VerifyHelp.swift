@@ -31,7 +31,7 @@ public class VerifyHelp: NSObject {
     }
     
     //校验正整数
-    class func isPositiveInteger(number:String) -> Bool {
+    public class func isPositiveInteger(number:String) -> Bool {
         if number.count == 0 {
             return false
         }
@@ -41,7 +41,7 @@ public class VerifyHelp: NSObject {
     }
     
     //校验车牌号
-    class func isCarNumber(number:String) -> Bool{
+    public class func isCarNumber(number:String) -> Bool{
         var carString = ""
         if number.count == 0 {
             return false
@@ -59,7 +59,7 @@ public class VerifyHelp: NSObject {
     }
     
     //检查数据是否为空
-    class func isDataEmpty(json:JSON,key:String) -> Bool{
+    public class func isDataEmpty(json:JSON,key:String) -> Bool{
         var isEmpty = false
         if  json.dictionaryValue[key] != nil && json[key].stringValue != ""{
             isEmpty = true
@@ -68,7 +68,7 @@ public class VerifyHelp: NSObject {
     }
     
     //工号自动补全count位
-    class func completedByZero(str:String,count:Int) -> String{
+    public class func completedByZero(str:String,count:Int) -> String{
         var result = ""
         if !str.isEmpty{
             if !isPurnFloat(string: str){
@@ -92,7 +92,7 @@ public class VerifyHelp: NSObject {
     }
     
     //数字保留位数
-    class func decimalFormat(_ decimal:String,_ number:String) -> String{
+   public class func decimalFormat(_ decimal:String,_ number:String) -> String{
         QL1(decimal)
         var formatStr = ""
         if decimal != ""{
@@ -110,7 +110,7 @@ public class VerifyHelp: NSObject {
     }
     
     //金额数据格式化 小数点后保留2-9位 带元字
-    class func moneyFormat(_ money:String) -> String{
+    public class func moneyFormat(_ money:String) -> String{
         QL1(money)
         var formatMoney = ""
         if money != ""{
@@ -138,14 +138,14 @@ public class VerifyHelp: NSObject {
     }
     
     //判断是否为数字 包括小数 整数 负数等
-    class func isPurnFloat(string: String) -> Bool {
+    public class func isPurnFloat(string: String) -> Bool {
         let scan: Scanner = Scanner(string: string)
         var val:Float = 0
         return scan.scanFloat(&val) && scan.isAtEnd
     }
     
     //富文本配置行间距以及首行缩进 若label设置字体大小，请在设置字体之后使用该方法
-    class func toAttribute(label:UILabel,string: String,lineSpace:Int,isIndent:Bool) -> NSAttributedString {
+    public class func toAttribute(label:UILabel,string: String,lineSpace:Int,isIndent:Bool) -> NSAttributedString {
         let style = NSMutableParagraphStyle()
         style.lineSpacing = CGFloat(lineSpace)
         if isIndent{
@@ -156,7 +156,7 @@ public class VerifyHelp: NSObject {
     }
     
     //检查文件尺寸大小
-    class func checkFileSize(fileSize:String)->Bool{
+    public class func checkFileSize(fileSize:String)->Bool{
         var temp = false
         if !fileSize.isEmpty{
             var tempSize = fileSize.uppercased()
@@ -177,7 +177,7 @@ public class VerifyHelp: NSObject {
     }
     
     //检查文件尺寸大小
-    class func checkImageInfo(imageName:String)->Bool{
+    public class func checkImageInfo(imageName:String)->Bool{
         var result = false
         if imageName != ""{
             let str = imageName.lowercased()
