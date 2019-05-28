@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		007DD996D7D4A116DDE320B0FD84B8F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557F7EFC166D95BC572DC7EE2B729126 /* Foundation.framework */; };
-		00B47F7E229D1F89000A256E /* ConstantsHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B47F7D229D1F89000A256E /* ConstantsHelp.swift */; };
-		00B47F80229D1FC9000A256E /* UIColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B47F7F229D1FC9000A256E /* UIColorUtils.swift */; };
+		00B47F87229D2155000A256E /* UIColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B47F85229D2155000A256E /* UIColorUtils.swift */; };
+		00B47F88229D2155000A256E /* ConstantsHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B47F86229D2155000A256E /* ConstantsHelp.swift */; };
 		04F614E60C9379F0EEDDF1DA302D76C8 /* QorumLogs-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 14DF488F3CFE52AED1737FC890AF4147 /* QorumLogs-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		04F66FA3C83A53525898079B3945E9B6 /* ConstraintConstantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10411CB6B38A38EE0EEB7C5DC054899 /* ConstraintConstantTarget.swift */; };
 		0867E4F35E49CEC11FD92F7B9942BF4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557F7EFC166D95BC572DC7EE2B729126 /* Foundation.framework */; };
@@ -299,8 +299,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00B47F7D229D1F89000A256E /* ConstantsHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsHelp.swift; sourceTree = "<group>"; };
-		00B47F7F229D1FC9000A256E /* UIColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorUtils.swift; sourceTree = "<group>"; };
+		00B47F85229D2155000A256E /* UIColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorUtils.swift; path = topsiOSPro/UIColorUtils.swift; sourceTree = "<group>"; };
+		00B47F86229D2155000A256E /* ConstantsHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstantsHelp.swift; path = topsiOSPro/ConstantsHelp.swift; sourceTree = "<group>"; };
 		03938D3CF282A1058DF45B8187CC8EA6 /* Array+HeroModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+HeroModifier.swift"; path = "Sources/Extensions/Array+HeroModifier.swift"; sourceTree = "<group>"; };
 		06C2846871D86E7B8E56E761060F7D8B /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Source/ConstraintInsets.swift; sourceTree = "<group>"; };
 		073F9F846A270AEAD93C0C4114A6F155 /* ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMaker.swift; path = Source/ConstraintMaker.swift; sourceTree = "<group>"; };
@@ -712,8 +712,8 @@
 		37D16820A8815513058A404EFB3C4F6B /* topsiOSPro */ = {
 			isa = PBXGroup;
 			children = (
-				00B47F7D229D1F89000A256E /* ConstantsHelp.swift */,
-				00B47F7F229D1FC9000A256E /* UIColorUtils.swift */,
+				00B47F86229D2155000A256E /* ConstantsHelp.swift */,
+				00B47F85229D2155000A256E /* UIColorUtils.swift */,
 				7B55402E7C0CAB0E4017FD7BE4639E93 /* BaseUIViewViewController.swift */,
 				0F1B7C75AF74931D11D724C5DD9038EE /* HelloWorld.swift */,
 				8E715B834993CD17B67BFEDE2264FD69 /* StringUtils.swift */,
@@ -1690,11 +1690,11 @@
 				72C2F0877FAB758F102C1D5FB6641559 /* NetworkReachabilityManager.swift in Sources */,
 				B2E54789768E4F4EE35F11E0034C7383 /* Notifications.swift in Sources */,
 				A5ADEF55257E4C1A482BF072C205F388 /* ParameterEncoding.swift in Sources */,
+				00B47F88229D2155000A256E /* ConstantsHelp.swift in Sources */,
 				14ECF6E40B0356170FEDE170B2EB6F2F /* Request.swift in Sources */,
-				00B47F7E229D1F89000A256E /* ConstantsHelp.swift in Sources */,
 				5C2F9E5485166B59DD032D7DF4C29CF0 /* Response.swift in Sources */,
-				00B47F80229D1FC9000A256E /* UIColorUtils.swift in Sources */,
 				ADB18D94C4F71AE2FCE388100D556B0F /* ResponseSerialization.swift in Sources */,
+				00B47F87229D2155000A256E /* UIColorUtils.swift in Sources */,
 				E7BA58DE1AA8F11BAA7E8817D8AB509C /* Result.swift in Sources */,
 				4920AD2B3D668DB550BEDED6747F925B /* ServerTrustPolicy.swift in Sources */,
 				FFB9BA683C701138C08A211F3E192F56 /* SessionDelegate.swift in Sources */,
