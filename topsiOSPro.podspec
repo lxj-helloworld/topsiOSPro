@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'topsiOSPro'
-  s.version          = '0.1.5.2'
+  s.version          = '0.1.5.4'
   s.summary          = 'A short description of topsiOSPro.'
 
 # This description is used to generate tags and improve search results.
@@ -39,11 +39,12 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'AFNetworking', '~> 4.7' #网络请求
-  s.dependency 'SwiftyJSON', '~> 4.0' #Json数据处理
+  s.dependency 'Alamofire' #网络请求
+  s.dependency 'SwiftyJSON' #Json数据处理
   s.dependency 'QorumLogs'
-  s.dependency 'SnapKit', '~> 4.0.0' #自动布局'
+  s.dependency 'SnapKit' #自动布局'
   s.dependency 'Hero'
+  s.dependency 'IQKeyboardManagerSwift'
   
 
 end

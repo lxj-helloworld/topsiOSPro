@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         self.view.addSubview(verifyUIButton)
         verifyUIButton.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
-            make.top.equalTo(stringUIButton.snp.bottom)
+            make.top.equalTo(stringUIButton.snp.bottom).offset(30)
         }
         verifyUIButton.addTarget(self, action: #selector(verifyData), for: .touchDown)
     }

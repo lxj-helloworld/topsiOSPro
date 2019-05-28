@@ -9,27 +9,28 @@
 import UIKit
 import SnapKit
 
-class BaseUIViewViewController: BaseViewController {
+open class BaseUIViewViewController: UIViewController {
 
     var baseView: UIView!
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         initBaseView()
     }
     
     //初始化基础视图
-    func initBaseView() {
+   public func initBaseView() {
+        self.view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         baseView = UIView()
         baseView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        view.addSubview(baseView)
+        self.view.addSubview(baseView)
         baseView.snp.makeConstraints{(make) -> Void in
             if #available(iOS 11.0, *) {
                 make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
                 make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             } else {
-                make.top.equalTo(topLayoutGuide.snp.bottom)
-                make.bottom.equalTo(bottomLayoutGuide.snp.bottom)
+                make.top.equalTo(self.topLayoutGuide.snp.bottom)
+                make.bottom.equalTo(self.bottomLayoutGuide.snp.bottom)
             }
              make.left.right.equalTo(view)
         }
