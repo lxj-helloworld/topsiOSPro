@@ -3,8 +3,8 @@ use_frameworks!
 #xcodeproj 'NAMETests'
 #workspace '../NAME'
 
-target 'topsiOSPro' do
-  pod 'topsiOSPro',:path => '../topsiOSPro'
+target 'topsiOSPro_Example' do
+  pod 'topsiOSPro',:path => '../'
 #  pod 'topsiOSPro', :podspec => '../topsiOSPro.podspec'
 
   target 'topsiOSPro_Tests' do
