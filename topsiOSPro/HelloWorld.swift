@@ -7,13 +7,18 @@
 
 import Foundation
 
-open class HelloWorld:NSObject {
+public class HelloWorld:NSObject {
     override init() {
         super.init()
     }
-    open class func hello(){
+    public class func hello(){
         print("this is in hello !")
-        
     }
+    
+    public class func testMethod(){
+        print("this is in testMethod !")
+    }
+    
+    
     public static let words = "mine is words !"
 }

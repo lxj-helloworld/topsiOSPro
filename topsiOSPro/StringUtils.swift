@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import QorumLogs
 
 
 class StringUtils: NSObject {
