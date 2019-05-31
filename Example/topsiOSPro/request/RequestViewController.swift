@@ -13,12 +13,10 @@ import SnapKit
 import QorumLogs
 import Alamofire
 
-class RequestViewController: BaseUIScrollViewViewController {
+class RequestViewController: BaseUIViewViewController {
 
     //登录
     let loginUIButton = UIButton()
-    //请求dataMap
-    let dataMapUIButton = UIButton()
     //请求所有
     let allUIButton = UIButton()
     //请求dataList
@@ -37,21 +35,61 @@ class RequestViewController: BaseUIScrollViewViewController {
     
 
     func initView(){
-        self.innerUIView.addSubview(loginUIButton)
+        loginUIButton.setTitle("登录", for: .normal)
+        loginUIButton.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.baseView.addSubview(loginUIButton)
         loginUIButton.snp.makeConstraints { (make) in
             make.left.right.top.equalToSuperview()
         }
         loginUIButton.addTarget(self, action: #selector(loginTo), for: .touchDown)
+        
+        allUIButton.setTitle("dataMap", for: .normal)
+        allUIButton.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.baseView.addSubview(allUIButton)
+        allUIButton.snp.makeConstraints { (make) in
+            make.top.equalTo(loginUIButton.snp.bottom).offset(ConstantsHelp.topMargin)
+            make.left.right.equalToSuperview()
+        }
+        allUIButton.addTarget(self, action: #selector(allGet), for: .touchDown)
+        
+        
     }
     
     
     @objc func loginTo(){
-        let parameters: Parameters = ["loginname":"0903","password":"lxj010203,.","uuid":"idfa","ismobile":"1"]
-        let url = "http://172.20.3.53:8919/toa/toa/toaMobileLogin_login.json";
+        print("loingTo")
+        let parameters:Parameters = ["loginName":"0903",
+                                    "password":"lxj010203",
+                                    "baseType":0,
+                                    "LastMsgTime":"",
+                                    "newMsgIds":"",
+                                    "showLoading":"false"
+            ] as [String : Any]
+    
+        let url = "http://172.20.3.53:8918/mobile/userAction_checkLoginForMobile.json";
         getResultMap(urlRequest: url, parameters: parameters) { (json) in
-            print("json = \(json)")
+            self.showAlert(message: "json = \(json)")
         }
     }
     
 
+    @objc func allGet(){
+        print("dataMapGet")
+        let parameters:Parameters = ["loginName":"0903",
+                                     "password":"lxj010203",
+                                     "baseType":0,
+                                     "LastMsgTime":"",
+                                     "newMsgIds":"",
+                                     "showLoading":"false"
+            ] as [String : Any]
+        
+        let url = "http://172.20.3.53:8918/mobile/userAction_checkLoginForMobile.json";
+        getResultTotalMap(urlRequest: url, parameters: parameters) { (json) in
+            self.showAlert(message: "json = \(json)")
+        }
+    }
+    
+    
+    
+    
 }

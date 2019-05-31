@@ -81,7 +81,7 @@ class ViewController: UIViewController {
 
     //网络请求相关
     func initRequest(){
-        requestUIButton.setTitle("校验相关相关", for: .normal)
+        requestUIButton.setTitle("数据请求", for: .normal)
         requestUIButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         self.view.addSubview(requestUIButton)
         requestUIButton.snp.makeConstraints { (make) in
