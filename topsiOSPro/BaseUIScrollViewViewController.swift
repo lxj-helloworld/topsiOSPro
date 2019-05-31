@@ -12,11 +12,13 @@ import SnapKit
 
 open class BaseUIScrollViewViewController: BaseUIViewViewController {
     open var baseScrollView:UIScrollView!
+    open var innerUIView:UIView!
     
     override open func viewDidLoad() {
         super.viewDidLoad()
         initOthersUIView()
         initBaseUIScrollView()
+        initInnerUIView()
     }
     
     //初始化滚动视图
@@ -40,6 +42,14 @@ open class BaseUIScrollViewViewController: BaseUIViewViewController {
     //添加其他视图
     open  func initOthersUIView(){
         
+    }
+    
+    open func initInnerUIView(){
+        innerUIView = UIView()
+        baseScrollView.addSubview(innerUIView)
+        innerUIView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
     }
     
 }
