@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		007DD996D7D4A116DDE320B0FD84B8F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557F7EFC166D95BC572DC7EE2B729126 /* Foundation.framework */; };
 		00B47F8E229D2F2E000A256E /* CommonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B47F8B229D2C85000A256E /* CommonViews.swift */; };
-		00F2204922A104C100498DC0 /* SwiftLoadingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F2204822A104C100498DC0 /* SwiftLoadingTool.swift */; };
+		00F2204B22A10C9000498DC0 /* SwiftLoadingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F2204A22A10C9000498DC0 /* SwiftLoadingTool.swift */; };
 		04F614E60C9379F0EEDDF1DA302D76C8 /* QorumLogs-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 14DF488F3CFE52AED1737FC890AF4147 /* QorumLogs-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		04F66FA3C83A53525898079B3945E9B6 /* ConstraintConstantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10411CB6B38A38EE0EEB7C5DC054899 /* ConstraintConstantTarget.swift */; };
 		0867E4F35E49CEC11FD92F7B9942BF4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557F7EFC166D95BC572DC7EE2B729126 /* Foundation.framework */; };
@@ -303,7 +303,7 @@
 
 /* Begin PBXFileReference section */
 		00B47F8B229D2C85000A256E /* CommonViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonViews.swift; path = topsiOSPro/CommonViews.swift; sourceTree = "<group>"; };
-		00F2204822A104C100498DC0 /* SwiftLoadingTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLoadingTool.swift; sourceTree = "<group>"; };
+		00F2204A22A10C9000498DC0 /* SwiftLoadingTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftLoadingTool.swift; path = topsiOSPro/SwiftLoadingTool.swift; sourceTree = "<group>"; };
 		03938D3CF282A1058DF45B8187CC8EA6 /* Array+HeroModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+HeroModifier.swift"; path = "Sources/Extensions/Array+HeroModifier.swift"; sourceTree = "<group>"; };
 		06C2846871D86E7B8E56E761060F7D8B /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Source/ConstraintInsets.swift; sourceTree = "<group>"; };
 		070238CB70CF0C3531207FBE8D2C8C58 /* topsiOSPro.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = topsiOSPro.xcconfig; sourceTree = "<group>"; };
@@ -756,7 +756,7 @@
 		5EA161D948573AB52B417040C83656D9 /* topsiOSPro */ = {
 			isa = PBXGroup;
 			children = (
-				00F2204822A104C100498DC0 /* SwiftLoadingTool.swift */,
+				00F2204A22A10C9000498DC0 /* SwiftLoadingTool.swift */,
 				00B47F8B229D2C85000A256E /* CommonViews.swift */,
 				19C44ED1FF18B13D8E4ECB067BDDAE84 /* BaseUIScrollViewViewController.swift */,
 				F1D6BC97B65D2B7FC741475C35C55328 /* BaseUIViewViewController.swift */,
@@ -1671,6 +1671,7 @@
 				23B2CBC6E1B13F21D852FB79F2CEA3E5 /* topsiOSPro-dummy.m in Sources */,
 				979B47ECBFDF7C38CEA1C6291B8253EE /* UIColorUtils.swift in Sources */,
 				00B47F8E229D2F2E000A256E /* CommonViews.swift in Sources */,
+				00F2204B22A10C9000498DC0 /* SwiftLoadingTool.swift in Sources */,
 				B3C80A723AF2341BF7BE054975F969D7 /* VerifyHelp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1695,7 +1696,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00F2204922A104C100498DC0 /* SwiftLoadingTool.swift in Sources */,
 				B082FA7223428C8DE32F7DE7F5AF441C /* AFError.swift in Sources */,
 				559368DD6966DB1193B3FD6E7CBF5FED /* Alamofire-dummy.m in Sources */,
 				5B1086B0A866704A6CAF72B5A47582C6 /* Alamofire.swift in Sources */,
