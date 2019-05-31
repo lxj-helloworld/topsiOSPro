@@ -134,13 +134,13 @@ extension BaseUIViewViewController{
     open func getResultMap(urlRequest :String,parameters:Parameters?,isSupportClick:Bool = true,backToMapFunc : @escaping (_ map:JSON) -> Void)  {
         if let show = parameters!["showLoading"]{
         }else{
-            showLoading(isSupportClick: isSupportClick)
+//            self.showLoading(isSupportClick: isSupportClick)
         }
         Alamofire.request(urlRequest, method: HTTPMethod.post, parameters: parameters).validate().responseJSON{
             response in
             switch response.result{
             case .success:
-                self.hideHUD()
+//                self.hideHUD()
                 if let data = response.data {
                     let actionResult:JSON  = JSON(data)[ConstantsHelp.actionReuslt]
                     if actionResult[ConstantsHelp.success].boolValue {
@@ -155,7 +155,7 @@ extension BaseUIViewViewController{
                     }
                 }
             case .failure(let error):
-                self.hideHUD()
+//                self.hideHUD()
                 self.showAlertOne(title: "", message: "似乎已断开与互联网的连接")
                 QL1("BaseViewController getResultMap 似乎已断开与互联网的连接 failure \(error)")
             }
@@ -166,13 +166,13 @@ extension BaseUIViewViewController{
     open func getResultTotalMap(urlRequest :String,parameters:Parameters?,isNeedPop:Bool = false,backToMapFunc : @escaping (_ map:JSON) -> Void)  {
         if let show = parameters!["showLoading"]{
         }else{
-            showLoading(isSupportClick: true)
+//            showLoading(isSupportClick: true)
         }
         Alamofire.request(urlRequest, method: HTTPMethod.post,parameters: parameters).validate().responseJSON{
             response in
             switch response.result{
             case .success:
-                self.hideHUD()
+//                self.hideHUD()
                 if let data = response.data {
                     let actionResult:JSON  = JSON(data)[ConstantsHelp.actionReuslt]
                     if actionResult[ConstantsHelp.success].boolValue {
@@ -191,7 +191,7 @@ extension BaseUIViewViewController{
                     }
                 }
             case .failure(let error):
-                self.hideHUD()
+//                self.hideHUD()
                 self.showAlertOne(title: "", message: "似乎已断开与互联网的连接")
                 QL1("BaseViewController getResultTotalMap 似乎已断开与互联网的连接 failure \(error)")
             }
@@ -200,12 +200,12 @@ extension BaseUIViewViewController{
     
     //根据请求地址和参数请求dataList类数据
     open func getResultListMap(urlRequest :String,parameters:Parameters,backToListMapFunc : @escaping (_ list:JSON) -> Void)  {
-        showLoading(isSupportClick: true)
+//        showLoading(isSupportClick: true)
         Alamofire.request(urlRequest, method: HTTPMethod.post,parameters: parameters).validate().responseJSON{
             response in
             switch response.result{
             case .success:
-                self.hideHUD()
+//                self.hideHUD()
                 if let data = response.data {
                     let actionResult:JSON  = JSON(data)[ConstantsHelp.actionReuslt]
                     if actionResult[ConstantsHelp.success].boolValue {
@@ -220,7 +220,7 @@ extension BaseUIViewViewController{
                     }
                 }
             case .failure(let error):
-                self.hideHUD()
+//                self.hideHUD()
                 self.showAlertOne(title: "", message: "似乎已断开与互联网的连接")
                 QL1("BaseViewController getResultListMap 似乎已断开与互联网的连接 failure \(error)")
             }
@@ -230,12 +230,12 @@ extension BaseUIViewViewController{
     
     //根据请求地址和参数请求listDataMap类数据
     open func getResultlistDataMap(urlRequest :String,parameters:Parameters,backToListMapFunc : @escaping (_ list:JSON) -> Void)  {
-        showLoading(isSupportClick: true)
+//        showLoading(isSupportClick: true)
         Alamofire.request(urlRequest, method: HTTPMethod.post,parameters: parameters).validate().responseJSON{
             response in
             switch response.result{
             case .success:
-                self.hideHUD()
+//                self.hideHUD()
                 if let data = response.data {
                     let actionResult:JSON  = JSON(data)[ConstantsHelp.actionReuslt]
                     if actionResult[ConstantsHelp.success].boolValue {
@@ -250,7 +250,7 @@ extension BaseUIViewViewController{
                     }
                 }
             case .failure(let error):
-                self.hideHUD()
+//                self.hideHUD()
                 //self.showAlertOne(title: "", message: "似乎已断开与互联网的连接")
                 QL1("BaseViewController getResultlistDataMap 似乎已断开与互联网的连接 failure \(error)")
             }
@@ -261,7 +261,7 @@ extension BaseUIViewViewController{
     //上传图片
     open func postImageList(urlRequest:String,keys:[String],parameters:JSON,imagesArr:[Data],imagesInfoArr:[String],isShowLoading:Bool = false, backToInfoFunc : @escaping (_ map:JSON) -> Void)  {
         if isShowLoading{
-            showLoading(isSupportClick: true)
+//            showLoading(isSupportClick: true)
         }
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             var count = imagesArr.count
@@ -287,7 +287,7 @@ extension BaseUIViewViewController{
                     upload.responseJSON { response in
                         if let value = response.result.value as? [String: AnyObject]{
                             if isShowLoading{
-                                self.hideHUD()
+//                                self.hideHUD()
                             }
                             let json = JSON(value)
                             let actionResult = json["actionResult"]
@@ -305,12 +305,12 @@ extension BaseUIViewViewController{
                             }
                         }
                         if  response.error != nil,response.error!._code == NSURLErrorTimedOut{
-                            self.hideHUD()
+//                            self.hideHUD()
                             self.showAlert(message: "网络连接超时!\n请检查网络后重试")
                         }
                     }
                 case .failure(let encodingError):
-                    self.hideHUD()
+//                    self.hideHUD()
                     self.showAlert(message:"提交失败,错误原因为:\(encodingError)")
                     QL1(encodingError)
                 }
