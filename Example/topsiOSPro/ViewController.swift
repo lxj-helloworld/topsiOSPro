@@ -106,14 +106,14 @@ class ViewController: UIViewController {
         menuUIButton.setTitle("菜单", for: .normal)
         menuUIButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         self.view.addSubview(menuUIButton)
-        requestUIButton.snp.makeConstraints { (make) in
+        menuUIButton.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
-            make.top.equalTo(verifyUIButton.snp.bottom).offset(30)
+            make.top.equalTo(requestUIButton.snp.bottom).offset(30)
         }
-        menuUIButton.addTarget(self, action: #selector(requestData), for: .touchDown)
+        menuUIButton.addTarget(self, action: #selector(showMenu), for: .touchDown)
     }
     
-    @objc func requestData(){
+    @objc func showMenu(){
         let myMenuViewController = MyMenuViewController()
         myMenuViewController.title = "菜单布局"
         myMenuViewController.resourceArray = [["title": "title", "image": "AppIcon"],
