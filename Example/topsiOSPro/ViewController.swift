@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     let verifyUIButton = UIButton()
     //网络请求相关
     let requestUIButton = UIButton()
+    //网格 菜单
+    let menuUIButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,7 @@ class ViewController: UIViewController {
         initString()
         initVerify()
         initRequest()
+        initMenu()
     }
     
 
@@ -98,6 +101,30 @@ class ViewController: UIViewController {
     }
     
     
+    //网格菜单
+    func initMenu(){
+        menuUIButton.setTitle("菜单", for: .normal)
+        menuUIButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        self.view.addSubview(menuUIButton)
+        requestUIButton.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(verifyUIButton.snp.bottom).offset(30)
+        }
+        menuUIButton.addTarget(self, action: #selector(requestData), for: .touchDown)
+    }
+    
+    @objc func requestData(){
+        let myMenuViewController = MyMenuViewController()
+        myMenuViewController.title = "菜单布局"
+        myMenuViewController.resourceArray = [["title": "title", "image": "AppIcon"],
+        ["title": "title1", "image": "AppIcon"],
+        ["title": "title2", "image": "AppIcon"],
+        ["title": "title3", "image": "AppIcon"],
+        ["title": "title4", "image": "AppIcon"],
+        ["title": "title5", "image": "AppIcon"],
+        ]
+        self.navigationController?.pushViewController(myMenuViewController, animated: true)
+    }
     
 }
 

@@ -9,7 +9,7 @@
 import UIKit
 import topsiOSPro
 
-class MyMenuViewController: BaseMenu {
+class MyMenuViewController: BaseMenuUICollectionViewViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,6 @@ class MyMenuViewController: BaseMenu {
         // Do any additional setup after loading the view.
     }
     
-
     /*
     // MARK: - Navigation
 
