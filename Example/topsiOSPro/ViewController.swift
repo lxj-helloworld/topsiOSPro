@@ -138,12 +138,13 @@ class ViewController: UIViewController {
             make.left.right.equalToSuperview()
             make.top.equalTo(menuUIButton.snp.bottom).offset(30)
         }
-        listMenuUIButton.addTarget(self, action: #selector(showMenu), for: .touchDown)
+        listMenuUIButton.addTarget(self, action: #selector(showListMenu), for: .touchDown)
     }
     
     
     @objc func showListMenu(){
         let myListMenuViewController = MyListMenuViewController()
+        myListMenuViewController.title = "列表菜单"
         myListMenuViewController.valueDirect = [0:["第一个菜单项"],
                                                 1:["第二个菜单项01","第二个菜单项02"],
                                                 2:["第三个菜单项"],
@@ -162,5 +163,6 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(myListMenuViewController, animated: true)
     }
     
+
 }
 

@@ -18,6 +18,7 @@ open class BaseGroupedTableViewViewController: BaseUIViewViewController,UITableV
         super.viewDidLoad()
         initOthers()
         initTableView()
+        QL1("viewDidLoad")
     }
     
     open func initOthers(){
@@ -86,9 +87,22 @@ open class BaseGroupedTableViewViewController: BaseUIViewViewController,UITableV
         QL1("indexPath.section = \(indexPath.section) , indexPath.row = \(indexPath.row)")
     }
     
-    //每行的视图 重写该方法，定制每行显示的内容
+//    //每行的视图 重写该方法，定制每行显示的内容
+//    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        QL1("定制每行视图 in BaseGroupedTableViewViewController")
+//        return UITableViewCell()
+//    }
+    
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        QL1("定制每行视图 in BaseGroupedTableViewViewController")
-        return UITableViewCell()
+        var tableCell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        if tableCell == nil {
+            tableCell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        }
+        //最左侧显示图标
+        tableCell?.imageView?.image = UIImage(named: imageDirect[indexPath.section]![indexPath.row] as! String)
+        tableCell?.textLabel?.text = valueDirect[indexPath.section]?[indexPath.row] as? String
+        tableCell?.accessoryType = .disclosureIndicator
+         QL1("tableView")
+        return tableCell!
     }
 }
