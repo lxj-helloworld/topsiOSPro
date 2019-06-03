@@ -10,6 +10,10 @@
 		007DD996D7D4A116DDE320B0FD84B8F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557F7EFC166D95BC572DC7EE2B729126 /* Foundation.framework */; };
 		00B47F8E229D2F2E000A256E /* CommonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B47F8B229D2C85000A256E /* CommonViews.swift */; };
 		00CEE21F22A4CCCB00A51BD3 /* BaseGroupedTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CEE21D22A4CCC200A51BD3 /* BaseGroupedTableViewViewController.swift */; };
+		00CEE22522A4F9C300A51BD3 /* UIColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CEE22122A4F9C300A51BD3 /* UIColorUtils.swift */; };
+		00CEE22622A4F9C300A51BD3 /* VerifyHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CEE22222A4F9C300A51BD3 /* VerifyHelp.swift */; };
+		00CEE22722A4F9C300A51BD3 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CEE22322A4F9C300A51BD3 /* StringUtils.swift */; };
+		00CEE22822A4F9C300A51BD3 /* ConstantsHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CEE22422A4F9C300A51BD3 /* ConstantsHelp.swift */; };
 		00F2204B22A10C9000498DC0 /* SwiftLoadingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F2204A22A10C9000498DC0 /* SwiftLoadingTool.swift */; };
 		00F2205022A1244000498DC0 /* BaseMenuUICollectionViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F2204F22A1244000498DC0 /* BaseMenuUICollectionViewViewController.swift */; };
 		00F2205222A124C800498DC0 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F2205122A124C800498DC0 /* MenuCollectionViewCell.swift */; };
@@ -116,13 +120,11 @@
 		929188AFEF467CF1FDD25C2BCDB6BFE9 /* FBSnapshotTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FCA180DF8B230604B99CE2F4C0B48C /* FBSnapshotTestController.m */; };
 		9468B36BB9DF93B40492468F91E4D4D0 /* HeroTargetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5FE6BA91CD6563F84C9AADC6C456FA /* HeroTargetState.swift */; };
 		97679D1E9B7EC6A559CC096A2468A38B /* HeroTransition+UITabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73322FA7723417810B058CC124C0B361 /* HeroTransition+UITabBarControllerDelegate.swift */; };
-		979B47ECBFDF7C38CEA1C6291B8253EE /* UIColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B5156E2ADF236B911FB466444F6B1 /* UIColorUtils.swift */; };
 		9BF32E8D34B7E92903664486113F94DA /* SwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBED5294CE81D228449DB328554A88C /* SwiftSupport.swift */; };
 		A1D5B066B529B59BF042AC9CDDE3D0C2 /* ConstraintMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90A269C28DFB6F33CAA815E7555388B /* ConstraintMakerExtendable.swift */; };
 		A33530452C800132C869C9D50E8C51F4 /* IQKeyboardReturnKeyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA57D45DF9B9E9555E80A5FFD6F09E2 /* IQKeyboardReturnKeyHandler.swift */; };
 		A38B7360CFCB7A435F5D2EDE7A35FDBD /* HeroModifier+Advanced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6146E2360BFC9855B28E4D6F66B178 /* HeroModifier+Advanced.swift */; };
 		A5ADEF55257E4C1A482BF072C205F388 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7376BB32A954D22D7239658C4927BEC /* ParameterEncoding.swift */; };
-		A5BD386133D2DEDCFB40DEC97857BB42 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5BB7E1A2317682F0D40081405F48A8 /* StringUtils.swift */; };
 		A6FD67030A362813EBF7BC9749C55CDB /* IQUIScrollView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DEEF8CFA3CF754BA23FA434E7DC5CA /* IQUIScrollView+Additions.swift */; };
 		A7F301FEFA26966FD93FE41537DA9833 /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381771B02F0772C999A29B7D7EA1686D /* ConstraintDescription.swift */; };
 		A8AEB234241B9A3B35A9B576A93D12AC /* CAMediaTimingFunction+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F3BA06879F32A9115B8C433C9C4A77 /* CAMediaTimingFunction+Hero.swift */; };
@@ -135,7 +137,6 @@
 		B178B38FCD7F99B07422484FC7FD6861 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CCF0A0D89017126D7F5BC13EAA48F517 /* IQKeyboardManager.bundle */; };
 		B2E54789768E4F4EE35F11E0034C7383 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5C5E8FCE6A4F8DA83D78303874C84F /* Notifications.swift */; };
 		B33BB541223B04CBC5C3AB7E3F46592B /* ConstraintOffsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAE46A189899CB654861FF4792780F7 /* ConstraintOffsetTarget.swift */; };
-		B3C80A723AF2341BF7BE054975F969D7 /* VerifyHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E630678A77A04BE134348E83C962C6 /* VerifyHelp.swift */; };
 		B41F7C069770EAF9D13CBCE1824F02C8 /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B482116F491194ED4A502BC5378813B7 /* ConstraintView.swift */; };
 		B560C9BD75D1EA219239C05829E975EC /* HeroDebugPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CE62C1BA63B669EC4295816DF02786 /* HeroDebugPlugin.swift */; };
 		B6126D80B0C970B0E97DFC34F1987DB3 /* UIViewController+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE23C452335672B93C5209BB8A9D2F1 /* UIViewController+Hero.swift */; };
@@ -177,7 +178,6 @@
 		D6A16FD82B9996ED419AEC2D4E9DCE56 /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9AFAF617484DE9292B42C474786D0 /* UILayoutSupport+Extensions.swift */; };
 		D84D626FC6A666332367C6375B8D6D1E /* UIApplication+StrictKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BD4573119440F562F6FCD7578E6FE3 /* UIApplication+StrictKeyWindow.m */; };
 		D9BA55AB9494D090563BC5386DE58BEC /* ConstraintMakerFinalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2972DEA2F32BBFCC8E88D574CF7DEF /* ConstraintMakerFinalizable.swift */; };
-		DE85AD105970376A00239CCC96584C4B /* ConstantsHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108ADB901898DF34B62716F084070F42 /* ConstantsHelp.swift */; };
 		DF48545DC895C873F42C4541C9EA7993 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557F7EFC166D95BC572DC7EE2B729126 /* Foundation.framework */; };
 		E35F58277395B982DDAEE60B656BF146 /* HeroTransition+Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C61E6290BD1EA27FBF90AD47C0E8BE /* HeroTransition+Animate.swift */; };
 		E418542DAA6B444CEDC23B9304116BA0 /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4171ADF4F7C9568AA77AD9AF563D83C /* ConstraintAttributes.swift */; };
@@ -309,6 +309,10 @@
 /* Begin PBXFileReference section */
 		00B47F8B229D2C85000A256E /* CommonViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonViews.swift; path = topsiOSPro/CommonViews.swift; sourceTree = "<group>"; };
 		00CEE21D22A4CCC200A51BD3 /* BaseGroupedTableViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseGroupedTableViewViewController.swift; path = topsiOSPro/BaseGroupedTableViewViewController.swift; sourceTree = "<group>"; };
+		00CEE22122A4F9C300A51BD3 /* UIColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorUtils.swift; path = ../topsiOSPro/utils/UIColorUtils.swift; sourceTree = "<group>"; };
+		00CEE22222A4F9C300A51BD3 /* VerifyHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerifyHelp.swift; path = ../topsiOSPro/utils/VerifyHelp.swift; sourceTree = "<group>"; };
+		00CEE22322A4F9C300A51BD3 /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringUtils.swift; path = ../topsiOSPro/utils/StringUtils.swift; sourceTree = "<group>"; };
+		00CEE22422A4F9C300A51BD3 /* ConstantsHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstantsHelp.swift; path = ../topsiOSPro/utils/ConstantsHelp.swift; sourceTree = "<group>"; };
 		00F2204A22A10C9000498DC0 /* SwiftLoadingTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftLoadingTool.swift; path = topsiOSPro/SwiftLoadingTool.swift; sourceTree = "<group>"; };
 		00F2204F22A1244000498DC0 /* BaseMenuUICollectionViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseMenuUICollectionViewViewController.swift; path = topsiOSPro/BaseMenuUICollectionViewViewController.swift; sourceTree = "<group>"; };
 		00F2205122A124C800498DC0 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuCollectionViewCell.swift; path = topsiOSPro/MenuCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -326,7 +330,6 @@
 		0C57F37B0C27FEF6D58376534EBE952C /* QorumLogs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QorumLogs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F68F47665F618D71056C688D9138272 /* IQKeyboardManagerSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IQKeyboardManagerSwift.xcconfig; sourceTree = "<group>"; };
 		0F9ED67774FAAFC1E3C50AA124094362 /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQNSArray+Sort.swift"; path = "IQKeyboardManagerSwift/Categories/IQNSArray+Sort.swift"; sourceTree = "<group>"; };
-		108ADB901898DF34B62716F084070F42 /* ConstantsHelp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstantsHelp.swift; path = topsiOSPro/ConstantsHelp.swift; sourceTree = "<group>"; };
 		10F9AFAF617484DE9292B42C474786D0 /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutSupport+Extensions.swift"; path = "Source/UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
 		114853825BA746FF60D4AD8C2ECE2E49 /* IQKeyboardManagerSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQKeyboardManagerSwift-prefix.pch"; sourceTree = "<group>"; };
 		11906CD50EA48174D2FD7317767F017D /* IQKeyboardManagerSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IQKeyboardManagerSwift.modulemap; sourceTree = "<group>"; };
@@ -404,13 +407,11 @@
 		6B5FE6BA91CD6563F84C9AADC6C456FA /* HeroTargetState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeroTargetState.swift; path = Sources/HeroTargetState.swift; sourceTree = "<group>"; };
 		6DA2470626BE400888453111CAD4C665 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DE578C7FA322807DF9F32F093910F38 /* IQPreviousNextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQPreviousNextView.swift; path = IQKeyboardManagerSwift/IQToolbar/IQPreviousNextView.swift; sourceTree = "<group>"; };
-		6F5BB7E1A2317682F0D40081405F48A8 /* StringUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringUtils.swift; path = topsiOSPro/StringUtils.swift; sourceTree = "<group>"; };
 		6FB4F9EBCFD96B2A1316AACB916F94CD /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		715FBDDE7894EA85E2DEFA41D4D3E746 /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintViewDSL.swift; path = Source/ConstraintViewDSL.swift; sourceTree = "<group>"; };
 		72F3F446500E92E57417732051EF18FC /* Hero-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hero-prefix.pch"; sourceTree = "<group>"; };
 		73322FA7723417810B058CC124C0B361 /* HeroTransition+UITabBarControllerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+UITabBarControllerDelegate.swift"; path = "Sources/Transition/HeroTransition+UITabBarControllerDelegate.swift"; sourceTree = "<group>"; };
 		74FABA5CA1DA0459CD878E4724267810 /* topsiOSPro-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "topsiOSPro-Info.plist"; sourceTree = "<group>"; };
-		758B5156E2ADF236B911FB466444F6B1 /* UIColorUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIColorUtils.swift; path = topsiOSPro/UIColorUtils.swift; sourceTree = "<group>"; };
 		77F6AD78581D54275DAED80212275E66 /* Pods-topsiOSPro_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-topsiOSPro_Example-Info.plist"; sourceTree = "<group>"; };
 		77FF2A6AB50A8692E2A8CAF5B3517E8A /* UIImage+Diff.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Diff.h"; path = "FBSnapshotTestCase/Categories/UIImage+Diff.h"; sourceTree = "<group>"; };
 		78CC7B3C282AD03107A281204ED8FBA4 /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SnapKit.modulemap; sourceTree = "<group>"; };
@@ -435,7 +436,6 @@
 		954EDAC18233B7F2BAF5776434BADB17 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerRelatable.swift; path = Source/ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
 		96B3FFC8DAB2F85C2E142CA29A8B0F8A /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraintItem.swift; path = Source/LayoutConstraintItem.swift; sourceTree = "<group>"; };
 		97C61E6290BD1EA27FBF90AD47C0E8BE /* HeroTransition+Animate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "HeroTransition+Animate.swift"; path = "Sources/Transition/HeroTransition+Animate.swift"; sourceTree = "<group>"; };
-		98E630678A77A04BE134348E83C962C6 /* VerifyHelp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerifyHelp.swift; path = topsiOSPro/VerifyHelp.swift; sourceTree = "<group>"; };
 		9A582972B117404DA066D9C5F0CFAE51 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
 		9B3649E314B4F243BDFB8E5C53ABE0E2 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CA57D45DF9B9E9555E80A5FFD6F09E2 /* IQKeyboardReturnKeyHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQKeyboardReturnKeyHandler.swift; path = IQKeyboardManagerSwift/IQKeyboardReturnKeyHandler.swift; sourceTree = "<group>"; };
@@ -643,6 +643,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00CEE22022A4F94F00A51BD3 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				00CEE22422A4F9C300A51BD3 /* ConstantsHelp.swift */,
+				00CEE22322A4F9C300A51BD3 /* StringUtils.swift */,
+				00CEE22122A4F9C300A51BD3 /* UIColorUtils.swift */,
+				00CEE22222A4F9C300A51BD3 /* VerifyHelp.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		0449F498F2A740732B409DD514C564E5 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -766,6 +777,7 @@
 		5EA161D948573AB52B417040C83656D9 /* topsiOSPro */ = {
 			isa = PBXGroup;
 			children = (
+				00CEE22022A4F94F00A51BD3 /* utils */,
 				00CEE21D22A4CCC200A51BD3 /* BaseGroupedTableViewViewController.swift */,
 				00F2204A22A10C9000498DC0 /* SwiftLoadingTool.swift */,
 				00F2205822A12E0900498DC0 /* ItemLabel.swift */,
@@ -775,11 +787,7 @@
 				00F2205122A124C800498DC0 /* MenuCollectionViewCell.swift */,
 				19C44ED1FF18B13D8E4ECB067BDDAE84 /* BaseUIScrollViewViewController.swift */,
 				F1D6BC97B65D2B7FC741475C35C55328 /* BaseUIViewViewController.swift */,
-				108ADB901898DF34B62716F084070F42 /* ConstantsHelp.swift */,
 				1DE289BE052721FBAB4036E40FA36C4B /* HelloWorld.swift */,
-				6F5BB7E1A2317682F0D40081405F48A8 /* StringUtils.swift */,
-				758B5156E2ADF236B911FB466444F6B1 /* UIColorUtils.swift */,
-				98E630678A77A04BE134348E83C962C6 /* VerifyHelp.swift */,
 				4EF3A213C09FC91DBDA349F14B557325 /* Pod */,
 				DC10597E288B20FC6A8A36408448E77B /* Support Files */,
 			);
@@ -1680,19 +1688,19 @@
 			files = (
 				BDA91429F5B04449A50CC3B3BE330169 /* BaseUIScrollViewViewController.swift in Sources */,
 				4FFC31E33B38EB6EF0C7626B194A4E54 /* BaseUIViewViewController.swift in Sources */,
-				DE85AD105970376A00239CCC96584C4B /* ConstantsHelp.swift in Sources */,
 				0F1448EE7FADEA2A231B7C729C5A6D6D /* HelloWorld.swift in Sources */,
-				A5BD386133D2DEDCFB40DEC97857BB42 /* StringUtils.swift in Sources */,
 				23B2CBC6E1B13F21D852FB79F2CEA3E5 /* topsiOSPro-dummy.m in Sources */,
-				979B47ECBFDF7C38CEA1C6291B8253EE /* UIColorUtils.swift in Sources */,
+				00CEE22622A4F9C300A51BD3 /* VerifyHelp.swift in Sources */,
 				00B47F8E229D2F2E000A256E /* CommonViews.swift in Sources */,
+				00CEE22722A4F9C300A51BD3 /* StringUtils.swift in Sources */,
 				00F2205B22A12E2400498DC0 /* CircleUILabel.swift in Sources */,
 				00F2204B22A10C9000498DC0 /* SwiftLoadingTool.swift in Sources */,
-				B3C80A723AF2341BF7BE054975F969D7 /* VerifyHelp.swift in Sources */,
 				00CEE21F22A4CCCB00A51BD3 /* BaseGroupedTableViewViewController.swift in Sources */,
 				00F2205922A12E0900498DC0 /* ItemLabel.swift in Sources */,
 				00F2205022A1244000498DC0 /* BaseMenuUICollectionViewViewController.swift in Sources */,
 				00F2205222A124C800498DC0 /* MenuCollectionViewCell.swift in Sources */,
+				00CEE22822A4F9C300A51BD3 /* ConstantsHelp.swift in Sources */,
+				00CEE22522A4F9C300A51BD3 /* UIColorUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

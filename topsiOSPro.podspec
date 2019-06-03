@@ -31,7 +31,7 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'topsiOSPro/**/*'
-  #s.source_files = 'topsiOSPro/utils/*'
+  s.source_files = 'topsiOSPro/utils/**/*'
   
   # s.resource_bundles = {
   #   'topsiOSPro' => ['topsiOSPro/Assets/*.png']
