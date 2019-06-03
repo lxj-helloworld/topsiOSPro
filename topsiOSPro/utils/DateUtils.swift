@@ -91,21 +91,21 @@ open class DateUtils: NSObject {
 extension Date {
     
     /// 获取当前 秒级 时间戳 - 10位
-    open var timeStamp : String {
+    public var timeStamp : String {
         let timeInterval: TimeInterval = self.timeIntervalSince1970
         let timeStamp = Int(timeInterval)
         return "\(timeStamp)"
     }
     
     /// 获取当前 毫秒级 时间戳 - 13位
-    open var milliStamp : String {
+    public var milliStamp : String {
         let timeInterval: TimeInterval = self.timeIntervalSince1970
         let millisecond = CLongLong(round(timeInterval*1000))
         return "\(millisecond)"
     }
     
     //根据格式对日期进行格式化
-    open func formatDate(format: DateFormateType) -> String {
+    public func formatDate(format: DateFormateType) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
         dateFormatter.timeZone = TimeZone.current
@@ -115,7 +115,7 @@ extension Date {
     }
     
     //日期控件使用
-    open static func getDate(dateStr: String, format: String) -> Date? {
+    public static func getDate(dateStr: String, format: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
         dateFormatter.timeZone = TimeZone.current
@@ -124,7 +124,7 @@ extension Date {
         return date
     }
     //日期控件使用
-    open func getComponent(component: Calendar.Component) -> Int {
+    public func getComponent(component: Calendar.Component) -> Int {
         let calendar = Calendar.current
         return calendar.component(component, from: self)
     }
