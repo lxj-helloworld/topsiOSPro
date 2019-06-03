@@ -260,10 +260,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = MG9R4SGSAZ;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = MG9R4SGSAZ;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -561,6 +563,7 @@
 			baseConfigurationReference = A990A6ADF99DAAF3A0814CB4 /* Pods-topsiOSPro_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MG9R4SGSAZ;
 				INFOPLIST_FILE = topsiOSPro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -576,6 +579,7 @@
 			baseConfigurationReference = ECE62669330B8BB4C3B90D13 /* Pods-topsiOSPro_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MG9R4SGSAZ;
 				INFOPLIST_FILE = topsiOSPro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -590,6 +594,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A9EBBB1203891DA82F593E7D /* Pods-topsiOSPro_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = MG9R4SGSAZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -612,6 +617,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 536EBE79F209893E4813C824 /* Pods-topsiOSPro_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = MG9R4SGSAZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

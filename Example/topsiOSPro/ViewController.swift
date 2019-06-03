@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     let requestUIButton = UIButton()
     //网格 菜单
     let menuUIButton = UIButton()
+    //列表菜单
+    let listMenuUIButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,7 @@ class ViewController: UIViewController {
         initVerify()
         initRequest()
         initMenu()
+        initListMenu()
     }
     
 
@@ -103,7 +106,7 @@ class ViewController: UIViewController {
     
     //网格菜单
     func initMenu(){
-        menuUIButton.setTitle("菜单", for: .normal)
+        menuUIButton.setTitle("网格菜单", for: .normal)
         menuUIButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         self.view.addSubview(menuUIButton)
         menuUIButton.snp.makeConstraints { (make) in
@@ -124,6 +127,23 @@ class ViewController: UIViewController {
         ["title": "title5", "image": "AppIcon"],
         ]
         self.navigationController?.pushViewController(myMenuViewController, animated: true)
+    }
+    
+    //列表菜单
+    func initListMenu(){
+        listMenuUIButton.setTitle("列表菜单", for: .normal)
+        listMenuUIButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        self.view.addSubview(listMenuUIButton)
+        listMenuUIButton.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(menuUIButton.snp.bottom).offset(30)
+        }
+        listMenuUIButton.addTarget(self, action: #selector(showMenu), for: .touchDown)
+    }
+    
+    
+    @objc func showListMenu(){
+        
     }
     
 }

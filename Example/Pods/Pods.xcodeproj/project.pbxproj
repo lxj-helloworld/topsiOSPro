@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		007DD996D7D4A116DDE320B0FD84B8F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557F7EFC166D95BC572DC7EE2B729126 /* Foundation.framework */; };
 		00B47F8E229D2F2E000A256E /* CommonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B47F8B229D2C85000A256E /* CommonViews.swift */; };
+		00CEE21922A4C13F00A51BD3 /* BaseGroupedTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CEE21822A4C13F00A51BD3 /* BaseGroupedTableViewViewController.swift */; };
 		00F2204B22A10C9000498DC0 /* SwiftLoadingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F2204A22A10C9000498DC0 /* SwiftLoadingTool.swift */; };
 		00F2205022A1244000498DC0 /* BaseMenuUICollectionViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F2204F22A1244000498DC0 /* BaseMenuUICollectionViewViewController.swift */; };
 		00F2205222A124C800498DC0 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F2205122A124C800498DC0 /* MenuCollectionViewCell.swift */; };
@@ -307,6 +308,7 @@
 
 /* Begin PBXFileReference section */
 		00B47F8B229D2C85000A256E /* CommonViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonViews.swift; path = topsiOSPro/CommonViews.swift; sourceTree = "<group>"; };
+		00CEE21822A4C13F00A51BD3 /* BaseGroupedTableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGroupedTableViewViewController.swift; sourceTree = "<group>"; };
 		00F2204A22A10C9000498DC0 /* SwiftLoadingTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftLoadingTool.swift; path = topsiOSPro/SwiftLoadingTool.swift; sourceTree = "<group>"; };
 		00F2204F22A1244000498DC0 /* BaseMenuUICollectionViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseMenuUICollectionViewViewController.swift; path = topsiOSPro/BaseMenuUICollectionViewViewController.swift; sourceTree = "<group>"; };
 		00F2205122A124C800498DC0 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuCollectionViewCell.swift; path = topsiOSPro/MenuCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -767,6 +769,7 @@
 				00F2204A22A10C9000498DC0 /* SwiftLoadingTool.swift */,
 				00F2205822A12E0900498DC0 /* ItemLabel.swift */,
 				00F2205A22A12E2400498DC0 /* CircleUILabel.swift */,
+				00CEE21822A4C13F00A51BD3 /* BaseGroupedTableViewViewController.swift */,
 				00B47F8B229D2C85000A256E /* CommonViews.swift */,
 				00F2204F22A1244000498DC0 /* BaseMenuUICollectionViewViewController.swift */,
 				00F2205122A124C800498DC0 /* MenuCollectionViewCell.swift */,
@@ -1686,6 +1689,7 @@
 				00F2205B22A12E2400498DC0 /* CircleUILabel.swift in Sources */,
 				00F2204B22A10C9000498DC0 /* SwiftLoadingTool.swift in Sources */,
 				B3C80A723AF2341BF7BE054975F969D7 /* VerifyHelp.swift in Sources */,
+				00CEE21922A4C13F00A51BD3 /* BaseGroupedTableViewViewController.swift in Sources */,
 				00F2205922A12E0900498DC0 /* ItemLabel.swift in Sources */,
 				00F2205022A1244000498DC0 /* BaseMenuUICollectionViewViewController.swift in Sources */,
 				00F2205222A124C800498DC0 /* MenuCollectionViewCell.swift in Sources */,
