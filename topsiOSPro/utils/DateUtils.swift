@@ -19,13 +19,13 @@ public enum DateFormateType:String{
     case HM = "HH:mm" // 时分 12:00
 }
 
-class DateUtils: NSObject {
+open class DateUtils: NSObject {
     
     /// 日期字符串转date
     ///
     /// - Parameter dateStr: 日期字符串
     /// - Returns: date
-    static func dateStringToDate(dateStr:String,type:DateFormateType = .YMD) ->Date {
+    open static func dateStringToDate(dateStr:String,type:DateFormateType = .YMD) ->Date {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.current
         dateFormatter.dateFormat = type.rawValue
@@ -34,7 +34,7 @@ class DateUtils: NSObject {
     }
     
     //获取两日期之间天数差
-    static func dateDifference(start:String, end:String) -> Double {
+    open static func dateDifference(start:String, end:String) -> Double {
         let endDate = dateStringToDate(dateStr:end)
         let startDate = dateStringToDate(dateStr:start)
         let interval = endDate.timeIntervalSince(startDate)
@@ -42,13 +42,13 @@ class DateUtils: NSObject {
     }
     
     //获取当前日期
-    static func getCurrentDate() -> Date{
+    open static func getCurrentDate() -> Date{
         let date = Date()
         return date
     }
     
     //获取当前时间
-    static func getCurrentTime() -> String{
+    open static func getCurrentTime() -> String{
         let nowDate = NSDate()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -56,7 +56,7 @@ class DateUtils: NSObject {
     }
     
     //获取当前时间 到毫秒
-    static func getCurrentMillisecond() -> String{
+    open static func getCurrentMillisecond() -> String{
         let nowDate = NSDate()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss:SSS"
@@ -64,13 +64,13 @@ class DateUtils: NSObject {
     }
     
     //获取相对于当前时间之前几天或者之后几天的日期
-    static func getDateByDays(_ days : Int) -> Date {
+    open static func getDateByDays(_ days : Int) -> Date {
         let date = Date(timeIntervalSinceNow: TimeInterval(days * 24 * 60 * 60))
         return date
     }
     
     //时间转字符串
-    static func getDateStr(_ dateIn:Date) -> String {
+    open static func getDateStr(_ dateIn:Date) -> String {
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone.current
         formatter.dateFormat = "yyyy-MM-dd"
@@ -78,7 +78,7 @@ class DateUtils: NSObject {
         return date
     }
     
-    static func cutDateStr(_ str:String,_ type:DateFormateType)->String{
+    open static func cutDateStr(_ str:String,_ type:DateFormateType)->String{
         var result = ""
         if str != ""{
             result = str.replacingOccurrences(of: "T", with: " ")
@@ -91,21 +91,21 @@ class DateUtils: NSObject {
 extension Date {
     
     /// 获取当前 秒级 时间戳 - 10位
-    var timeStamp : String {
+    open var timeStamp : String {
         let timeInterval: TimeInterval = self.timeIntervalSince1970
         let timeStamp = Int(timeInterval)
         return "\(timeStamp)"
     }
     
     /// 获取当前 毫秒级 时间戳 - 13位
-    var milliStamp : String {
+    open var milliStamp : String {
         let timeInterval: TimeInterval = self.timeIntervalSince1970
         let millisecond = CLongLong(round(timeInterval*1000))
         return "\(millisecond)"
     }
     
     //根据格式对日期进行格式化
-    func formatDate(format: DateFormateType) -> String {
+    open func formatDate(format: DateFormateType) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
         dateFormatter.timeZone = TimeZone.current
@@ -115,7 +115,7 @@ extension Date {
     }
     
     //日期控件使用
-    static func getDate(dateStr: String, format: String) -> Date? {
+    open static func getDate(dateStr: String, format: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
         dateFormatter.timeZone = TimeZone.current
@@ -124,7 +124,7 @@ extension Date {
         return date
     }
     //日期控件使用
-    func getComponent(component: Calendar.Component) -> Int {
+    open func getComponent(component: Calendar.Component) -> Int {
         let calendar = Calendar.current
         return calendar.component(component, from: self)
     }
