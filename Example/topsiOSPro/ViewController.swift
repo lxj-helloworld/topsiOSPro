@@ -143,7 +143,23 @@ class ViewController: UIViewController {
     
     
     @objc func showListMenu(){
+        let myListMenuViewController = MyListMenuViewController()
+        myListMenuViewController.valueDirect = [0:["第一个菜单项"],
+                                                1:["第二个菜单项01","第二个菜单项02"],
+                                                2:["第三个菜单项"],
+                                                3:["第四个菜单项"],
+                                                4:["第五个菜单项"],
+                                                5:["第六个菜单项"],
+            ] as [Int : [AnyObject]]
+        myListMenuViewController.imageDirect = [0:["AppIcon"],
+                                                1:["AppIcon","AppIcon"],
+                                                2:["AppIcon"],
+                                                3:["AppIcon"],
+                                                4:["AppIcon"],
+                                                5:["AppIcon"],
+            ] as [Int : [AnyObject]]
         
+        self.navigationController?.pushViewController(myListMenuViewController, animated: true)
     }
     
 }
