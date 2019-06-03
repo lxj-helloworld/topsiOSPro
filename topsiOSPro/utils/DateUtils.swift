@@ -25,7 +25,7 @@ open class DateUtils: NSObject {
     ///
     /// - Parameter dateStr: 日期字符串
     /// - Returns: date
-    open static func dateStringToDate(dateStr:String,type:DateFormateType = .YMD) ->Date {
+    open class func dateStringToDate(dateStr:String,type:DateFormateType = .YMD) ->Date {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.current
         dateFormatter.dateFormat = type.rawValue
@@ -34,7 +34,7 @@ open class DateUtils: NSObject {
     }
     
     //获取两日期之间天数差
-    open static func dateDifference(start:String, end:String) -> Double {
+    open class func dateDifference(start:String, end:String) -> Double {
         let endDate = dateStringToDate(dateStr:end)
         let startDate = dateStringToDate(dateStr:start)
         let interval = endDate.timeIntervalSince(startDate)
@@ -42,13 +42,13 @@ open class DateUtils: NSObject {
     }
     
     //获取当前日期
-    open static func getCurrentDate() -> Date{
+    open class func getCurrentDate() -> Date{
         let date = Date()
         return date
     }
     
     //获取当前时间
-    open static func getCurrentTime() -> String{
+    open class func getCurrentTime() -> String{
         let nowDate = NSDate()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -64,13 +64,13 @@ open class DateUtils: NSObject {
     }
     
     //获取相对于当前时间之前几天或者之后几天的日期
-    open static func getDateByDays(_ days : Int) -> Date {
+    open class func getDateByDays(_ days : Int) -> Date {
         let date = Date(timeIntervalSinceNow: TimeInterval(days * 24 * 60 * 60))
         return date
     }
     
     //时间转字符串
-    open static func getDateStr(_ dateIn:Date) -> String {
+    open class func getDateStr(_ dateIn:Date) -> String {
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone.current
         formatter.dateFormat = "yyyy-MM-dd"
@@ -78,7 +78,7 @@ open class DateUtils: NSObject {
         return date
     }
     
-    open static func cutDateStr(_ str:String,_ type:DateFormateType)->String{
+    open class func cutDateStr(_ str:String,_ type:DateFormateType)->String{
         var result = ""
         if str != ""{
             result = str.replacingOccurrences(of: "T", with: " ")

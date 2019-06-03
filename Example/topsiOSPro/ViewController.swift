@@ -10,12 +10,14 @@ import UIKit
 import topsiOSPro
 import SnapKit
 
-class ViewController: UIViewController {
+class ViewController: BaseMenuUICollectionViewViewController {
 
     //字符串相关
     let stringUIButton = UIButton()
     //校验相关
     let verifyUIButton = UIButton()
+    //日期相关
+    let dateUIButton = UIButton()
     //网络请求相关
     let requestUIButton = UIButton()
     //网格 菜单
@@ -23,100 +25,74 @@ class ViewController: UIViewController {
     //列表菜单
     let listMenuUIButton = UIButton()
     
+    
     override func viewDidLoad() {
+        resourceArray = [["title": "字符串", "image": "AppIcon"],
+                         ["title": "日期", "image": "AppIcon"],
+                         ["title": "校验", "image": "AppIcon"],
+                         ["title": "Http请求", "image": "AppIcon"],
+                         ["title": "网格菜单", "image": "AppIcon"],
+                         ["title": "列表菜单", "image": "AppIcon"],
+        ]
         super.viewDidLoad()
         title = "Topscomm"
-        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        initString()
-        initVerify()
-        initRequest()
-        initMenu()
-        initListMenu()
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            manageString()
+        case 1:
+            manageDate()
+        case 2:
+            verifyData()
+        case 3:
+            requestData()
+        case 4:
+            showMenu()
+        case 5:
+            showListMenu()
+        default:
+            print("no way to go")
+        }
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    func initString(){
-        stringUIButton.setTitle("字符串相关", for: .normal)
-        stringUIButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        self.view.addSubview(stringUIButton)
-        stringUIButton.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview()
-            if #available(iOS 11.0, *) {
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(30)
-            } else {
-                make.top.equalTo(topLayoutGuide.snp.top).offset(30)
-            }
-        }
-        stringUIButton.addTarget(self, action: #selector(manageString), for: .touchDown)
-    }
     
     //字符串相关
-    @objc func manageString(){
+     func manageString(){
         let stringViewController = StringViewController()
         stringViewController.title = "字符串相关"
         self.navigationController?.pushViewController(stringViewController, animated: true)
     }
-    
-    
-    //校验相关
-    func initVerify(){
-        verifyUIButton.setTitle("校验相关相关", for: .normal)
-        verifyUIButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        self.view.addSubview(verifyUIButton)
-        verifyUIButton.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview()
-            make.top.equalTo(stringUIButton.snp.bottom).offset(30)
-        }
-        verifyUIButton.addTarget(self, action: #selector(verifyData), for: .touchDown)
+
+    //日期相关
+    func manageDate(){
+        let viewController = DateHelpViewController()
+        viewController.title = "日期相关"
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
-    //字符串相关
-    @objc func verifyData(){
+    //校验相关
+    func verifyData(){
         let stringViewController = VerifyDataViewController()
         stringViewController.title = "值校验"
         self.navigationController?.pushViewController(stringViewController, animated: true)
     }
 
-    //网络请求相关
-    func initRequest(){
-        requestUIButton.setTitle("数据请求", for: .normal)
-        requestUIButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        self.view.addSubview(requestUIButton)
-        requestUIButton.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview()
-            make.top.equalTo(verifyUIButton.snp.bottom).offset(30)
-        }
-        requestUIButton.addTarget(self, action: #selector(requestData), for: .touchDown)
-    }
+   
     
-    @objc func requestData(){
+    func requestData(){
         let requestViewController = RequestViewController()
         requestViewController.title = "数据请求"
         self.navigationController?.pushViewController(requestViewController, animated: true)
     }
     
-    
-    //网格菜单
-    func initMenu(){
-        menuUIButton.setTitle("网格菜单", for: .normal)
-        menuUIButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        self.view.addSubview(menuUIButton)
-        menuUIButton.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview()
-            make.top.equalTo(requestUIButton.snp.bottom).offset(30)
-        }
-        menuUIButton.addTarget(self, action: #selector(showMenu), for: .touchDown)
-    }
-    
-    @objc func showMenu(){
+    func showMenu(){
         let myMenuViewController = MyMenuViewController()
         myMenuViewController.title = "菜单布局"
         myMenuViewController.resourceArray = [["title": "title", "image": "AppIcon"],
@@ -129,20 +105,7 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(myMenuViewController, animated: true)
     }
     
-    //列表菜单
-    func initListMenu(){
-        listMenuUIButton.setTitle("列表菜单", for: .normal)
-        listMenuUIButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        self.view.addSubview(listMenuUIButton)
-        listMenuUIButton.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview()
-            make.top.equalTo(menuUIButton.snp.bottom).offset(30)
-        }
-        listMenuUIButton.addTarget(self, action: #selector(showListMenu), for: .touchDown)
-    }
-    
-    
-    @objc func showListMenu(){
+     func showListMenu(){
         let myListMenuViewController = MyListMenuViewController()
         myListMenuViewController.title = "列表菜单"
         myListMenuViewController.valueDirect = [0:["第一个菜单项"],
