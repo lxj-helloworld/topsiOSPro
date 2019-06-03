@@ -21,6 +21,7 @@
 		00CEE23F22A4FDF500A51BD3 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CEE23C22A4FDF500A51BD3 /* MenuCollectionViewCell.swift */; };
 		00CEE24122A4FE0700A51BD3 /* CommonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CEE24022A4FE0700A51BD3 /* CommonViews.swift */; };
 		00CEE24322A4FE1700A51BD3 /* SwiftLoadingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CEE24222A4FE1600A51BD3 /* SwiftLoadingTool.swift */; };
+		00CEE24522A5012400A51BD3 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CEE24422A5012400A51BD3 /* DateUtils.swift */; };
 		04F614E60C9379F0EEDDF1DA302D76C8 /* QorumLogs-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 14DF488F3CFE52AED1737FC890AF4147 /* QorumLogs-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		04F66FA3C83A53525898079B3945E9B6 /* ConstraintConstantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10411CB6B38A38EE0EEB7C5DC054899 /* ConstraintConstantTarget.swift */; };
 		0867E4F35E49CEC11FD92F7B9942BF4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557F7EFC166D95BC572DC7EE2B729126 /* Foundation.framework */; };
@@ -320,6 +321,7 @@
 		00CEE23C22A4FDF500A51BD3 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuCollectionViewCell.swift; path = ../../topsiOSPro/views/menu/MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		00CEE24022A4FE0700A51BD3 /* CommonViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonViews.swift; path = ../../topsiOSPro/views/help/CommonViews.swift; sourceTree = "<group>"; };
 		00CEE24222A4FE1600A51BD3 /* SwiftLoadingTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftLoadingTool.swift; path = ../../topsiOSPro/views/common/SwiftLoadingTool.swift; sourceTree = "<group>"; };
+		00CEE24422A5012400A51BD3 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateUtils.swift; path = ../topsiOSPro/utils/DateUtils.swift; sourceTree = "<group>"; };
 		03938D3CF282A1058DF45B8187CC8EA6 /* Array+HeroModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+HeroModifier.swift"; path = "Sources/Extensions/Array+HeroModifier.swift"; sourceTree = "<group>"; };
 		06C2846871D86E7B8E56E761060F7D8B /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Source/ConstraintInsets.swift; sourceTree = "<group>"; };
 		070238CB70CF0C3531207FBE8D2C8C58 /* topsiOSPro.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = topsiOSPro.xcconfig; sourceTree = "<group>"; };
@@ -647,6 +649,7 @@
 			isa = PBXGroup;
 			children = (
 				00CEE22422A4F9C300A51BD3 /* ConstantsHelp.swift */,
+				00CEE24422A5012400A51BD3 /* DateUtils.swift */,
 				00CEE22322A4F9C300A51BD3 /* StringUtils.swift */,
 				00CEE22122A4F9C300A51BD3 /* UIColorUtils.swift */,
 				00CEE22222A4F9C300A51BD3 /* VerifyHelp.swift */,
@@ -1751,6 +1754,7 @@
 				00CEE23F22A4FDF500A51BD3 /* MenuCollectionViewCell.swift in Sources */,
 				00CEE23D22A4FDF500A51BD3 /* CircleUILabel.swift in Sources */,
 				00CEE23622A4FD3200A51BD3 /* BaseMenuUICollectionViewViewController.swift in Sources */,
+				00CEE24522A5012400A51BD3 /* DateUtils.swift in Sources */,
 				00CEE22722A4F9C300A51BD3 /* StringUtils.swift in Sources */,
 				00CEE23922A4FD3200A51BD3 /* BaseUIViewViewController.swift in Sources */,
 				00CEE22822A4F9C300A51BD3 /* ConstantsHelp.swift in Sources */,
