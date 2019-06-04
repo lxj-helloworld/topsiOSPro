@@ -32,7 +32,7 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'topsiOSPro/views/**/*'
   s.source_files = 'topsiOSPro/viewController/**/*'
-  s.source_files = 'topsiOSPro/help/**/*'
+  s.source_files = 'topsiOSPro/utils/**/*'
   #s.source_files = 'topsiOSPro/**/*'
   
   # s.resource_bundles = {
