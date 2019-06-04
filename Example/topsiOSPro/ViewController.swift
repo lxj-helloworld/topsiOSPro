@@ -33,6 +33,7 @@ class ViewController: BaseMenuUICollectionViewViewController {
                          ["title": "Http请求", "image": "AppIcon"],
                          ["title": "网格菜单", "image": "AppIcon"],
                          ["title": "列表菜单", "image": "AppIcon"],
+                         ["title": "钥匙串存储", "image": "AppIcon"],
         ]
         super.viewDidLoad()
         title = "Topscomm"
@@ -126,6 +127,13 @@ class ViewController: BaseMenuUICollectionViewViewController {
         self.navigationController?.pushViewController(myListMenuViewController, animated: true)
     }
     
+    
+    //钥匙串存储
+    func keychainManage(){
+        let stringViewController = VerifyDataViewController()
+        stringViewController.title = "值校验"
+        self.navigationController?.pushViewController(stringViewController, animated: true)
+    }
 
 }
 
