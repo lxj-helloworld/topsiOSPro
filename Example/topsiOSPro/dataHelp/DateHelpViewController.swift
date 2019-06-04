@@ -41,15 +41,15 @@ class DateHelpViewController: BaseUIViewViewController {
     
     
     @objc func goHaha(){
-//        var result = "2019-06-03 从1970年至今的毫秒数：" + String(DateUtils.dateStringToDate(dateStr: "2019-06-03",type: DateFormateType.YMD).timeIntervalSince1970) + "\r\n"
-//        var result = "2019-06-03和2019-07-03之间的天数差 ：\(DateUtils.dateDifference(start: "2019-06-03", end: "2019-07-03"))" + "\r\n"
-//        var result = "获取当前时间：" + DateUtils.getCurrentTime() + "\r\n"
-//        result = result + "获取前2天的时间：" + String(DateUtils.getDateByDays(2).formatDate(format: .YMDHMS)) + "\r\n"
-//
+        var result = "2019-06-03 从1970年至今的毫秒数：" + String(DateUtils.dateStringToDate(dateStr: "2019-06-03",type: DateFormateType.YMD).timeIntervalSince1970) + "\r\n"
+        result = result + "2019-06-03和2019-07-03之间的天数差 ：\(DateUtils.dateDifference(start: "2019-06-03", end: "2019-07-03"))" + "\r\n"
+        result = result + "获取当前时间：" + DateUtils.getCurrentTime() + "\r\n"
+        result = result + "获取2天前的时间：" + String(DateUtils.getDateByDays(-2).formatDate(format: .YMDHMS)) + "\r\n"
+        result = result + "获取2天后的时间：" + String(DateUtils.getDateByDays(2).formatDate(format: .YMDHMS)) + "\r\n"
 
-        print(DateUtils.dateStringToDate(dateStr: "2019-06-03",type: DateFormateType.YMD))
-        var result = "result"
         
+        resultUILabel.numberOfLines = 0
+        resultUILabel.lineBreakMode = .byCharWrapping
         resultUILabel.text = result
 
     }

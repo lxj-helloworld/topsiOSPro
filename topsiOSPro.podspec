@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'topsiOSPro'
-  s.version          = '0.1.5.13'
+  s.version          = '0.1.5.14'
   s.summary          = 'A short description of topsiOSPro.'
 
 # This description is used to generate tags and improve search results.
@@ -32,7 +32,7 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'topsiOSPro/views/**/*'
   s.source_files = 'topsiOSPro/viewController/**/*'
-  s.source_files = 'topsiOSPro/utils/**/*'
+  s.source_files = 'topsiOSPro/help/*'
   #s.source_files = 'topsiOSPro/**/*'
   
   # s.resource_bundles = {
