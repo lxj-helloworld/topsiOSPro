@@ -25,7 +25,6 @@ class ViewController: BaseMenuUICollectionViewViewController {
     //列表菜单
     let listMenuUIButton = UIButton()
     
-    
     override func viewDidLoad() {
         resourceArray = [["title": "字符串", "image": "AppIcon"],
                          ["title": "日期", "image": "AppIcon"],
@@ -53,6 +52,8 @@ class ViewController: BaseMenuUICollectionViewViewController {
             showMenu()
         case 5:
             showListMenu()
+        case 6:
+            keychainManage()
         default:
             print("no way to go")
         }
@@ -63,7 +64,6 @@ class ViewController: BaseMenuUICollectionViewViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    
     //字符串相关
      func manageString(){
         let stringViewController = StringViewController()
@@ -85,8 +85,6 @@ class ViewController: BaseMenuUICollectionViewViewController {
         self.navigationController?.pushViewController(stringViewController, animated: true)
     }
 
-   
-    
     func requestData(){
         let requestViewController = RequestViewController()
         requestViewController.title = "数据请求"
@@ -130,8 +128,8 @@ class ViewController: BaseMenuUICollectionViewViewController {
     
     //钥匙串存储
     func keychainManage(){
-        let stringViewController = VerifyDataViewController()
-        stringViewController.title = "值校验"
+        let stringViewController = KeyChainViewController()
+        stringViewController.title = "钥匙串存储"
         self.navigationController?.pushViewController(stringViewController, animated: true)
     }
 

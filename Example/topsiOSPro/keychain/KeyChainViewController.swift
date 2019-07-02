@@ -7,26 +7,65 @@
 //
 
 import UIKit
+import topsiOSPro
 
 
+class KeyChainViewController: BaseUIViewViewController {
 
-class KeyChainViewController: UIViewController {
-
+    var resultUILabel = UILabel()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        initViews()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func initViews(){
+        let saveUIButton = CommonViews.getSubmitUIButton("保存")
+        baseView.addSubview(saveUIButton)
+        saveUIButton.snp.makeConstraints { (make) in
+            make.left.right.top.equalToSuperview()
+        }
+        saveUIButton.addTarget(self, action: #selector(saveIn), for: .touchDown)
+        
+        
+        let readUIButton = CommonViews.getSubmitUIButton("读取")
+        baseView.addSubview(readUIButton)
+        readUIButton.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(saveUIButton.snp.bottom).offset(ConstantsHelp.topMargin)
+        }
+        readUIButton.addTarget(self, action: #selector(readOut), for: .touchDown)
+        
+        let deleteUIButton = CommonViews.getSubmitUIButton("删除")
+        baseView.addSubview(deleteUIButton)
+        deleteUIButton.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(readUIButton.snp.bottom).offset(ConstantsHelp.topMargin)
+        }
+        deleteUIButton.addTarget(self, action: #selector(deleteMe), for: .touchDown)
+        
     }
-    */
+    
+    
+    
+    @objc func saveIn(){
+        let result:Bool =  KeychainManager.keyChainSaveData(data: "hello", withIdentifier: "hi")
+        showToast(message: "保存结果:\(result)")
+    }
+    
+    @objc func readOut(){
+        let result:String =  KeychainManager.keyChainReadData(identifier: "hi")
+        showToast(message: "读取结果:\(result)")
+    }
+    
+    @objc func deleteMe(){
+        let result = KeychainManager.keyChianDelete(identifier: "hi")
+        showToast(message: "删除成功")
+    }
+    
+    
 
 }
