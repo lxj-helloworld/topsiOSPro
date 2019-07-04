@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		005310AD22CB4EC80073C341 /* ImagePreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005310AC22CB4EC80073C341 /* ImagePreviewCell.swift */; };
-		005310AF22CB50D00073C341 /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005310AE22CB50D00073C341 /* ImagePreviewViewController.swift */; };
 		007DD996D7D4A116DDE320B0FD84B8F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557F7EFC166D95BC572DC7EE2B729126 /* Foundation.framework */; };
+		00B2A35222CDD9A300B8ECBB /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B2A35022CDD9A300B8ECBB /* ImagePreviewViewController.swift */; };
+		00B2A35322CDD9A300B8ECBB /* ImagePreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B2A35122CDD9A300B8ECBB /* ImagePreviewCell.swift */; };
 		00B3848C22A6561900C08AB5 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B3848722A6561900C08AB5 /* StringUtils.swift */; };
 		00B3848D22A6561900C08AB5 /* UIColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B3848822A6561900C08AB5 /* UIColorUtils.swift */; };
 		00B3848E22A6561900C08AB5 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B3848922A6561900C08AB5 /* DateUtils.swift */; };
@@ -310,8 +310,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		005310AC22CB4EC80073C341 /* ImagePreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewCell.swift; sourceTree = "<group>"; };
-		005310AE22CB50D00073C341 /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewViewController.swift; sourceTree = "<group>"; };
+		00B2A35022CDD9A300B8ECBB /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePreviewViewController.swift; path = ../../topsiOSPro/views/image/ImagePreviewViewController.swift; sourceTree = "<group>"; };
+		00B2A35122CDD9A300B8ECBB /* ImagePreviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePreviewCell.swift; path = ../../topsiOSPro/views/image/ImagePreviewCell.swift; sourceTree = "<group>"; };
 		00B3848722A6561900C08AB5 /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringUtils.swift; path = ../../topsiOSPro/utils/StringUtils.swift; sourceTree = "<group>"; };
 		00B3848822A6561900C08AB5 /* UIColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorUtils.swift; path = ../../topsiOSPro/utils/UIColorUtils.swift; sourceTree = "<group>"; };
 		00B3848922A6561900C08AB5 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateUtils.swift; path = ../../topsiOSPro/utils/DateUtils.swift; sourceTree = "<group>"; };
@@ -652,8 +652,8 @@
 		005310AB22CB4EB00073C341 /* image */ = {
 			isa = PBXGroup;
 			children = (
-				005310AC22CB4EC80073C341 /* ImagePreviewCell.swift */,
-				005310AE22CB50D00073C341 /* ImagePreviewViewController.swift */,
+				00B2A35122CDD9A300B8ECBB /* ImagePreviewCell.swift */,
+				00B2A35022CDD9A300B8ECBB /* ImagePreviewViewController.swift */,
 			);
 			path = image;
 			sourceTree = "<group>";
@@ -1772,6 +1772,8 @@
 				00B3849022A6561900C08AB5 /* VerifyHelp.swift in Sources */,
 				00CEE23622A4FD3200A51BD3 /* BaseMenuUICollectionViewViewController.swift in Sources */,
 				00CEE23922A4FD3200A51BD3 /* BaseUIViewViewController.swift in Sources */,
+				00B2A35322CDD9A300B8ECBB /* ImagePreviewCell.swift in Sources */,
+				00B2A35222CDD9A300B8ECBB /* ImagePreviewViewController.swift in Sources */,
 				00B3848E22A6561900C08AB5 /* DateUtils.swift in Sources */,
 				00CEE23E22A4FDF500A51BD3 /* ItemLabel.swift in Sources */,
 				00B3848F22A6561900C08AB5 /* ConstantsHelp.swift in Sources */,
@@ -1811,9 +1813,7 @@
 				5C2F9E5485166B59DD032D7DF4C29CF0 /* Response.swift in Sources */,
 				ADB18D94C4F71AE2FCE388100D556B0F /* ResponseSerialization.swift in Sources */,
 				E7BA58DE1AA8F11BAA7E8817D8AB509C /* Result.swift in Sources */,
-				005310AD22CB4EC80073C341 /* ImagePreviewCell.swift in Sources */,
 				4920AD2B3D668DB550BEDED6747F925B /* ServerTrustPolicy.swift in Sources */,
-				005310AF22CB50D00073C341 /* ImagePreviewViewController.swift in Sources */,
 				FFB9BA683C701138C08A211F3E192F56 /* SessionDelegate.swift in Sources */,
 				ABAEB9DEE3CE05729A9442CFA1988407 /* SessionManager.swift in Sources */,
 				594494BAB3E029862D7009DE60FCC904 /* TaskDelegate.swift in Sources */,
