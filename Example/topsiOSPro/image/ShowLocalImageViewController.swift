@@ -41,7 +41,10 @@ class ShowLocalImageViewController: BaseUIViewViewController {
         imageArr.append(UIImage(named: "5")!)
         imageArr.append(UIImage(named: "6")!)
         
-//        let imagePreview = ImagePreviewViewController()
+        let imagePreview = ImagePreviewViewController()
+        imagePreview.imagesArr = imageArr
+        
+        self.navigationController?.pushViewController(imagePreview, animated: true)
     
         
     }
