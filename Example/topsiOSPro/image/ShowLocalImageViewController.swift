@@ -10,10 +10,11 @@ import UIKit
 import topsiOSPro
 import SnapKit
 
-class ShowLocalImageViewController: BaseUIViewViewController {
+class ShowLocalImageViewController: BaseUIViewViewController,DeleteImageProtocol {
     
     let uiButton = UIButton()
-
+    var imageArr : [UIImage] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,7 +34,7 @@ class ShowLocalImageViewController: BaseUIViewViewController {
     
 
     @objc func showLocalImage(){
-        var imageArr : [UIImage] = []
+        
         imageArr.append(UIImage(named: "1")!)
         imageArr.append(UIImage(named: "2")!)
         imageArr.append(UIImage(named: "3")!)
@@ -43,10 +44,14 @@ class ShowLocalImageViewController: BaseUIViewViewController {
         
         let imagePreview = ImagePreviewViewController()
         imagePreview.imagesArr = imageArr
-        
+        imagePreview.currentIndex = 0
+        imagePreview.indexImage = 0
+        imagePreview.deleteImageProtocol = self
         self.navigationController?.pushViewController(imagePreview, animated: true)
-    
-        
     }
 
+    //代理实现删除图片
+    func deleteImageIndexOf(_ index:Int) {
+        imageArr.remove(at: (index))
+    }
 }

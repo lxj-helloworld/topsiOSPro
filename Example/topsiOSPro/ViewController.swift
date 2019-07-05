@@ -138,7 +138,9 @@ class ViewController: BaseMenuUICollectionViewViewController {
 
     //本地图片预览
     func showLocalImages(){
-        
+        let viewController = ShowLocalImageViewController()
+        viewController.title = "本地图片"
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     

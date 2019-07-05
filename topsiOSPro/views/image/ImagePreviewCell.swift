@@ -9,11 +9,11 @@ import UIKit
 
 
 //选择图片后预览，删除图片
-protocol DeleteImageProtocol {
+public protocol DeleteImageProtocol {
     func deleteImageIndexOf(_ index:Int)
 }
 
-class ImagePreviewCell: UICollectionViewCell {
+open class ImagePreviewCell: UICollectionViewCell {
 
     //滚动视图
     var scrollView:UIScrollView!
@@ -71,7 +71,7 @@ class ImagePreviewCell: UICollectionViewCell {
     }
     
     //视图布局改变时（横竖屏切换时cell尺寸也会变化）
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         //重置单元格内元素尺寸
         resetSize()
@@ -123,7 +123,7 @@ class ImagePreviewCell: UICollectionViewCell {
         }
         return nil
     }
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
     }
 }

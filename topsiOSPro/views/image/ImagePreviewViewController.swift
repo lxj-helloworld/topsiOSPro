@@ -7,27 +7,28 @@
 
 import UIKit
 
-class ImagePreviewViewController: UIViewController {
+
+open class ImagePreviewViewController: UIViewController {
 
     //存放图片数组
-    var imagesArr:[UIImage]!
+    open var imagesArr:[UIImage]!
     //默认显示的图片索引
-    var indexImage:Int! = 0
+    open var indexImage:Int! = 0
     //当前显示的图片索引
-    var currentIndex:Int!
+    open var currentIndex:Int!
     //用来存放图片的单元格
     var imageUICollectionView:UICollectionView!
     //单元格布局
     var imageUICollectionViewFlowLayout:UICollectionViewFlowLayout!
     //页控制器，小圆点
-    var imageUIPageController:UIPageControl!
+    open var imageUIPageController:UIPageControl!
     
     //删除图片
-    var deleteImageProtocol:DeleteImageProtocol!
+    open var deleteImageProtocol:DeleteImageProtocol!
     
-    var ImageCountLabel:UILabel!
+    open var ImageCountLabel:UILabel!
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         //背景色设置为黑色
         self.view.backgroundColor = UIColor.black
@@ -46,6 +47,7 @@ class ImagePreviewViewController: UIViewController {
         imageUICollectionView.delegate = self
         imageUICollectionView.dataSource = self
         imageUICollectionView.isPagingEnabled = true
+        
         //不自动调整内边距，确保全屏
         if #available(iOS 11.0, *){
             imageUICollectionView.contentInsetAdjustmentBehavior = .never
@@ -53,6 +55,9 @@ class ImagePreviewViewController: UIViewController {
             self.automaticallyAdjustsScrollViewInsets = false
         }
         self.view.addSubview(imageUICollectionView)
+//        imageUICollectionView.snp.makeConstraints { (make) in
+//            make.edges.equalToSuperview()
+//        }
         
         //将视图滚动到默认图片上
         let indexPath = IndexPath(item: indexImage, section: 0)
@@ -83,30 +88,30 @@ class ImagePreviewViewController: UIViewController {
     }
     
     //视图显示时
-    override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(),for:UIBarMetrics.default)
         let uiBarButtonItem = UIBarButtonItem(title: "删除", style: .done, target: self, action: #selector(deleteThisImage(_:)))
         self.navigationItem.setRightBarButton(uiBarButtonItem, animated: true)
-        
+
         //隐藏导航栏
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
+
     //视图消失时
-    override func viewWillDisappear(_ animated: Bool) {
+    open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         //显示导航栏
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
-    
+
     //隐藏状态栏
-    override var prefersStatusBarHidden: Bool {
+    open override var prefersStatusBarHidden: Bool {
         return true
     }
     
     //将要对子视图布局时调用（横竖屏切换时）
-    override func viewWillLayoutSubviews() {
+    open override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
         //重新设置collectionView的尺寸
@@ -121,13 +126,11 @@ class ImagePreviewViewController: UIViewController {
         imageUIPageController.center = CGPoint(x: UIScreen.main.bounds.width/2,y: UIScreen.main.bounds.height - 20)
     }
     
-    override func didReceiveMemoryWarning() {
+    open override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     @objc func deleteThisImage(_ index : Int){
-//        QL1(currentIndex)
-//        QL1(imagesArr.count)
         if currentIndex >= 0,currentIndex < imagesArr.count,imagesArr.count > 0 {
             imagesArr.remove(at: currentIndex)
             imageUIPageController.numberOfPages = imagesArr.count
@@ -146,7 +149,7 @@ class ImagePreviewViewController: UIViewController {
 //ImagePreviewVC的CollectionView相关协议方法实现
 extension ImagePreviewViewController:UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     //collectionView单元格创建
-    func collectionView(_ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    open func collectionView(_ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",for: indexPath) as! ImagePreviewCell
         let image = self.imagesArr[indexPath.row]
         cell.imageView.image = image
@@ -154,17 +157,17 @@ extension ImagePreviewViewController:UICollectionViewDelegate, UICollectionViewD
     }
     
     //collectionView单元格数量
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.imagesArr.count
     }
     
     //collectionView单元格尺寸
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return self.view.bounds.size
     }
     
     //collectionView里某个cell将要显示
-    func collectionView(_ collectionView: UICollectionView,willDisplay cell: UICollectionViewCell,forItemAt indexPath: IndexPath) {
+    open func collectionView(_ collectionView: UICollectionView,willDisplay cell: UICollectionViewCell,forItemAt indexPath: IndexPath) {
         if let cell = cell as? ImagePreviewCell{
             //由于单元格是复用的，所以要重置内部元素尺寸
             cell.resetSize()
@@ -172,14 +175,12 @@ extension ImagePreviewViewController:UICollectionViewDelegate, UICollectionViewD
     }
     
     //collectionView里某个cell显示完毕
-    func collectionView(_ collectionView: UICollectionView,didEndDisplaying cell: UICollectionViewCell,forItemAt indexPath: IndexPath) {
+    open func collectionView(_ collectionView: UICollectionView,didEndDisplaying cell: UICollectionViewCell,forItemAt indexPath: IndexPath) {
         //当前显示的单元格
         let visibleCell = collectionView.visibleCells[0]
         //设置页控制器当前页
         self.imageUIPageController.currentPage = collectionView.indexPath(for: visibleCell)!.item
         currentIndex = self.imageUIPageController.currentPage
         self.ImageCountLabel.text = "\(currentIndex + 1)/\(imagesArr.count)"
-//        QL1(collectionView.indexPath(for: visibleCell)!.item)
-//        QL1(currentIndex)
     }
 }

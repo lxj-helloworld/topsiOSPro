@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'topsiOSPro'
-  s.version          = '0.1.6.2'
+  s.version          = '0.1.6.3'
   s.summary          = 'A short description of topsiOSPro.'
 
 # This description is used to generate tags and improve search results.
@@ -47,6 +47,7 @@ TODO: Add long description of the pod here.
   s.dependency 'SnapKit' #自动布局'
   s.dependency 'Hero'
   s.dependency 'IQKeyboardManagerSwift'
+  s.dependency 'AlamofireImage'
   
 
 end
