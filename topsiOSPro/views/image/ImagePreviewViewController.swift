@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 open class ImagePreviewViewController: UIViewController {
 
     //存放图片数组
