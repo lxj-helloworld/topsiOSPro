@@ -34,6 +34,7 @@ class ViewController: BaseMenuUICollectionViewViewController {
                          ["title": "列表菜单", "image": "AppIcon"],
                          ["title": "钥匙串存储", "image": "AppIcon"],
                          ["title": "本地图片预览", "image": "AppIcon"],
+                         ["title": "在线图片预览", "image": "AppIcon"],
         ]
         super.viewDidLoad()
         title = "Topscomm"
@@ -57,6 +58,8 @@ class ViewController: BaseMenuUICollectionViewViewController {
             keychainManage()
         case 7:
             showLocalImages()
+        case 8:
+            showNetImages()
         default:
             print("no way to go")
         }
@@ -143,6 +146,13 @@ class ViewController: BaseMenuUICollectionViewViewController {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
+    
+    //网络图片预览
+    func showNetImages(){
+        let viewController = ShowNetImageViewController()
+        viewController.title = "网络图片"
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
     
 }
 

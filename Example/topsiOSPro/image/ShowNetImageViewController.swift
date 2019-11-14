@@ -9,30 +9,57 @@
 import UIKit
 import topsiOSPro
 import SnapKit
+import AlamofireImage
 
 
 class ShowNetImageViewController: BaseUIViewViewController {
 
     
-    let slideShow = Image
+
+    lazy var imageSlideShow = ImageSlideshow()
+
     
+   
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var imageArr:[AlamofireSource] = []
+        imageArr.append(AlamofireSource(urlString: "http://img4.imgtn.bdimg.com/it/u=688059555,2062039633&fm=26&gp=0.jpg")!)
+        imageArr.append(AlamofireSource(urlString: "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3253325827,761778924&fm=26&gp=0.jpg")!)
+        imageArr.append(AlamofireSource(urlString: "http://sjbz.fd.zol-img.com.cn/t_s720x1280c/g2/M00/0A/07/ChMlWl0essqIU5PrAA-77dSn6ZoAALjfwEg5TQAD7wF815.jpg")!)
+        imageArr.append(AlamofireSource(urlString: "http://sjbz.fd.zol-img.com.cn/t_s750x1334c/g2/M00/0A/07/ChMlWl0essyIMC1PAAbZyx9kTH0AALjfwGxIsUABtnj204.jpg")!)
+        imageArr.append(AlamofireSource(urlString: "http://b.zol-img.com.cn/sjbizhi/images/9/750x1334/1562292824836.jpg")!)
 
-        // Do any additional setup after loading the view.
+        imageSlideShow.contentScaleMode = .scaleAspectFill
+        
+        imageSlideShow.setImageInputs(imageArr)
+        
+        let labelPageIndicator = LabelPageIndicator()
+        imageSlideShow.pageIndicator = labelPageIndicator
+        labelPageIndicator.textColor = UIColor.white
+        labelPageIndicator.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        
+        self.baseView.addSubview(imageSlideShow)
+        imageSlideShow.snp.makeConstraints { (make) in
+            make.width.height.equalTo(200)
+            make.center.equalTo(self.baseView.snp.center)
+        }
+        
+        makeTapGesture()
+
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func makeTapGesture() {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
+        imageSlideShow.circular = false
+        imageSlideShow.addGestureRecognizer(gestureRecognizer)
     }
-    */
 
+    
+    @objc func didTap() {
+        imageSlideShow.presentFullScreenController(from: self)
+    }
 }
