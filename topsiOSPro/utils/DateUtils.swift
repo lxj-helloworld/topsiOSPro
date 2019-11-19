@@ -14,41 +14,45 @@ public enum DateFormateType:String{
     case YMDHM = "yyyy-MM-dd HH:mm"  // 年月日时分 2019-01-01 12:00
     case MDHM = "MM-dd HH:mm"  // 月日时分 01-01 12:00
     case YMD = "yyyy-MM-dd"  // 年月日 2019-01-01
-    case MD = "MM-dd"  // 月日 2019-01
+    case YM = "yyyy-MM"  // 年月 2019-01
+    case MD = "MM-dd"  // 月日 01-01
     case HMS = "HH:mm:ss" // 时分秒 12:00:00
     case HM = "HH:mm" // 时分 12:00
+    case YMDE = "yyyy-MM-dd EEEE" //日期星期 2019-01-01 星期一
 }
 
 public class DateUtils: NSObject {
-    
+  
     /// 日期字符串转date
     ///
     /// - Parameter dateStr: 日期字符串
     /// - Returns: date
-    public class func dateStringToDate(dateStr:String,type:DateFormateType = .YMD) ->Date {
+   public static func dateStringToDate(dateStr:String,type:DateFormateType = .YMD) ->Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.current
         dateFormatter.dateFormat = type.rawValue
         let date = dateFormatter.date(from: dateStr)
-        return date!
+        return date
     }
-    
+
     //获取两日期之间天数差
-    public class func dateDifference(start:String, end:String) -> Double {
-        let endDate = dateStringToDate(dateStr:end)
-        let startDate = dateStringToDate(dateStr:start)
-        let interval = endDate.timeIntervalSince(startDate)
-        return interval/86400
+   public static func dateDifference(start:String, end:String) -> Double {
+        if let endDate = dateStringToDate(dateStr:end),let startDate = dateStringToDate(dateStr:start){
+            let interval = endDate.timeIntervalSince(startDate)
+            return interval/86400
+        }else{
+            return -100000000000.0
+        }
     }
     
     //获取当前日期
-    public class func getCurrentDate() -> Date{
+   public static func getCurrentDate() -> Date{
         let date = Date()
         return date
     }
     
     //获取当前时间
-    public class func getCurrentTime() -> String{
+   public static func getCurrentTime() -> String{
         let nowDate = NSDate()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -56,7 +60,7 @@ public class DateUtils: NSObject {
     }
     
     //获取当前时间 到毫秒
-    public static func getCurrentMillisecond() -> String{
+   public static func getCurrentMillisecond() -> String{
         let nowDate = NSDate()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss:SSS"
@@ -64,13 +68,13 @@ public class DateUtils: NSObject {
     }
     
     //获取相对于当前时间之前几天或者之后几天的日期
-    public class func getDateByDays(_ days : Int) -> Date {
+   public static func getDateByDays(_ days : Int) -> Date {
         let date = Date(timeIntervalSinceNow: TimeInterval(days * 24 * 60 * 60))
         return date
     }
     
     //时间转字符串
-    public class func getDateStr(_ dateIn:Date) -> String {
+   public static func getDateStr(_ dateIn:Date) -> String {
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone.current
         formatter.dateFormat = "yyyy-MM-dd"
@@ -78,11 +82,15 @@ public class DateUtils: NSObject {
         return date
     }
     
-    public class func cutDateStr(_ str:String,_ type:DateFormateType)->String{
+   public static func cutDateStr(_ str:String,_ type:DateFormateType)->String{
         var result = ""
         if str != ""{
             result = str.replacingOccurrences(of: "T", with: " ")
-            result = DateUtils.dateStringToDate(dateStr: result,type:.YMDHMS).formatDate(format:type)
+            if let tempResult =  DateUtils.dateStringToDate(dateStr: result,type:.YMDHMS){
+                result = tempResult.formatDate(format:type)
+            }else{
+                result = ""
+            }
         }
         return result
     }
@@ -91,21 +99,21 @@ public class DateUtils: NSObject {
 extension Date {
     
     /// 获取当前 秒级 时间戳 - 10位
-    public var timeStamp : String {
+   public var timeStamp : String {
         let timeInterval: TimeInterval = self.timeIntervalSince1970
         let timeStamp = Int(timeInterval)
         return "\(timeStamp)"
     }
     
     /// 获取当前 毫秒级 时间戳 - 13位
-    public var milliStamp : String {
+   public var milliStamp : String {
         let timeInterval: TimeInterval = self.timeIntervalSince1970
         let millisecond = CLongLong(round(timeInterval*1000))
         return "\(millisecond)"
     }
     
     //根据格式对日期进行格式化
-    public func formatDate(format: DateFormateType) -> String {
+   public func formatDate(format: DateFormateType) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
         dateFormatter.timeZone = TimeZone.current
@@ -115,7 +123,7 @@ extension Date {
     }
     
     //日期控件使用
-    public static func getDate(dateStr: String, format: String) -> Date? {
+   public static func getDate(dateStr: String, format: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
         dateFormatter.timeZone = TimeZone.current
@@ -124,10 +132,31 @@ extension Date {
         return date
     }
     //日期控件使用
-    public func getComponent(component: Calendar.Component) -> Int {
+   public func getComponent(component: Calendar.Component) -> Int {
         let calendar = Calendar.current
         return calendar.component(component, from: self)
     }
     
+    //计算指定日期是星期几
+   public func getWeekDay(prefix:String = "星期") ->String {
+        let weekDays = [NSNull.init(),"日","一","二","三","四","五","六"]as [Any]
+        let calendar = NSCalendar.init(calendarIdentifier: .gregorian)
+        let timeZone = TimeZone.current
+        calendar?.timeZone = timeZone
+        let calendarUnit = NSCalendar.Unit.weekday
+        let theComponents = calendar?.components(calendarUnit, from:self)
+        return prefix + (weekDays[(theComponents?.weekday)!]as! String)
+    }
     
+}
+
+extension DispatchTime: ExpressibleByIntegerLiteral {
+    public init(integerLiteral value: Int) {
+        self = DispatchTime.now() + .seconds(value)
+    }
+}
+extension DispatchTime: ExpressibleByFloatLiteral {
+    public init(floatLiteral value: Double) {
+        self = DispatchTime.now() + .milliseconds(Int(value * 1000))
+    }
 }
