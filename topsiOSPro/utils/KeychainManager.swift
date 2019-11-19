@@ -9,7 +9,7 @@ import UIKit
 import QorumLogs
 
 open class KeychainManager: NSObject {
-    // 创建环境
+    /// 创建环境
     open class func createQuaryMutableDictionary(identifier:String)->NSMutableDictionary{
         let keychainQuaryMutableDictionary = NSMutableDictionary.init(capacity: 0)
         keychainQuaryMutableDictionary.setValue(kSecClassGenericPassword, forKey: kSecClass as String)
@@ -19,7 +19,7 @@ open class KeychainManager: NSObject {
         return keychainQuaryMutableDictionary
     }
     
-    //存储数据
+    ///存储数据
     @discardableResult
     open class func keyChainSaveData(data:Any ,withIdentifier identifier:String)->Bool {
         let keyChainSaveMutableDictionary = self.createQuaryMutableDictionary(identifier: identifier)
@@ -32,7 +32,7 @@ open class KeychainManager: NSObject {
         return false
     }
     
-    //获取数据
+    ///获取数据
     open class func keyChainReadData(identifier:String)-> String {
         var idObject:String = ""
         let keyChainReadmutableDictionary = self.createQuaryMutableDictionary(identifier: identifier)
@@ -50,7 +50,7 @@ open class KeychainManager: NSObject {
         return idObject
     }
     
-    // 删除数据
+    /// 删除数据
     open class func keyChianDelete(identifier:String)->Void{
         let keyChainDeleteMutableDictionary = self.createQuaryMutableDictionary(identifier: identifier)
         SecItemDelete(keyChainDeleteMutableDictionary)

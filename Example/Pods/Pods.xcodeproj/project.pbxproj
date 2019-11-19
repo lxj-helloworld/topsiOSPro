@@ -14,7 +14,7 @@
 		0027F43F22CF1C78005BC7E6 /* ItemLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0027F42922CF1C78005BC7E6 /* ItemLabel.swift */; };
 		0027F44022CF1C78005BC7E6 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0027F42A22CF1C78005BC7E6 /* MenuCollectionViewCell.swift */; };
 		0027F44122CF1C78005BC7E6 /* CommonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0027F42C22CF1C78005BC7E6 /* CommonViews.swift */; };
-		0027F44222CF1C78005BC7E6 /* UIColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0027F42E22CF1C78005BC7E6 /* UIColorUtils.swift */; };
+		0027F44222CF1C78005BC7E6 /* UIColor+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0027F42E22CF1C78005BC7E6 /* UIColor+Ex.swift */; };
 		0027F44322CF1C78005BC7E6 /* ConstantsHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0027F42F22CF1C78005BC7E6 /* ConstantsHelp.swift */; };
 		0027F44422CF1C78005BC7E6 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0027F43022CF1C78005BC7E6 /* StringUtils.swift */; };
 		0027F44522CF1C78005BC7E6 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0027F43122CF1C78005BC7E6 /* KeychainManager.swift */; };
@@ -317,6 +317,8 @@
 		AEB09047845FF8CDF79678ACB42F9437 /* DKImageExtensionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D371458B1CBC136DFB7B1DA1A408EFDC /* DKImageExtensionController.swift */; };
 		AEC1E79BB33B4F2A0AA7C1E76047C844 /* SDAnimatedImageRep.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C174EED4C9695C83E6E785BCDF73BC1 /* SDAnimatedImageRep.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AEC21FE732F189AB2858567D62BB769B /* DKPhotoGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC7CA10D55EA919B5516DFEAF6D4921 /* DKPhotoGallery.swift */; };
+		B0282D162383C29A00F0F147 /* UIImage+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0282D152383C29A00F0F147 /* UIImage+Ex.swift */; };
+		B0282D182383C35100F0F147 /* DeviceInfoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0282D172383C35100F0F147 /* DeviceInfoUtils.swift */; };
 		B082FA7223428C8DE32F7DE7F5AF441C /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB6733F0740E2446ED9AD4585FBDF2D /* AFError.swift */; };
 		B178B38FCD7F99B07422484FC7FD6861 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 183CCF26E5629A622F7FD349F64560D7 /* IQKeyboardManager.bundle */; };
 		B1A3295EE9D4EFC836ADB6A5F99C76EC /* zh-Hant.lproj in Resources */ = {isa = PBXBuildFile; fileRef = FD8AE4D92638A30EDFA5F78C97792551 /* zh-Hant.lproj */; };
@@ -726,7 +728,7 @@
 		0027F42922CF1C78005BC7E6 /* ItemLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemLabel.swift; sourceTree = "<group>"; };
 		0027F42A22CF1C78005BC7E6 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		0027F42C22CF1C78005BC7E6 /* CommonViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonViews.swift; sourceTree = "<group>"; };
-		0027F42E22CF1C78005BC7E6 /* UIColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorUtils.swift; sourceTree = "<group>"; };
+		0027F42E22CF1C78005BC7E6 /* UIColor+Ex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ex.swift"; sourceTree = "<group>"; };
 		0027F42F22CF1C78005BC7E6 /* ConstantsHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantsHelp.swift; sourceTree = "<group>"; };
 		0027F43022CF1C78005BC7E6 /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		0027F43122CF1C78005BC7E6 /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
@@ -1074,6 +1076,8 @@
 		AE5A479CE8D48117520171AD0B5491E6 /* TOCroppedImageAttributes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCroppedImageAttributes.m; path = "Objective-C/TOCropViewController/Models/TOCroppedImageAttributes.m"; sourceTree = "<group>"; };
 		AE603B85B292D6FD593F0BDC091BF580 /* IQKeyboardManagerSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "IQKeyboardManagerSwift-Info.plist"; sourceTree = "<group>"; };
 		AFE0535E511BC3D18791E006B8D7A962 /* Pods-topsiOSPro_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-topsiOSPro_Example.release.xcconfig"; sourceTree = "<group>"; };
+		B0282D152383C29A00F0F147 /* UIImage+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ex.swift"; sourceTree = "<group>"; };
+		B0282D172383C35100F0F147 /* DeviceInfoUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoUtils.swift; sourceTree = "<group>"; };
 		B030BDA11649526161C41E29EFA1B3F1 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0DBEDFAAB0124DD2EA47CD01BDEF620 /* DKAsset+Fetch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DKAsset+Fetch.swift"; path = "Sources/DKImageDataManager/Model/DKAsset+Fetch.swift"; sourceTree = "<group>"; };
 		B1B17D1730EFFCADDE4C787A6F1C7397 /* ImageDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDownloader.swift; path = Source/ImageDownloader.swift; sourceTree = "<group>"; };
@@ -1494,12 +1498,14 @@
 		0027F42D22CF1C78005BC7E6 /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				0027F42E22CF1C78005BC7E6 /* UIColorUtils.swift */,
 				0027F42F22CF1C78005BC7E6 /* ConstantsHelp.swift */,
-				0027F43022CF1C78005BC7E6 /* StringUtils.swift */,
-				0027F43122CF1C78005BC7E6 /* KeychainManager.swift */,
-				0027F43222CF1C78005BC7E6 /* VerifyHelp.swift */,
 				0027F43322CF1C78005BC7E6 /* DateUtils.swift */,
+				0027F43122CF1C78005BC7E6 /* KeychainManager.swift */,
+				0027F43022CF1C78005BC7E6 /* StringUtils.swift */,
+				0027F42E22CF1C78005BC7E6 /* UIColor+Ex.swift */,
+				0027F43222CF1C78005BC7E6 /* VerifyHelp.swift */,
+				B0282D152383C29A00F0F147 /* UIImage+Ex.swift */,
+				B0282D172383C35100F0F147 /* DeviceInfoUtils.swift */,
 			);
 			name = utils;
 			path = topsiOSPro/utils;
@@ -3764,13 +3770,15 @@
 				0027F43B22CF1C78005BC7E6 /* ImagePreviewViewController.swift in Sources */,
 				0027F46722CF1F37005BC7E6 /* InputSource.swift in Sources */,
 				0027F44522CF1C78005BC7E6 /* KeychainManager.swift in Sources */,
-				0027F44222CF1C78005BC7E6 /* UIColorUtils.swift in Sources */,
+				0027F44222CF1C78005BC7E6 /* UIColor+Ex.swift in Sources */,
 				0027F46222CF1F37005BC7E6 /* ActivityIndicator.swift in Sources */,
 				0027F43F22CF1C78005BC7E6 /* ItemLabel.swift in Sources */,
 				0027F44B22CF1C78005BC7E6 /* BaseMenuUICollectionViewViewController.swift in Sources */,
 				0027F44722CF1C78005BC7E6 /* DateUtils.swift in Sources */,
 				0027F43D22CF1C78005BC7E6 /* SwiftLoadingTool.swift in Sources */,
 				0027F46422CF1F37005BC7E6 /* PageIndicatorPosition.swift in Sources */,
+				B0282D162383C29A00F0F147 /* UIImage+Ex.swift in Sources */,
+				B0282D182383C35100F0F147 /* DeviceInfoUtils.swift in Sources */,
 				0027F46322CF1F37005BC7E6 /* ImageSlideshow.swift in Sources */,
 				0027F44822CF1C78005BC7E6 /* BaseGroupedTableViewViewController.swift in Sources */,
 			);

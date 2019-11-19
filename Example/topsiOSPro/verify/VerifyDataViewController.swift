@@ -48,6 +48,8 @@ class VerifyDataViewController: BaseUIViewViewController {
     @objc func verifyData(button:UIButton){
         var result = "鲁B:123456是车牌号码：" + String(VerifyHelp.isCarNumber(number: "鲁B:123456")) + "\r\n"
         result = result + "12345678901是电话号码：" + String(VerifyHelp.isPhoneNumber(phoneNumber: "12345678901")) + "\r\n"
+        result = result + "371323199007077878是身份证:" + String(VerifyHelp.isIdNumber(idNumber: "371323199007077878")) + "\r\n"
+        result = result + "leesin@gmail.com是邮箱:" + String(VerifyHelp.isEmail(email: "leesin@gmail.com")) + "\r\n"
         resultUILabel.text = result
     }
     

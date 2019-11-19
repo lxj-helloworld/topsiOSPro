@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'topsiOSPro'
-  s.version          = '0.1.6.6'
+  s.version          = '0.1.6.7'
   s.summary          = 'A short description of topsiOSPro.'
 
 # This description is used to generate tags and improve search results.
@@ -17,9 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = "青岛鼎信通讯iOS开发平台下通用组件库 Copyright © 2019 topscomm.com. All rights reserved."
 
   s.homepage         = 'https://github.com/lxj-helloworld/topsiOSPro'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
@@ -52,6 +50,6 @@ TODO: Add long description of the pod here.
   s.dependency 'DKCamera'
   s.dependency 'DKPhotoGallery' #照片选取
   s.dependency 'DKImagePickerController' #照片选取
-  
+  s.dependency 'DeviceKit'               #设备信息
 
 end

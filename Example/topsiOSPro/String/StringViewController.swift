@@ -69,8 +69,12 @@ class StringViewController: UIViewController {
         result = result + "1.23后三位小数：" + StringUtils.decimalHold("1.23", 3, true) + "\r\n"
         
         result = result + "1后三位小数：" + StringUtils.decimalHold("1", 3, true) + "\r\n"
-
-        
+        //MARK:-获取指定字符串宽度
+        result = result + "对光反射金盾股份手机号电饭锅地方和规划局森岛帆高Width=" + "\(StringUtils.getStrWidth(str: "对光反射金盾股份手机号电饭锅地方和规划局森岛帆高", fontSize: 16.0))" + "\r\n"
+        //MARK:-获取指定字符串高度
+        result = result + "对光反射金盾股份手机号电饭锅地方和规划局森岛帆高Height=" + "\(StringUtils.getStrHeight(str: "对光反射金盾股份手机号电饭锅地方和规划局森岛帆高", fontSize: 16.0))" + "\r\n"
+        //MARK:-大写
+        result = result + "一二三的大写为：" + "123".numberRMM() + "\r\n"
         resultUILabel.text = result
         
     }

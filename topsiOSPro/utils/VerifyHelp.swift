@@ -10,7 +10,7 @@ import QorumLogs
 
 public class VerifyHelp: NSObject {
     
-    //校验手机号码
+    ///校验手机号码
     public class func isPhoneNumber(phoneNumber:String) -> Bool {
         if phoneNumber.count == 0 {
             return false
@@ -20,7 +20,7 @@ public class VerifyHelp: NSObject {
         return regexMobile.evaluate(with: phoneNumber)
     }
     
-    //校验身份证号
+    ///校验身份证号
     public class func isIdNumber(idNumber:String) -> Bool {
         if idNumber.count == 0 {
             return false
@@ -30,7 +30,7 @@ public class VerifyHelp: NSObject {
         return regexNumber.evaluate(with: idNumber)
     }
     
-    //校验正整数
+    ///校验正整数
     public class func isPositiveInteger(number:String) -> Bool {
         if number.count == 0 {
             return false
@@ -40,7 +40,7 @@ public class VerifyHelp: NSObject {
         return regex.evaluate(with: number)
     }
     
-    //校验车牌号
+    ///校验车牌号
     public class func isCarNumber(number:String) -> Bool{
         var carString = ""
         if number.count == 0 {
@@ -57,8 +57,16 @@ public class VerifyHelp: NSObject {
         let carPredicate = NSPredicate(format: "SELF MATCHES %@", carString)
         return carPredicate.evaluate(with: number)
     }
-    
-    //检查数据是否为空
+    ///校验邮箱
+    public class func isEmail(email:String)-> Bool{
+        if email.count == 0{
+            return false
+        }
+        let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let predicate = NSPredicate(format:"SELF MATCHES %@", regex)
+        return predicate.evaluate(with: email)
+    }
+    ///检查数据是否为空
     public class func isDataEmpty(json:JSON,key:String) -> Bool{
         var isEmpty = false
         if  json.dictionaryValue[key] != nil && json[key].stringValue != ""{
@@ -67,7 +75,7 @@ public class VerifyHelp: NSObject {
         return isEmpty
     }
     
-    //工号自动补全count位
+    ///工号自动补全count位
     public class func completedByZero(str:String,count:Int) -> String{
         var result = ""
         if !str.isEmpty{
@@ -91,7 +99,7 @@ public class VerifyHelp: NSObject {
         return result
     }
     
-    //数字保留位数
+    ///数字保留位数
    public class func decimalFormat(_ decimal:String,_ number:String) -> String{
         QL1(decimal)
         var formatStr = ""
@@ -109,7 +117,7 @@ public class VerifyHelp: NSObject {
         return formatStr
     }
     
-    //金额数据格式化 小数点后保留2-9位 带元字
+    ///金额数据格式化 小数点后保留2-9位 带元字
     public class func moneyFormat(_ money:String) -> String{
         QL1(money)
         var formatMoney = ""
@@ -137,14 +145,14 @@ public class VerifyHelp: NSObject {
         return formatMoney
     }
     
-    //判断是否为数字 包括小数 整数 负数等
+    ///判断是否为数字 包括小数 整数 负数等
     public class func isPurnFloat(string: String) -> Bool {
         let scan: Scanner = Scanner(string: string)
         var val:Float = 0
         return scan.scanFloat(&val) && scan.isAtEnd
     }
     
-    //富文本配置行间距以及首行缩进 若label设置字体大小，请在设置字体之后使用该方法
+    ///富文本配置行间距以及首行缩进 若label设置字体大小，请在设置字体之后使用该方法
     public class func toAttribute(label:UILabel,string: String,lineSpace:Int,isIndent:Bool) -> NSAttributedString {
         let style = NSMutableParagraphStyle()
         style.lineSpacing = CGFloat(lineSpace)
@@ -155,7 +163,7 @@ public class VerifyHelp: NSObject {
         return NSAttributedString(string:string, attributes: attributes)
     }
     
-    //检查文件尺寸大小
+    ///检查文件尺寸大小
     public class func checkFileSize(fileSize:String)->Bool{
         var temp = false
         if !fileSize.isEmpty{
@@ -176,7 +184,7 @@ public class VerifyHelp: NSObject {
         return temp
     }
     
-    //检查文件尺寸大小
+    ///检查文件尺寸大小
     public class func checkImageInfo(imageName:String)->Bool{
         var result = false
         if imageName != ""{
