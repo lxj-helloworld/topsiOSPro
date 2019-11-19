@@ -1,8 +1,8 @@
 {
   "name": "topsiOSPro",
-  "version": "0.1.6.4",
+  "version": "0.1.7.0",
   "summary": "A short description of topsiOSPro.",
-  "description": "TODO: Add long description of the pod here.",
+  "description": "青岛鼎信通讯iOS开发平台下通用组件库 Copyright © 2019 topscomm.com. All rights reserved.",
   "homepage": "https://github.com/lxj-helloworld/topsiOSPro",
   "license": {
     "type": "MIT",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/lxj-helloworld/topsiOSPro.git",
-    "tag": "0.1.6.4"
+    "tag": "0.1.7.0"
   },
   "platforms": {
     "ios": "8.0"
@@ -21,16 +21,16 @@
   "source_files": "topsiOSPro/utils/**/*",
   "dependencies": {
     "Alamofire": [
-
+      "~> 4.7"
     ],
     "SwiftyJSON": [
-
+      "~> 4.0"
     ],
     "QorumLogs": [
 
     ],
     "SnapKit": [
-
+      "~> 4.0.0"
     ],
     "Hero": [
 
@@ -51,7 +51,13 @@
 
     ],
     "DKImagePickerController": [
+      "<= 4.1.4"
+    ],
+    "DeviceKit": [
 
+    ],
+    "SwiftDate": [
+      "~> 5.1.0"
     ]
   }
 }
