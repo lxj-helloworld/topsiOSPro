@@ -14,7 +14,7 @@ class DateHelpViewController: BaseUIViewViewController {
     let resultUILabel = UILabel()
     let helpUIButton = UIButton()
     
-    override func viewDidLoad() {
+    override  func viewDidLoad() {
         super.viewDidLoad()
 
         initViews()

@@ -17,11 +17,11 @@ class MyListMenuViewController: BaseGroupedTableViewViewController {
         
         QL1("viewDidLoad")
         self.valueDirect = [
-            0:["本视图为tableview基本列表","点我展示collectionview","点我展示scrollview"],
+            0:["本视图为tableview基本列表","点我展示collectionview","点我展示scrollview","点击tableview刷新加载以及空白视图","AutoTableView"],
             ] as [Int:[AnyObject]]
         
         self.imageDirect = [
-        0:["AppIcon","AppIcon","AppIcon"],
+        0:["AppIcon","AppIcon","AppIcon","AppIcon","AppIcon"],
         ] as [Int:[AnyObject]]
         
     }
@@ -34,6 +34,12 @@ class MyListMenuViewController: BaseGroupedTableViewViewController {
             self.navigationController?.pushViewController(viewcontroller, animated: true)
         case 2:            
             let viewcontroller = MyScrollViewController()
+            self.navigationController?.pushViewController(viewcontroller, animated: true)
+        case 3:
+            let viewcontroller = MytableViewViewController()
+            self.navigationController?.pushViewController(viewcontroller, animated: true)
+        case 4:
+            let viewcontroller = MyAutoTableViewController()
             self.navigationController?.pushViewController(viewcontroller, animated: true)
         default:
             break;

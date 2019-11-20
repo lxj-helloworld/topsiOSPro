@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'topsiOSPro'
-  s.version          = '0.1.7.5'
+  s.version          = '0.1.7.6'
   s.summary          = 'A short description of topsiOSPro.'
 
 # This description is used to generate tags and improve search results.
@@ -52,6 +52,7 @@ Pod::Spec.new do |s|
   s.dependency 'DKImagePickerController', '<= 4.1.4' #照片选取
   s.dependency 'DeviceKit'               #设备信息
   s.dependency 'ImageSlideshow/Alamofire'
+  s.dependency 'MJRefresh' #上拉刷新 下拉加载
   s.dependency 'SwiftDate', '~> 5.1.0'  #时间工具
 end
 

@@ -90,7 +90,7 @@ extension UIColor {
 }
 
 extension CGColor{
-    open class func CGColorFromRGB(rgbValue: UInt) -> CGColor {
+    public class func CGColorFromRGB(rgbValue: UInt) -> CGColor {
         return UIColor(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
             green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,

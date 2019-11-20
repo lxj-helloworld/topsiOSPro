@@ -26,6 +26,8 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		B04F54F22384C80600DB39BD /* ShowDeviceInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F54F12384C80600DB39BD /* ShowDeviceInfoViewController.swift */; };
 		B04F54F62384E26000DB39BD /* MyScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F54F52384E26000DB39BD /* MyScrollViewController.swift */; };
+		B04F54F92385208F00DB39BD /* MytableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F54F82385208F00DB39BD /* MytableViewViewController.swift */; };
+		B04F54FC2385417000DB39BD /* MyAutoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F54FB2385417000DB39BD /* MyAutoTableViewController.swift */; };
 		F59648A9CB7A6021213E36DD /* Pods_topsiOSPro_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0713674B85490B52D2335BE0 /* Pods_topsiOSPro_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,9 @@
 		A9EBBB1203891DA82F593E7D /* Pods-topsiOSPro_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Tests.debug.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Tests/Pods-topsiOSPro_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B04F54F12384C80600DB39BD /* ShowDeviceInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDeviceInfoViewController.swift; sourceTree = "<group>"; };
 		B04F54F52384E26000DB39BD /* MyScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScrollViewController.swift; sourceTree = "<group>"; };
+		B04F54F72385135F00DB39BD /* topsiOSPro-bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "topsiOSPro-bridge-Header.h"; sourceTree = "<group>"; };
+		B04F54F82385208F00DB39BD /* MytableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MytableViewViewController.swift; sourceTree = "<group>"; };
+		B04F54FB2385417000DB39BD /* MyAutoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAutoTableViewController.swift; sourceTree = "<group>"; };
 		BAEAE84D20FA55631EA6E967 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		ECE62669330B8BB4C3B90D13 /* Pods-topsiOSPro_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Example.release.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Example/Pods-topsiOSPro_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +161,8 @@
 				00F2205422A1256100498DC0 /* MyMenuViewController.swift */,
 				00CEE21B22A4C2CF00A51BD3 /* MyListMenuViewController.swift */,
 				B04F54F52384E26000DB39BD /* MyScrollViewController.swift */,
+				B04F54F82385208F00DB39BD /* MytableViewViewController.swift */,
+				B04F54FB2385417000DB39BD /* MyAutoTableViewController.swift */,
 			);
 			path = menu;
 			sourceTree = "<group>";
@@ -199,6 +206,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				B04F54F72385135F00DB39BD /* topsiOSPro-bridge-Header.h */,
 			);
 			name = "Example for topsiOSPro";
 			path = topsiOSPro;
@@ -413,6 +421,7 @@
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/QorumLogs/QorumLogs.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -433,6 +442,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QorumLogs.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -492,6 +502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B04F54FC2385417000DB39BD /* MyAutoTableViewController.swift in Sources */,
 				00B47F78229D07BC000A256E /* VerifyDataViewController.swift in Sources */,
 				00F2205522A1256100498DC0 /* MyMenuViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
@@ -503,6 +514,7 @@
 				00AC8B10229CC67D0050FBF8 /* StringViewController.swift in Sources */,
 				B04F54F22384C80600DB39BD /* ShowDeviceInfoViewController.swift in Sources */,
 				00B2A35622CDDCB000B8ECBB /* ShowLocalImageViewController.swift in Sources */,
+				B04F54F92385208F00DB39BD /* MytableViewViewController.swift in Sources */,
 				B04F54F62384E26000DB39BD /* MyScrollViewController.swift in Sources */,
 				00B47F75229D07B3000A256E /* VerifyDataViewController.swift in Sources */,
 				00CEE21C22A4C2CF00A51BD3 /* MyListMenuViewController.swift in Sources */,
@@ -657,6 +669,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/topsiOSPro/topsiOSPro-bridge-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -673,6 +686,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/topsiOSPro/topsiOSPro-bridge-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};

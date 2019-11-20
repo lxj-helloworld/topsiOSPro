@@ -11,8 +11,8 @@ import SnapKit
 
 
 open class BaseUIScrollViewViewController: BaseUIViewViewController {
-    open var baseScrollView:UIScrollView!
-    open var innerUIView:UIView!
+    public var baseScrollView:UIScrollView!
+    public var innerUIView:UIView!
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ open class BaseUIScrollViewViewController: BaseUIViewViewController {
     }
     
     //初始化滚动视图
-    func initBaseUIScrollView() {
+   public func initBaseUIScrollView() {
         baseScrollView = UIScrollView()
         baseScrollView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         baseScrollView.alwaysBounceVertical = true
@@ -32,7 +32,7 @@ open class BaseUIScrollViewViewController: BaseUIViewViewController {
     }
     
     //定位滚动视图
-   open func positionUIScrollView() {
+   public func positionUIScrollView() {
         baseScrollView.snp.makeConstraints{(make) in
             make.edges.equalToSuperview()
             make.width.equalTo(ConstantsHelp.SCREENWITH)
@@ -40,11 +40,11 @@ open class BaseUIScrollViewViewController: BaseUIViewViewController {
     }
     
     //添加其他视图
-    open  func initOthersUIView(){
+    public  func initOthersUIView(){
         
     }
     
-    open func initInnerUIView(){
+    public func initInnerUIView(){
         innerUIView = UIView()
         baseScrollView.addSubview(innerUIView)
         innerUIView.snp.makeConstraints { (make) in

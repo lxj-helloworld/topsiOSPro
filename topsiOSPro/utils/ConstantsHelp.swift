@@ -171,6 +171,9 @@ extension ConstantsHelp{
     public static let no = "no"
     
     public static let bit = "bit"
+    public static let extendSpace = "extendSpace" //空格 例子:2019-01-01 全天
+    public static let extendBracket = "extendBracket" //中括号 例子:李四[001]
+    public static let valuePlaceholder = "valuePlaceholder" //值默认值，如果值为空，显示该默认值
     
     public static let man = "人"
     public static let day = "天"
@@ -179,10 +182,12 @@ extension ConstantsHelp{
     public static let green = "#37562c"
     public static let yellow = "#FF8000"
     public static let dateType = "dateType"
+    public static let type = "type" //日期类型
     public static let date = "date" //只保留日期 2019-01-01
     public static let time = "time" //保留到时间 2019-01-01 12:00:00
     public static let dateHour = "dateHour" //保留到日期小时 2019-01-01 12:00
     public static let hour = "hour" //保留小时分钟 12:00
+    public static let second = "second" //保留秒 12:00:00
     public static let topsProColor = "topsProColor"
     
     //其余部分

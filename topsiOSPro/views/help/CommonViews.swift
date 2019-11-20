@@ -297,7 +297,144 @@ public class CommonViews: NSObject{
         
         return infoView
     }
-   
+   //通用list item
+  public class func getNormalItemView(json:JSON,contentTitles:[[String:String]],isShowSeparatorUIView:Bool = true,leftTitleWidth:Int = ConstantsHelp.leftTitleWidth) -> UIView {
+       let itemView = UIView()
+       var leftTitleUILabel:UILabel!
+       var rightValueUILabel:UILabel!
+       var lineTempUILabel:UILabel = UILabel()
+       for (index,value) in contentTitles.enumerated() {
+           if value[ConstantsHelp.isAllowNull] != nil && value[ConstantsHelp.isAllowNull]! == ConstantsHelp.no && json[value["key"]!].stringValue == "" {
+               continue
+           }
+           if value[ConstantsHelp.isAllowZero] != nil && value[ConstantsHelp.isAllowZero]! == ConstantsHelp.no && json[value["key"]!].intValue == 0 {
+               continue
+           }
+           leftTitleUILabel = UILabel()
+           leftTitleUILabel.textAlignment = .right
+           leftTitleUILabel.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+           leftTitleUILabel.adjustsFontSizeToFitWidth = true
+           leftTitleUILabel.text = value["value"]! + NSLocalizedString("colon", comment: "")
+           itemView.addSubview(leftTitleUILabel)
+           leftTitleUILabel.snp.makeConstraints { (make) in
+               make.left.equalTo(itemView)
+               make.width.equalTo(leftTitleWidth)
+           }
+           
+           if index == 0 {
+               leftTitleUILabel.snp.makeConstraints { (make) in
+                   make.top.equalTo(itemView).offset(ConstantsHelp.normalPadding)
+               }
+           }else{
+               leftTitleUILabel.snp.makeConstraints { (make) in
+                   make.top.equalTo(lineTempUILabel.snp.bottom).offset(ConstantsHelp.normalPadding)
+               }
+           }
+           
+           rightValueUILabel = UILabel()
+           rightValueUILabel.lineBreakMode = .byCharWrapping
+           rightValueUILabel.numberOfLines  = 0
+           //时间处理
+           if value[ConstantsHelp.dateType] != nil,value[ConstantsHelp.dateType]! != ""{
+               rightValueUILabel.text = json[value["key"]!].stringValue.replacingOccurrences(of: "T", with: " ")
+               if value[ConstantsHelp.dateType] == ConstantsHelp.date{
+                   rightValueUILabel.text = StringUtils.getPrefixNStr(currentStr: rightValueUILabel.text!, length: 10)
+               }else if value[ConstantsHelp.dateType] == ConstantsHelp.hour{
+                   rightValueUILabel.text = StringUtils.getIndexStr(currentStr:rightValueUILabel.text!, start: 11, end:16 )
+               }else if value[ConstantsHelp.dateType] == ConstantsHelp.dateHour{
+                   rightValueUILabel.text = StringUtils.getPrefixNStr(currentStr: rightValueUILabel.text!, length: 16)
+               }else if value[ConstantsHelp.dateType] == ConstantsHelp.second{
+                   rightValueUILabel.text = StringUtils.getSuffixNStr(currentStr: rightValueUILabel.text!, length: 8)
+               }
+               
+           }else{
+               var temp = json[value["key"]!].stringValue
+               if value["key"] == "username" , json["usercode"].stringValue != ""{
+                   temp = temp + "[" + json["usercode"].stringValue + "]"
+               }
+               rightValueUILabel.text = temp
+           }
+           
+           if value[ConstantsHelp.color] != nil,value[ConstantsHelp.color]! != ""{
+               rightValueUILabel.textColor = UIColor.colorWithHexString(hex: value[ConstantsHelp.color]!)
+           }
+           
+           if value[ConstantsHelp.bit] != nil,value[ConstantsHelp.bit] != "",rightValueUILabel.text! != ""{
+               rightValueUILabel.text = VerifyHelp.decimalFormat(rightValueUILabel.text!,value[ConstantsHelp.bit]!)
+           }
+           
+           if value[ConstantsHelp.unit] != nil,value[ConstantsHelp.unit]! != "",rightValueUILabel.text! != ""{
+               if value[ConstantsHelp.unit]! == ConstantsHelp.money{
+                   rightValueUILabel.text = VerifyHelp.moneyFormat(rightValueUILabel.text!)
+               }else{
+                   rightValueUILabel.text = rightValueUILabel.text! + value[ConstantsHelp.unit]!
+               }
+           }
+           
+           if value[ConstantsHelp.type] != nil,value[ConstantsHelp.type] != "",rightValueUILabel.text != nil,rightValueUILabel.text! != ""{
+               if value[ConstantsHelp.type] == ConstantsHelp.dept{
+                    rightValueUILabel.text = rightValueUILabel.text!.trimmingCharacters(in: CharacterSet(charactersIn: "\\"))
+               }
+           }
+           
+           if value[ConstantsHelp.extendSpace] != nil,value[ConstantsHelp.extendSpace] != "",json[value[ConstantsHelp.extendSpace]!].stringValue != "",rightValueUILabel.text! != ""{
+               rightValueUILabel.text = rightValueUILabel.text! + " " + json[value[ConstantsHelp.extendSpace]!].stringValue
+           }
+           
+           if value[ConstantsHelp.extendBracket] != nil,value[ConstantsHelp.extendBracket] != "",json[value[ConstantsHelp.extendBracket]!].stringValue != "",rightValueUILabel.text! != ""{
+               rightValueUILabel.text = rightValueUILabel.text! + "[" + json[value[ConstantsHelp.extendBracket]!].stringValue + "]"
+           }
+
+           if value[ConstantsHelp.valuePlaceholder] != nil,value[ConstantsHelp.valuePlaceholder] != "",rightValueUILabel.text! == ""{
+               rightValueUILabel.text = value[ConstantsHelp.valuePlaceholder]
+           }
+           
+           itemView.addSubview(rightValueUILabel)
+           rightValueUILabel.snp.makeConstraints { (make) in
+               make.left.equalTo(leftTitleUILabel.snp.right).offset(ConstantsHelp.littlePadding)
+               make.right.equalToSuperview().offset(ConstantsHelp.rightMargin)
+               
+           }
+           
+           if index == 0 {
+               rightValueUILabel.snp.makeConstraints { (make) in
+                   make.top.equalTo(itemView).offset(ConstantsHelp.normalPadding)
+               }
+           }else{
+               rightValueUILabel.snp.makeConstraints { (make) in
+                   make.top.equalTo(lineTempUILabel.snp.bottom).offset(ConstantsHelp.normalPadding)
+               }
+           }
+           if rightValueUILabel.text! == ""{
+               rightValueUILabel.text = "无"
+               rightValueUILabel.isHidden = true
+           }
+           
+           lineTempUILabel = UILabel()
+           itemView.addSubview(lineTempUILabel)
+           lineTempUILabel.snp.makeConstraints { (make) in
+               make.left.right.equalToSuperview()
+               make.top.equalTo(rightValueUILabel.snp.bottom)
+               make.height.equalTo(0.1)
+           }
+           
+       }
+       if isShowSeparatorUIView{
+           let separatorUIView = self.getSeparatorUIView()
+           itemView.addSubview(separatorUIView)
+           separatorUIView.snp.makeConstraints { (make) in
+               make.top.equalTo(lineTempUILabel.snp.bottom).offset(ConstantsHelp.normalPadding)
+               make.left.equalToSuperview()
+               make.bottom.equalToSuperview().offset(-1)
+           }
+       }else{
+           itemView.snp.makeConstraints { (make) in
+               make.bottom.equalTo(lineTempUILabel.snp.bottom)
+           }
+       }
+       
+       return itemView
+   }
    
    
 }

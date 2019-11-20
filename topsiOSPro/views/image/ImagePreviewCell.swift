@@ -13,7 +13,7 @@ public protocol DeleteImageProtocol {
     func deleteImageIndexOf(_ index:Int)
 }
 
-open class ImagePreviewCell: UICollectionViewCell {
+public class ImagePreviewCell: UICollectionViewCell {
 
     //滚动视图
     var scrollView:UIScrollView!
@@ -71,7 +71,7 @@ open class ImagePreviewCell: UICollectionViewCell {
     }
     
     //视图布局改变时（横竖屏切换时cell尺寸也会变化）
-    override open func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         //重置单元格内元素尺寸
         resetSize()
@@ -131,11 +131,11 @@ open class ImagePreviewCell: UICollectionViewCell {
 //ImagePreviewCell的UIScrollViewDelegate代理实现
 extension ImagePreviewCell:UIScrollViewDelegate{
     //缩放视图
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+  public  func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return self.imageView
     }
     //缩放响应，设置imageView的中心位置
-    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+   public func scrollViewDidZoom(_ scrollView: UIScrollView) {
         var centerX = scrollView.center.x
         var centerY = scrollView.center.y
         centerX = scrollView.contentSize.width > scrollView.frame.size.width ? scrollView.contentSize.width/2:centerX

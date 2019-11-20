@@ -14,11 +14,17 @@ import QorumLogs
 
 open class BaseUIViewViewController: UIViewController {
 
+    /// 分页参数
+    open var page:Int = 1
+    open var sidx:String = ""
+    open var sord:String = ""
+    
     open var baseView: UIView!
     
     override open func viewDidLoad() {
         super.viewDidLoad()
         initBaseView()
+        logConfig()
     }
     
     //初始化基础视图
@@ -38,7 +44,10 @@ open class BaseUIViewViewController: UIViewController {
              make.left.right.equalTo(view)
         }
     }
-    
+    //日志框架配置
+   public func logConfig() {
+        QorumLogs.enabled = true //日志开关,默认为false
+    }
    
 
 }
@@ -317,7 +326,21 @@ extension BaseUIViewViewController{
         })
     }
     
-    
+    ///检测网络是否连接
+   open func checkNetWrokReachability(_ url:String,error:Error,isShowErrorInfo:Bool = false){
+        let reachability = Reachability()
+        if reachability != nil{
+            if !(reachability?.isReachable)!{
+                self.showAlert(message: "似乎已断开与互联网的连接")
+            }else{
+                let resultError = error as NSError
+                if isShowErrorInfo {
+                    self.showToast(message: resultError.localizedDescription)
+                }
+            }
+        }
+    }
+
 }
 
 

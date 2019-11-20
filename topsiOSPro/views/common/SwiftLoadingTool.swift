@@ -11,7 +11,7 @@ import UIKit
 extension UIResponder {
     
     //MARK: -加载框 不带文字
-    open func showLoading(isSupportClick: Bool? = false) {
+    public func showLoading(isSupportClick: Bool? = false) {
         if Thread.isMainThread {
             SwiftLoadingTool.showLoading(text: nil, isClickHidden: isSupportClick)
         } else {
@@ -22,7 +22,7 @@ extension UIResponder {
     }
     
     //MARK: -加载框 带文字
-    open func showLoading(text: String? = nil, isSupportClick: Bool? = false) {
+    public func showLoading(text: String? = nil, isSupportClick: Bool? = false) {
         if Thread.isMainThread {
             SwiftLoadingTool.showLoading(text: text, isClickHidden: isSupportClick)
         } else {
@@ -33,7 +33,7 @@ extension UIResponder {
     }
     
     //MARK: -进度框 带文字
-    open func showProgressLoading(text: String? = nil, isSupportClick: Bool? = false) {
+    public func showProgressLoading(text: String? = nil, isSupportClick: Bool? = false) {
         if Thread.isMainThread {
             let tool = SwiftLoadingTool.initTool
             if SwiftLoadingTool.isShowingLoading{
@@ -50,7 +50,7 @@ extension UIResponder {
     }
     
     //MARK: -提示框
-    open func show(text: String?) {
+    public func show(text: String?) {
         if Thread.isMainThread {
             SwiftLoadingTool.show(text: text)
         } else {
@@ -61,7 +61,7 @@ extension UIResponder {
     }
     
     //MARK: -隐藏所有HUD
-    open func hideHUD() {
+    public func hideHUD() {
         if Thread.isMainThread {
             SwiftLoadingTool.hidden()
         } else {
@@ -79,9 +79,9 @@ enum LoadingPositionType {
     case centerType, bottomType
 }
 
-open class SwiftLoadingTool: UIView {
+public class SwiftLoadingTool: UIView {
     
-    open static let initTool: SwiftLoadingTool = SwiftLoadingTool.initView()
+    public static let initTool: SwiftLoadingTool = SwiftLoadingTool.initView()
     
     // MARK: -文字框属性设置
     /// 单行高度
@@ -132,7 +132,7 @@ open class SwiftLoadingTool: UIView {
     }()
     
     /// 初始化
-    open class func initView() -> SwiftLoadingTool {
+    public class func initView() -> SwiftLoadingTool {
         let tool = SwiftLoadingTool.init(frame: UIScreen.main.bounds)
         tool.tag = tool.tooltag
         tool.backgroundColor = UIColor.white.withAlphaComponent(0.1)
@@ -141,7 +141,7 @@ open class SwiftLoadingTool: UIView {
     }
     
     //MARK:- 展示加载菊花 是否支持点击取消 默认为可不支持点击取消
-    open static func showLoading(text: String?, isClickHidden: Bool? = false) {
+    public static func showLoading(text: String?, isClickHidden: Bool? = false) {
         
         SwiftLoadingTool.hidden {
             
@@ -195,7 +195,7 @@ open class SwiftLoadingTool: UIView {
     }
     
     //MARK:- 展示加载文字
-    open static func show(text: String?) {
+    public static func show(text: String?) {
         SwiftLoadingTool.hidden {
             let tool = SwiftLoadingTool.initTool
             let fatherWindow = UIApplication.shared.keyWindow
@@ -231,7 +231,7 @@ open class SwiftLoadingTool: UIView {
     }
     
     //MARK:- 隐藏所有
-    @objc open static func hidden(isCompetion: (()->Void)? = nil) {
+    @objc public static func hidden(isCompetion: (()->Void)? = nil) {
         SwiftLoadingTool.isShowingLoading = false
         let tool = SwiftLoadingTool.initTool
         tool.isHiddenBefore = isCompetion
@@ -257,7 +257,7 @@ open class SwiftLoadingTool: UIView {
     }
     
     /// 更新大小
-    open func updateLabelFrame(text: String?, maxSize: CGSize) {
+    public func updateLabelFrame(text: String?, maxSize: CGSize) {
         
         let tool = SwiftLoadingTool.initTool
         let size = text?.getSize(maxSize: maxSize)
@@ -319,7 +319,7 @@ open class SwiftLoadingTool: UIView {
 
 extension String {
     
-    func getSize(maxSize: CGSize) -> CGSize {
+   public func getSize(maxSize: CGSize) -> CGSize {
         
         if self.isEmpty {
             return CGSize.init(width: SwiftLoadingTool.minTextWidth, height: SwiftLoadingTool.singleRowHeight)

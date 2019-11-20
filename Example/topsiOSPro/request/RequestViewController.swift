@@ -58,15 +58,15 @@ class RequestViewController: BaseUIViewViewController {
     
     @objc func loginTo(){
         print("loingTo")
-        let parameters:Parameters = ["loginName":"0903",
-                                    "password":"lxj010203",
-                                    "baseType":0,
-                                    "LastMsgTime":"",
-                                    "newMsgIds":"",
+        let parameters:Parameters = ["loginname":"7886",
+                                    "password":"123456",
+                                    "uuid":"105DA37F-B657-45DD-AAE4-5F91D79D0B4E",
+                                    "ismobile":"1",
+                                    "needToken":"1",
                                     "showLoading":"false"
             ] as [String : Any]
     
-        let url = "http://172.20.3.53:8918/mobile/userAction_checkLoginForMobile.json";
+        let url = "http://172.20.3.53:8919/toa/toa/toaMobileLogin_login.json";
         getResultMap(urlRequest: url, parameters: parameters) { (json) in
             self.showAlert(message: "json = \(json)")
         }
