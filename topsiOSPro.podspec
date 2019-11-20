@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'topsiOSPro'
-  s.version          = '0.1.7.1'
+  s.version          = '0.1.7.4'
   s.summary          = 'A short description of topsiOSPro.'
 
 # This description is used to generate tags and improve search results.
