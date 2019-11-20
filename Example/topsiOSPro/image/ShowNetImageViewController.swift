@@ -10,7 +10,7 @@ import UIKit
 import topsiOSPro
 import SnapKit
 import AlamofireImage
-
+import ImageSlideshow
 
 class ShowNetImageViewController: BaseUIViewViewController {
 
