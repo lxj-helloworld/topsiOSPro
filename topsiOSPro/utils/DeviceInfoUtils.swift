@@ -7,9 +7,9 @@
 
 import Foundation
 import AdSupport
-//import DeviceKit
+import DeviceKit
 
-class DeviceInfoUtils: NSObject {
+public class DeviceInfoUtils: NSObject {
     
     //APP相关信息
    public static let infoDictionary = Bundle.main.infoDictionary!
@@ -18,12 +18,12 @@ class DeviceInfoUtils: NSObject {
    public static let build = infoDictionary["CFBundleVersion"] as! String //版本号（内部标示）
     
     //设备相关信息
-//   public private static let device = Device()
-//   public static let deviceType = device.model //设备类型
-//   public static let deviceName = device.name //设备别名
-//   public static let deviceModel = device.description //设备名称
-//   public static let devicesySystemName = device.systemName // 系统
-//   public static let devicesySystemVersion = device.systemVersion //版本
+    private static let device = Device.current
+    public static let deviceType = device.model //设备类型
+    public static let deviceName = device.name //设备别名
+    public static let deviceModel = device.description //设备名称
+    public static let devicesySystemName = device.systemName // 系统
+    public static let devicesySystemVersion = device.systemVersion //版本
     
     //获取IDFA
    public class func getIdfa() -> String {

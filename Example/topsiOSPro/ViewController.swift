@@ -35,6 +35,8 @@ class ViewController: BaseMenuUICollectionViewViewController {
                          ["title": "钥匙串存储", "image": "AppIcon"],
                          ["title": "本地图片预览", "image": "AppIcon"],
                          ["title": "在线图片预览", "image": "AppIcon"],
+                         ["title": "设备信息", "image": "AppIcon"],
+                         ["title": "基础视图VC", "image": "AppIcon"]
         ]
         super.viewDidLoad()
         title = "Topscomm"
@@ -60,6 +62,10 @@ class ViewController: BaseMenuUICollectionViewViewController {
             showLocalImages()
         case 8:
             showNetImages()
+        case 9:
+            showNoti()
+        case 10:
+            showMyList()
         default:
             print("no way to go")
         }
@@ -153,6 +159,17 @@ class ViewController: BaseMenuUICollectionViewViewController {
         viewController.title = "网络图片"
         self.navigationController?.pushViewController(viewController, animated: true)
     }
-    
+    //设备信息
+    func showNoti(){
+        let viewController = ShowDeviceInfoViewController()
+        viewController.title = "设备信息"
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    //基础视图
+    func showMyList(){
+        let viewController = MyListMenuViewController()
+        viewController.title = "基础视图"
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 

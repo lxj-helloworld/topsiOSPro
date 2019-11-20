@@ -24,6 +24,8 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		B04F54F22384C80600DB39BD /* ShowDeviceInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F54F12384C80600DB39BD /* ShowDeviceInfoViewController.swift */; };
+		B04F54F62384E26000DB39BD /* MyScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F54F52384E26000DB39BD /* MyScrollViewController.swift */; };
 		F59648A9CB7A6021213E36DD /* Pods_topsiOSPro_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0713674B85490B52D2335BE0 /* Pods_topsiOSPro_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +67,8 @@
 		A1844D82FF62F9333A3502E6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A990A6ADF99DAAF3A0814CB4 /* Pods-topsiOSPro_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Example.debug.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Example/Pods-topsiOSPro_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A9EBBB1203891DA82F593E7D /* Pods-topsiOSPro_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Tests.debug.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Tests/Pods-topsiOSPro_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		B04F54F12384C80600DB39BD /* ShowDeviceInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDeviceInfoViewController.swift; sourceTree = "<group>"; };
+		B04F54F52384E26000DB39BD /* MyScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScrollViewController.swift; sourceTree = "<group>"; };
 		BAEAE84D20FA55631EA6E967 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		ECE62669330B8BB4C3B90D13 /* Pods-topsiOSPro_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Example.release.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Example/Pods-topsiOSPro_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +155,7 @@
 			children = (
 				00F2205422A1256100498DC0 /* MyMenuViewController.swift */,
 				00CEE21B22A4C2CF00A51BD3 /* MyListMenuViewController.swift */,
+				B04F54F52384E26000DB39BD /* MyScrollViewController.swift */,
 			);
 			path = menu;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 		607FACD21AFB9204008FA782 /* Example for topsiOSPro */ = {
 			isa = PBXGroup;
 			children = (
+				B04F54F02384C6B800DB39BD /* deviceInfo */,
 				00B2A35422CDDC9700B8ECBB /* image */,
 				00B3849E22A65A5000C08AB5 /* keychain */,
 				00CEE24622A5021C00A51BD3 /* dataHelp */,
@@ -240,6 +246,14 @@
 				843121EB01BEBF1B36C77B16 /* Pods_topsiOSPro_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B04F54F02384C6B800DB39BD /* deviceInfo */ = {
+			isa = PBXGroup;
+			children = (
+				B04F54F12384C80600DB39BD /* ShowDeviceInfoViewController.swift */,
+			);
+			path = deviceInfo;
 			sourceTree = "<group>";
 		};
 		F6E1EC22396F2DD1B329449E /* Pods */ = {
@@ -394,12 +408,14 @@
 				"${BUILT_PRODUCTS_DIR}/DKCamera/DKCamera.framework",
 				"${BUILT_PRODUCTS_DIR}/DKImagePickerController/DKImagePickerController.framework",
 				"${BUILT_PRODUCTS_DIR}/DKPhotoGallery/DKPhotoGallery.framework",
+				"${BUILT_PRODUCTS_DIR}/DeviceKit/DeviceKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/QorumLogs/QorumLogs.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/topsiOSPro/topsiOSPro.framework",
 			);
@@ -411,12 +427,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKCamera.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKImagePickerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKPhotoGallery.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeviceKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QorumLogs.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/topsiOSPro.framework",
 			);
@@ -481,7 +499,9 @@
 				0027F42022CEF810005BC7E6 /* ShowNetImageViewController.swift in Sources */,
 				00B384A022A65A6800C08AB5 /* KeyChainViewController.swift in Sources */,
 				00AC8B10229CC67D0050FBF8 /* StringViewController.swift in Sources */,
+				B04F54F22384C80600DB39BD /* ShowDeviceInfoViewController.swift in Sources */,
 				00B2A35622CDDCB000B8ECBB /* ShowLocalImageViewController.swift in Sources */,
+				B04F54F62384E26000DB39BD /* MyScrollViewController.swift in Sources */,
 				00B47F75229D07B3000A256E /* VerifyDataViewController.swift in Sources */,
 				00CEE21C22A4C2CF00A51BD3 /* MyListMenuViewController.swift in Sources */,
 			);

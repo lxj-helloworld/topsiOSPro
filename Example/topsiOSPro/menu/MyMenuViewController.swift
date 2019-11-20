@@ -14,17 +14,14 @@ class MyMenuViewController: BaseMenuUICollectionViewViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.resourceArray = [
+            ["title": "item1", "image": "AppIcon","num":"1"],
+            ["title": "item2", "image": "AppIcon","num":"10"],
+            ["title": "item3", "image": "AppIcon","num":"5"],
+            ["title": "item4", "image": "AppIcon","num":"90"],
+            ["title": "item5", "image": "AppIcon","num":"33"],
+        ]
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

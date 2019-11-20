@@ -16,10 +16,29 @@ class MyListMenuViewController: BaseGroupedTableViewViewController {
         super.viewDidLoad()
         
         QL1("viewDidLoad")
-        // Do any additional setup after loading the view.
+        self.valueDirect = [
+            0:["本视图为tableview基本列表","点我展示collectionview","点我展示scrollview"],
+            ] as [Int:[AnyObject]]
+        
+        self.imageDirect = [
+        0:["AppIcon","AppIcon","AppIcon"],
+        ] as [Int:[AnyObject]]
+        
     }
-    
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            break;
+        case 1:
+            let viewcontroller = MyMenuViewController()
+            self.navigationController?.pushViewController(viewcontroller, animated: true)
+        case 2:            
+            let viewcontroller = MyScrollViewController()
+            self.navigationController?.pushViewController(viewcontroller, animated: true)
+        default:
+            break;
+        }
+    }
 
 
 }

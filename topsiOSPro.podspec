@@ -28,10 +28,10 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'topsiOSPro/views/**/*'
-  s.source_files = 'topsiOSPro/viewController/**/*'
-  s.source_files = 'topsiOSPro/utils/**/*'
-  #s.source_files = 'topsiOSPro/**/*'
+#  s.source_files = 'topsiOSPro/views/**/*'
+#  s.source_files = 'topsiOSPro/viewController/**/*'
+#  s.source_files = 'topsiOSPro/utils/**/*'
+  s.source_files = 'topsiOSPro/**/*'
   
   # s.resource_bundles = {
   #   'topsiOSPro' => ['topsiOSPro/Assets/*.png']
