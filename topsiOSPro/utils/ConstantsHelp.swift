@@ -220,3 +220,11 @@ extension ConstantsHelp{
     public static let user = "人员" //人员
     public static let usercode = "usercode" //工号
 }
+
+extension ConstantsHelp{
+    public enum UIViewType:String{
+        case uitextField = "uitextField"
+        case uibutton = "uibutton"
+        case uitextview = "uitextview"
+    }
+}

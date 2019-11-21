@@ -435,6 +435,397 @@ public class CommonViews: NSObject{
        
        return itemView
    }
-   
-   
+    /**
+    * 生成申请界面的view 具体样式参照OA办公->固定资产申请(颗粒度大 下面是粒度小的)
+    * @param contentTitles           展示内容 包括 'value','allowNull','type'
+    * @param leftTitleWidth          左侧宽度
+    */
+    public class func getApplyView(contentTitles:[[String:String]],leftTitleWidth:Int = ConstantsHelp.leftTitleWidth) -> UIView{
+        let contentView = UIView()
+        contentView.isUserInteractionEnabled = true
+        var leftLabel = UILabel()
+        var rightUI = UIView()
+        //添加具体申请项
+        for (index,value) in contentTitles.enumerated(){
+            if (value[ConstantsHelp.isAllowNull] != nil){
+                leftLabel = UILabel()
+                leftLabel.text = value["value"]! + NSLocalizedString("colon", comment: "")
+                leftLabel.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            }else{
+                //不为空
+                leftLabel = self.getNotNullLabel(title: value["value"]! + NSLocalizedString("colon", comment: ""))
+            }
+            leftLabel.textAlignment = .right
+            leftLabel.adjustsFontSizeToFitWidth = true
+            contentView.addSubview(leftLabel)
+            leftLabel.snp.makeConstraints { (make) in
+                make.left.equalToSuperview()
+                make.width.equalTo(leftTitleWidth)
+                make.height.equalTo(ConstantsHelp.labelHeight)
+            }
+            //判断index的情况
+            if index == 0 {
+                leftLabel.snp.makeConstraints { (make) in
+                    make.top.equalToSuperview().offset(ConstantsHelp.normalPadding)
+                }
+            }else{
+                leftLabel.snp.makeConstraints { (make) in
+                    make.top.equalTo(rightUI.snp.bottom).offset(ConstantsHelp.normalPadding)
+                }
+            }
+            //右侧类型()
+            switch value["type"]! {
+            case ConstantsHelp.UIViewType.uibutton.rawValue:
+                rightUI = self.getPickUIButton("")
+            case ConstantsHelp.UIViewType.uitextField.rawValue:
+                rightUI = self.getUITextFeild()
+            case ConstantsHelp.UIViewType.uitextview.rawValue:
+                rightUI = self.getBiggerEditUITextView()
+            default:
+                break;
+            }
+            contentView.addSubview(rightUI)
+            rightUI.tag = 1000+index
+            
+            rightUI.snp.makeConstraints { (make) in
+                make.left.equalTo(ConstantsHelp.littlePadding + leftTitleWidth)
+                make.right.equalTo(ConstantsHelp.rightMargin)
+                make.top.equalTo(leftLabel.snp.top)
+            }
+        }
+        let lineView = self.getLineView()
+        contentView.addSubview(lineView)
+        lineView.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(rightUI.snp.bottom).offset(ConstantsHelp.littlePadding)
+            make.bottom.equalToSuperview().offset(-1)
+        }
+        return contentView
+    }
+    /**
+    * 单独一行 左侧label 右侧button
+    * 生成申请界面的view 具体样式参照OA办公->固定资产申请(粒度小的)
+    * @param contentTitles           展示内容 包括 'value','allowNull','type'
+    * @param leftTitleWidth          左侧宽度
+    * @param viewTag                 控件的Tag值
+    */
+    public class func getApplyWithUIButton(contentTitles:[String:String],leftTitleWidth:Int = ConstantsHelp.leftTitleWidth,viewTag:Int = 1000) -> UIView{
+        let contentView = UIView()
+        contentView.isUserInteractionEnabled = true
+        var leftLabel = UILabel()
+        var rightUI = UIView()
+        //添加具体申请项
+        if (contentTitles[ConstantsHelp.isAllowNull] != nil){
+            leftLabel = UILabel()
+            leftLabel.text = contentTitles["value"]! + NSLocalizedString("colon", comment: "")
+            leftLabel.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        }else{
+            //不为空
+            leftLabel = self.getNotNullLabel(title: contentTitles["value"]! + NSLocalizedString("colon", comment: ""))
+        }
+        leftLabel.textAlignment = .right
+        leftLabel.adjustsFontSizeToFitWidth = true
+        contentView.addSubview(leftLabel)
+        leftLabel.snp.makeConstraints { (make) in
+            make.left.equalToSuperview()
+            make.width.equalTo(leftTitleWidth)
+            make.height.equalTo(ConstantsHelp.labelHeight)
+        }
+        //判断index的情况
+        
+        leftLabel.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(ConstantsHelp.normalPadding)
+        }
+        
+        //右侧类型(tag 默认1000)
+        rightUI = self.getPickUIButton("")
+        contentView.addSubview(rightUI)
+        rightUI.tag = 1000
+        
+        rightUI.snp.makeConstraints { (make) in
+            make.left.equalTo(ConstantsHelp.littlePadding + leftTitleWidth)
+            make.right.equalTo(ConstantsHelp.rightMargin)
+            make.top.equalTo(leftLabel.snp.top)
+        }
+        let lineView = self.getLineView()
+        lineView.backgroundColor = .white
+        contentView.addSubview(lineView)
+        lineView.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(rightUI.snp.bottom).offset(ConstantsHelp.littlePadding)
+            make.bottom.equalToSuperview().offset(-1)
+        }
+        return contentView
+    }
+    /**
+    * 单独一行 左侧label 右侧UITextFeild
+    * 生成申请界面的view 具体样式参照OA办公->固定资产申请(粒度小的)
+    * @param contentTitles           展示内容 包括 'value','allowNull','type'
+    * @param leftTitleWidth          左侧宽度
+    * @param viewTag                 控件的Tag值
+    */
+    public class func getApplyWithUITextField(contentTitles:[String:String],leftTitleWidth:Int = ConstantsHelp.leftTitleWidth,viewTag:Int = 1000) -> UIView{
+        let contentView = UIView()
+        contentView.isUserInteractionEnabled = true
+        var leftLabel = UILabel()
+        var rightUI = UIView()
+        //添加具体申请项
+        if (contentTitles[ConstantsHelp.isAllowNull] != nil){
+            leftLabel = UILabel()
+            leftLabel.text = contentTitles["value"]! + NSLocalizedString("colon", comment: "")
+            leftLabel.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        }else{
+            //不为空
+            leftLabel = self.getNotNullLabel(title: contentTitles["value"]! + NSLocalizedString("colon", comment: ""))
+        }
+        leftLabel.textAlignment = .right
+        leftLabel.adjustsFontSizeToFitWidth = true
+        contentView.addSubview(leftLabel)
+        leftLabel.snp.makeConstraints { (make) in
+            make.left.equalToSuperview()
+            make.width.equalTo(leftTitleWidth)
+            make.height.equalTo(ConstantsHelp.labelHeight)
+        }
+        //判断index的情况
+        
+        leftLabel.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(ConstantsHelp.normalPadding)
+        }
+        
+        //右侧类型(tag 默认1000)
+        rightUI = self.getUITextFeild()
+        contentView.addSubview(rightUI)
+        rightUI.tag = 1000
+        
+        rightUI.snp.makeConstraints { (make) in
+            make.left.equalTo(ConstantsHelp.littlePadding + leftTitleWidth)
+            make.right.equalTo(ConstantsHelp.rightMargin)
+            make.top.equalTo(leftLabel.snp.top)
+        }
+        let lineView = self.self.getLineView()
+        lineView.backgroundColor = .white
+        contentView.addSubview(lineView)
+        lineView.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(rightUI.snp.bottom).offset(ConstantsHelp.littlePadding)
+            make.bottom.equalToSuperview().offset(-1)
+        }
+        return contentView
+    }
+    /**
+    * 单独一行 左侧label 右侧UITextView
+    * 生成申请界面的view 具体样式参照OA办公->固定资产申请(粒度小的)
+    * @param contentTitles           展示内容 包括 'value','allowNull','type'
+    * @param leftTitleWidth          左侧宽度
+    * @param viewTag                 控件的Tag值
+    */
+    public class func getApplyWithUITextView(contentTitles:[String:String],leftTitleWidth:Int = ConstantsHelp.leftTitleWidth,viewTag:Int = 1000) -> UIView{
+        let contentView = UIView()
+        contentView.isUserInteractionEnabled = true
+        var leftLabel = UILabel()
+        var rightUI = UIView()
+        //添加具体申请项
+        if (contentTitles[ConstantsHelp.isAllowNull] != nil){
+            leftLabel = UILabel()
+            leftLabel.text = contentTitles["value"]! + NSLocalizedString("colon", comment: "")
+            leftLabel.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        }else{
+            //不为空
+            leftLabel = self.getNotNullLabel(title: contentTitles["value"]! + NSLocalizedString("colon", comment: ""))
+        }
+        leftLabel.textAlignment = .right
+        leftLabel.adjustsFontSizeToFitWidth = true
+        contentView.addSubview(leftLabel)
+        leftLabel.snp.makeConstraints { (make) in
+            make.left.equalToSuperview()
+            make.width.equalTo(leftTitleWidth)
+            make.height.equalTo(ConstantsHelp.labelHeight)
+        }
+        //判断index的情况
+        
+        leftLabel.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(ConstantsHelp.normalPadding)
+        }
+        
+        //右侧类型(tag 默认1000)
+        rightUI = self.getBiggerEditUITextView()
+        contentView.addSubview(rightUI)
+        rightUI.tag = 1000
+        
+        rightUI.snp.makeConstraints { (make) in
+            make.left.equalTo(ConstantsHelp.littlePadding + leftTitleWidth)
+            make.right.equalTo(ConstantsHelp.rightMargin)
+            make.top.equalTo(leftLabel.snp.top)
+        }
+        let lineView = self.getLineView()
+        lineView.backgroundColor = .white
+        contentView.addSubview(lineView)
+        lineView.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(rightUI.snp.bottom).offset(ConstantsHelp.littlePadding)
+            make.bottom.equalToSuperview().offset(-1)
+        }
+        return contentView
+    }
+    /**
+    * 生成申请记录列表样式的view 具体样式参照OA办公->办理历史
+    * @param json                    数据源
+    * @param imageSquarIsHidden      方框是否隐藏
+    * @param imageSquareColor        方框颜色
+    * @param headerTitle             标题头
+    * @param headerTitleIsHidden     标题是否隐藏
+    * @param contentTitles           展示内容
+    * @param isShowSeparatorUIView   是否展示分割线
+    * @param leftTitleWidth          左侧宽度
+    */
+    public class func getApplyNormalListView(json:JSON,imageSquarIsHidden:Bool = false,imageSquareColor:UIColor,headerTitle:String?,headerTitleIsHidden:Bool,contentTitles:[[String:String]],isShowSeparatorUIView:Bool = true,leftTitleWidth:Int = ConstantsHelp.leftTitleWidth) -> UIView{
+        
+        let contentView = UIView()
+        var leftLabel = UILabel()
+        var rightLabel = UILabel()
+        let headerL = UILabel()
+        let imageSquare = UIImageView()
+        let lineView = CommonViews.getLineView()
+        //添加方框
+        if !imageSquarIsHidden {
+            contentView.addSubview(imageSquare)
+            imageSquare.snp.makeConstraints { (make) in
+                make.top.equalToSuperview().offset(ConstantsHelp.topMargin)
+                make.left.equalToSuperview().offset(ConstantsHelp.leftMargin)
+                make.width.height.equalTo(20)
+            }
+            imageSquare.layer.cornerRadius = 3.0
+            imageSquare.layer.masksToBounds = true
+            imageSquare.backgroundColor = imageSquareColor
+        }
+        //添加标题
+        if (headerTitle != nil){
+            headerL.numberOfLines = 0
+            headerL.lineBreakMode = .byWordWrapping
+            headerL.textAlignment = .left
+            headerL.text = headerTitle!
+            contentView.addSubview(headerL)
+            headerL.snp.makeConstraints { (make) in
+                make.top.equalToSuperview().offset(ConstantsHelp.topMargin)
+                make.left.equalToSuperview().offset(ConstantsHelp.leftMargin * 3 + ConstantsHelp.littlePadding)
+                make.right.equalToSuperview().offset(ConstantsHelp.rightMargin)
+            }
+        }
+        //添加分割线
+        if isShowSeparatorUIView{
+            contentView.addSubview(lineView)
+            lineView.snp.makeConstraints { (make) in
+                make.left.equalToSuperview().offset(ConstantsHelp.leftMargin)
+                make.right.equalToSuperview().offset(ConstantsHelp.rightMargin)
+            }
+            if imageSquarIsHidden && headerTitle == nil{
+                lineView.snp.makeConstraints { (make) in
+                    make.top.equalToSuperview().offset(ConstantsHelp.littlePadding)
+                }
+            }else {
+                lineView.snp.makeConstraints { (make) in
+                    make.top.equalTo(headerTitle != nil ? headerL.snp.bottom : imageSquare.snp.bottom).offset(ConstantsHelp.normalPadding)
+                }
+            }
+        }
+        //添加具体展示项目
+        for (index,value) in contentTitles.enumerated() {
+            leftLabel = UILabel()
+            leftLabel.textAlignment = .right
+            leftLabel.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            leftLabel.text = value["value"]! + NSLocalizedString("colon", comment: "")
+            leftLabel.adjustsFontSizeToFitWidth = true
+            contentView.addSubview(leftLabel)
+            leftLabel.snp.makeConstraints { (make) in
+                make.left.equalToSuperview()
+                make.width.equalTo(leftTitleWidth)
+            }
+            //判断index的情况
+            if index == 0 {
+                leftLabel.snp.makeConstraints { (make) in
+                    make.top.equalTo(lineView.snp.bottom).offset(ConstantsHelp.littlePadding)
+                }
+            }else{
+                leftLabel.snp.makeConstraints { (make) in
+                    make.top.equalTo(rightLabel.snp.bottom).offset(ConstantsHelp.normalPadding)
+                }
+            }
+            rightLabel = UILabel()
+            rightLabel.textAlignment = .left
+            rightLabel.numberOfLines = 0
+            rightLabel.lineBreakMode = .byWordWrapping
+            contentView.addSubview(rightLabel)
+            //额外格式处理
+            if value[ConstantsHelp.dateType] != nil,value[ConstantsHelp.dateType]! != ""{
+                rightLabel.text = json[value["key"]!].stringValue.replacingOccurrences(of: "T", with: " ")
+                if value[ConstantsHelp.dateType] == ConstantsHelp.date{
+                    rightLabel.text = StringUtils.getPrefixNStr(currentStr: rightLabel.text!, length: 10)
+                }else if value[ConstantsHelp.dateType] == ConstantsHelp.hour{
+                    rightLabel.text = StringUtils.getIndexStr(currentStr:rightLabel.text!, start: 11, end:16 )
+                }else if value[ConstantsHelp.dateType] == ConstantsHelp.dateHour{
+                    rightLabel.text = StringUtils.getPrefixNStr(currentStr: rightLabel.text!, length: 16)
+                }else if value[ConstantsHelp.dateType] == ConstantsHelp.second{
+                    rightLabel.text = StringUtils.getSuffixNStr(currentStr: rightLabel.text!, length: 8)
+                }
+            }else{
+                var temp = json[value["key"]!].stringValue
+                if value["key"] == "username" , !temp.contains("["),json["usercode"].stringValue != ""{
+                    temp = temp + "[" + json["usercode"].stringValue + "]"
+                }
+                rightLabel.text = temp
+            }
+            
+            if value[ConstantsHelp.color] != nil,value[ConstantsHelp.color]! != ""{
+                rightLabel.textColor = UIColor.colorWithHexString(hex: value[ConstantsHelp.color]!)
+            }
+            
+            if value[ConstantsHelp.bit] != nil,value[ConstantsHelp.bit] != "",rightLabel.text! != ""{
+                rightLabel.text = VerifyHelp.decimalFormat(rightLabel.text!,value[ConstantsHelp.bit]!)
+            }
+            
+            if value[ConstantsHelp.unit] != nil,value[ConstantsHelp.unit]! != "",rightLabel.text! != ""{
+                if value[ConstantsHelp.unit]! == ConstantsHelp.money{
+                    rightLabel.text = VerifyHelp.moneyFormat(rightLabel.text!)
+                }else{
+                    rightLabel.text = rightLabel.text! + value[ConstantsHelp.unit]!
+                }
+            }
+            
+            if value[ConstantsHelp.type] != nil,value[ConstantsHelp.type] != "",rightLabel.text != nil,rightLabel.text! != ""{
+                if value[ConstantsHelp.type] == ConstantsHelp.dept{
+                     rightLabel.text = rightLabel.text!.trimmingCharacters(in: CharacterSet(charactersIn: "\\"))
+                }
+            }
+            
+            if value[ConstantsHelp.extendSpace] != nil,value[ConstantsHelp.extendSpace] != "",json[value[ConstantsHelp.extendSpace]!].stringValue != "",rightLabel.text! != ""{
+                rightLabel.text = rightLabel.text! + " " + json[value[ConstantsHelp.extendSpace]!].stringValue
+            }
+            
+            if value[ConstantsHelp.extendBracket] != nil,value[ConstantsHelp.extendBracket] != "",json[value[ConstantsHelp.extendBracket]!].stringValue != "",rightLabel.text! != ""{
+                rightLabel.text = rightLabel.text! + "[" + json[value[ConstantsHelp.extendBracket]!].stringValue + "]"
+            }
+
+            if value[ConstantsHelp.valuePlaceholder] != nil,value[ConstantsHelp.valuePlaceholder] != "",rightLabel.text! == ""{
+                rightLabel.text = value[ConstantsHelp.valuePlaceholder]
+            }
+            
+            if rightLabel.text == ""{
+                rightLabel.text = " "
+            }
+            rightLabel.snp.makeConstraints { (make) in
+                make.left.equalTo(ConstantsHelp.littlePadding + leftTitleWidth)
+                make.right.equalTo(ConstantsHelp.rightMargin*2)
+                make.top.equalTo(leftLabel.snp.top)
+            }
+        }
+        //view之间分割线
+        let separatorUIView = self.getSeparatorUIView()
+        contentView.addSubview(separatorUIView)
+        separatorUIView.snp.makeConstraints { (make) in
+            make.top.equalTo(rightLabel.snp.bottom).offset(ConstantsHelp.normalPadding)
+            make.left.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-1)
+        }
+        return contentView
+    }
 }

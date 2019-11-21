@@ -24,10 +24,14 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		B048A3142386137B0028948D /* ShowLocalNotiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048A3132386137B0028948D /* ShowLocalNotiViewController.swift */; };
+		B048A31723865D7D0028948D /* ShowMyViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048A31623865D7D0028948D /* ShowMyViewViewController.swift */; };
+		B048A319238660430028948D /* ShowMyViewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048A318238660430028948D /* ShowMyViewDetailViewController.swift */; };
 		B04F54F22384C80600DB39BD /* ShowDeviceInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F54F12384C80600DB39BD /* ShowDeviceInfoViewController.swift */; };
 		B04F54F62384E26000DB39BD /* MyScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F54F52384E26000DB39BD /* MyScrollViewController.swift */; };
 		B04F54F92385208F00DB39BD /* MytableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F54F82385208F00DB39BD /* MytableViewViewController.swift */; };
 		B04F54FC2385417000DB39BD /* MyAutoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F54FB2385417000DB39BD /* MyAutoTableViewController.swift */; };
+		B04F54FF238556A800DB39BD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B04F5501238556A800DB39BD /* Localizable.strings */; };
 		F59648A9CB7A6021213E36DD /* Pods_topsiOSPro_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0713674B85490B52D2335BE0 /* Pods_topsiOSPro_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,11 +73,16 @@
 		A1844D82FF62F9333A3502E6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A990A6ADF99DAAF3A0814CB4 /* Pods-topsiOSPro_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Example.debug.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Example/Pods-topsiOSPro_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A9EBBB1203891DA82F593E7D /* Pods-topsiOSPro_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Tests.debug.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Tests/Pods-topsiOSPro_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		B048A3132386137B0028948D /* ShowLocalNotiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowLocalNotiViewController.swift; sourceTree = "<group>"; };
+		B048A31623865D7D0028948D /* ShowMyViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMyViewViewController.swift; sourceTree = "<group>"; };
+		B048A318238660430028948D /* ShowMyViewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMyViewDetailViewController.swift; sourceTree = "<group>"; };
 		B04F54F12384C80600DB39BD /* ShowDeviceInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDeviceInfoViewController.swift; sourceTree = "<group>"; };
 		B04F54F52384E26000DB39BD /* MyScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScrollViewController.swift; sourceTree = "<group>"; };
 		B04F54F72385135F00DB39BD /* topsiOSPro-bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "topsiOSPro-bridge-Header.h"; sourceTree = "<group>"; };
 		B04F54F82385208F00DB39BD /* MytableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MytableViewViewController.swift; sourceTree = "<group>"; };
 		B04F54FB2385417000DB39BD /* MyAutoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAutoTableViewController.swift; sourceTree = "<group>"; };
+		B04F5500238556A800DB39BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B04F55022385570500DB39BD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		BAEAE84D20FA55631EA6E967 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		ECE62669330B8BB4C3B90D13 /* Pods-topsiOSPro_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Example.release.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Example/Pods-topsiOSPro_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,6 +200,8 @@
 		607FACD21AFB9204008FA782 /* Example for topsiOSPro */ = {
 			isa = PBXGroup;
 			children = (
+				B048A31523865D5D0028948D /* normalView */,
+				B048A312238613420028948D /* localNoti */,
 				B04F54F02384C6B800DB39BD /* deviceInfo */,
 				00B2A35422CDDC9700B8ECBB /* image */,
 				00B3849E22A65A5000C08AB5 /* keychain */,
@@ -207,6 +218,7 @@
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 				B04F54F72385135F00DB39BD /* topsiOSPro-bridge-Header.h */,
+				B04F5501238556A800DB39BD /* Localizable.strings */,
 			);
 			name = "Example for topsiOSPro";
 			path = topsiOSPro;
@@ -254,6 +266,23 @@
 				843121EB01BEBF1B36C77B16 /* Pods_topsiOSPro_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B048A312238613420028948D /* localNoti */ = {
+			isa = PBXGroup;
+			children = (
+				B048A3132386137B0028948D /* ShowLocalNotiViewController.swift */,
+			);
+			path = localNoti;
+			sourceTree = "<group>";
+		};
+		B048A31523865D5D0028948D /* normalView */ = {
+			isa = PBXGroup;
+			children = (
+				B048A31623865D7D0028948D /* ShowMyViewViewController.swift */,
+				B048A318238660430028948D /* ShowMyViewDetailViewController.swift */,
+			);
+			path = normalView;
 			sourceTree = "<group>";
 		};
 		B04F54F02384C6B800DB39BD /* deviceInfo */ = {
@@ -348,6 +377,7 @@
 				English,
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
@@ -366,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				B04F54FF238556A800DB39BD /* Localizable.strings in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -506,6 +537,7 @@
 				00B47F78229D07BC000A256E /* VerifyDataViewController.swift in Sources */,
 				00F2205522A1256100498DC0 /* MyMenuViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				B048A3142386137B0028948D /* ShowLocalNotiViewController.swift in Sources */,
 				00F2204E22A10D8300498DC0 /* RequestViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				00CEE24822A5023600A51BD3 /* DateHelpViewController.swift in Sources */,
@@ -513,6 +545,8 @@
 				00B384A022A65A6800C08AB5 /* KeyChainViewController.swift in Sources */,
 				00AC8B10229CC67D0050FBF8 /* StringViewController.swift in Sources */,
 				B04F54F22384C80600DB39BD /* ShowDeviceInfoViewController.swift in Sources */,
+				B048A31723865D7D0028948D /* ShowMyViewViewController.swift in Sources */,
+				B048A319238660430028948D /* ShowMyViewDetailViewController.swift in Sources */,
 				00B2A35622CDDCB000B8ECBB /* ShowLocalImageViewController.swift in Sources */,
 				B04F54F92385208F00DB39BD /* MytableViewViewController.swift in Sources */,
 				B04F54F62384E26000DB39BD /* MyScrollViewController.swift in Sources */,
@@ -554,6 +588,15 @@
 				607FACDF1AFB9204008FA782 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		B04F5501238556A800DB39BD /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B04F5500238556A800DB39BD /* en */,
+				B04F55022385570500DB39BD /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

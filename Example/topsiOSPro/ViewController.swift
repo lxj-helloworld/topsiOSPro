@@ -36,7 +36,9 @@ class ViewController: BaseMenuUICollectionViewViewController {
                          ["title": "本地图片预览", "image": "AppIcon"],
                          ["title": "在线图片预览", "image": "AppIcon"],
                          ["title": "设备信息", "image": "AppIcon"],
-                         ["title": "基础视图VC", "image": "AppIcon"]
+                         ["title": "基础控制器", "image": "AppIcon"],
+                         ["title": "本地推送", "image": "AppIcon"],
+                         ["title": "基本视图", "image": "AppIcon"]
         ]
         super.viewDidLoad()
         title = "Topscomm"
@@ -66,6 +68,10 @@ class ViewController: BaseMenuUICollectionViewViewController {
             showNoti()
         case 10:
             showMyList()
+        case 11:
+            showLocalNoti()
+        case 12:
+            showNormalView()
         default:
             print("no way to go")
         }
@@ -168,7 +174,19 @@ class ViewController: BaseMenuUICollectionViewViewController {
     //基础视图
     func showMyList(){
         let viewController = MyListMenuViewController()
-        viewController.title = "基础视图"
+        viewController.title = "基础控制器"
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    //本地推送
+    func showLocalNoti(){
+        let viewController = ShowLocalNotiViewController()
+        viewController.title = "本地推送"
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    //基本视图
+    func showNormalView(){
+        let viewController = ShowMyViewViewController()
+        viewController.title = "基本视图"
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
