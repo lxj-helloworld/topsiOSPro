@@ -24,6 +24,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		B0437E832387BF0200465F81 /* MyWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0437E822387BF0200465F81 /* MyWebViewController.swift */; };
 		B048A3142386137B0028948D /* ShowLocalNotiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048A3132386137B0028948D /* ShowLocalNotiViewController.swift */; };
 		B048A31723865D7D0028948D /* ShowMyViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048A31623865D7D0028948D /* ShowMyViewViewController.swift */; };
 		B048A319238660430028948D /* ShowMyViewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048A318238660430028948D /* ShowMyViewDetailViewController.swift */; };
@@ -73,6 +74,7 @@
 		A1844D82FF62F9333A3502E6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A990A6ADF99DAAF3A0814CB4 /* Pods-topsiOSPro_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Example.debug.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Example/Pods-topsiOSPro_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A9EBBB1203891DA82F593E7D /* Pods-topsiOSPro_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Tests.debug.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Tests/Pods-topsiOSPro_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		B0437E822387BF0200465F81 /* MyWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWebViewController.swift; sourceTree = "<group>"; };
 		B048A3132386137B0028948D /* ShowLocalNotiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowLocalNotiViewController.swift; sourceTree = "<group>"; };
 		B048A31623865D7D0028948D /* ShowMyViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMyViewViewController.swift; sourceTree = "<group>"; };
 		B048A318238660430028948D /* ShowMyViewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMyViewDetailViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				B04F54F52384E26000DB39BD /* MyScrollViewController.swift */,
 				B04F54F82385208F00DB39BD /* MytableViewViewController.swift */,
 				B04F54FB2385417000DB39BD /* MyAutoTableViewController.swift */,
+				B0437E822387BF0200465F81 /* MyWebViewController.swift */,
 			);
 			path = menu;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 		607FACD21AFB9204008FA782 /* Example for topsiOSPro */ = {
 			isa = PBXGroup;
 			children = (
+				B0437E812387BE8000465F81 /* New Group */,
 				B048A31523865D5D0028948D /* normalView */,
 				B048A312238613420028948D /* localNoti */,
 				B04F54F02384C6B800DB39BD /* deviceInfo */,
@@ -266,6 +270,13 @@
 				843121EB01BEBF1B36C77B16 /* Pods_topsiOSPro_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B0437E812387BE8000465F81 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		B048A312238613420028948D /* localNoti */ = {
@@ -544,6 +555,7 @@
 				0027F42022CEF810005BC7E6 /* ShowNetImageViewController.swift in Sources */,
 				00B384A022A65A6800C08AB5 /* KeyChainViewController.swift in Sources */,
 				00AC8B10229CC67D0050FBF8 /* StringViewController.swift in Sources */,
+				B0437E832387BF0200465F81 /* MyWebViewController.swift in Sources */,
 				B04F54F22384C80600DB39BD /* ShowDeviceInfoViewController.swift in Sources */,
 				B048A31723865D7D0028948D /* ShowMyViewViewController.swift in Sources */,
 				B048A319238660430028948D /* ShowMyViewDetailViewController.swift in Sources */,
