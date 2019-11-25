@@ -112,6 +112,8 @@ open class ProgressWebViewController: BaseUIViewViewController {
         return UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     }()
     
+    open var orientation = UIInterfaceOrientation.portrait
+    
     deinit {
         webView?.removeObserver(self, forKeyPath: estimatedProgressKeyPath)
         if websiteTitleInNavigationBar {
@@ -504,9 +506,19 @@ extension ProgressWebViewController {
         
         return tryToOpenURLWithApp ? openURLWithApp(url) : false
     }
-    
+//MARK:-需要在Appdelegate的func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?)返回支持的方向
     @objc open func rotateDidClick(sender: AnyObject) {
         //转屏
+        switch self.orientation {
+        case .portrait:
+            UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
+            self.orientation = .landscapeRight
+        case .landscapeRight:
+            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+            self.orientation = .portrait
+        default:
+            break;
+        }
     }
     
     @objc func backDidClick(sender: AnyObject) {
@@ -703,3 +715,16 @@ extension ProgressWebViewController: WKNavigationDelegate {
 //        return disableZoom ? nil : scrollView.subviews[0]
 //    }
 //}
+
+//MARK:-子类重写父类关于旋转的方法
+extension ProgressWebViewController{
+    open override var shouldAutorotate: Bool{
+        return true
+    }
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return .all
+    }
+    open override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
+        return .portrait
+    }
+}

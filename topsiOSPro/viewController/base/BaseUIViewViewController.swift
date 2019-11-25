@@ -48,7 +48,15 @@ open class BaseUIViewViewController: UIViewController {
    public func logConfig() {
         QorumLogs.enabled = true //日志开关,默认为false
     }
-   
+    open override var shouldAutorotate: Bool{
+        return false
+    }
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return .portrait
+    }
+    open override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
+        return .portrait
+    }
 
 }
 
