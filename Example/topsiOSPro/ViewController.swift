@@ -38,7 +38,8 @@ class ViewController: BaseMenuUICollectionViewViewController {
                          ["title": "设备信息", "image": "AppIcon"],
                          ["title": "基础控制器", "image": "AppIcon"],
                          ["title": "本地推送", "image": "AppIcon"],
-                         ["title": "基本视图", "image": "AppIcon"]
+                         ["title": "基本视图", "image": "AppIcon"],
+                         ["title": "选择器", "image": "AppIcon"]
         ]
         super.viewDidLoad()
         title = "Topscomm"
@@ -72,6 +73,8 @@ class ViewController: BaseMenuUICollectionViewViewController {
             showLocalNoti()
         case 12:
             showNormalView()
+        case 13:
+            showPickerView()
         default:
             print("no way to go")
         }
@@ -186,6 +189,12 @@ class ViewController: BaseMenuUICollectionViewViewController {
     //基本视图
     func showNormalView(){
         let viewController = ShowMyViewViewController()
+        viewController.title = "基本视图"
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    //选择器
+    func showPickerView(){
+        let viewController = ShowPickerViewController()
         viewController.title = "基本视图"
         self.navigationController?.pushViewController(viewController, animated: true)
     }

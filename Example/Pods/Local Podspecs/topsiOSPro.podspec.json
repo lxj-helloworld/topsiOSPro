@@ -1,6 +1,6 @@
 {
   "name": "topsiOSPro",
-  "version": "0.1.7.8",
+  "version": "0.1.7.9",
   "summary": "A short description of topsiOSPro.",
   "description": "青岛鼎信通讯iOS开发平台下通用组件库 Copyright © 2019 topscomm.com. All rights reserved.",
   "homepage": "https://github.com/lxj-helloworld/topsiOSPro",
@@ -13,12 +13,17 @@
   },
   "source": {
     "git": "https://github.com/lxj-helloworld/topsiOSPro.git",
-    "tag": "0.1.7.8"
+    "tag": "0.1.7.9"
   },
   "platforms": {
     "ios": "8.0"
   },
   "source_files": "topsiOSPro/**/*",
+  "resource_bundles": {
+    "topsiOSPro": [
+      "topsiOSPro/Assets/*.png"
+    ]
+  },
   "dependencies": {
     "Alamofire": [
       "~> 4.7"

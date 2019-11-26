@@ -28,6 +28,10 @@
 		B048A3142386137B0028948D /* ShowLocalNotiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048A3132386137B0028948D /* ShowLocalNotiViewController.swift */; };
 		B048A31723865D7D0028948D /* ShowMyViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048A31623865D7D0028948D /* ShowMyViewViewController.swift */; };
 		B048A319238660430028948D /* ShowMyViewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048A318238660430028948D /* ShowMyViewDetailViewController.swift */; };
+		B04ECC1B238CF5DB0068957D /* ShowPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04ECC1A238CF5DB0068957D /* ShowPickerViewController.swift */; };
+		B04ECC1D238CF6580068957D /* City.plist in Resources */ = {isa = PBXBuildFile; fileRef = B04ECC1C238CF6580068957D /* City.plist */; };
+		B04ECC1F238CF65D0068957D /* Area.plist in Resources */ = {isa = PBXBuildFile; fileRef = B04ECC1E238CF65D0068957D /* Area.plist */; };
+		B04ECC21238CF6630068957D /* Province.plist in Resources */ = {isa = PBXBuildFile; fileRef = B04ECC20238CF6630068957D /* Province.plist */; };
 		B04F54F22384C80600DB39BD /* ShowDeviceInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F54F12384C80600DB39BD /* ShowDeviceInfoViewController.swift */; };
 		B04F54F62384E26000DB39BD /* MyScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F54F52384E26000DB39BD /* MyScrollViewController.swift */; };
 		B04F54F92385208F00DB39BD /* MytableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F54F82385208F00DB39BD /* MytableViewViewController.swift */; };
@@ -78,6 +82,10 @@
 		B048A3132386137B0028948D /* ShowLocalNotiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowLocalNotiViewController.swift; sourceTree = "<group>"; };
 		B048A31623865D7D0028948D /* ShowMyViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMyViewViewController.swift; sourceTree = "<group>"; };
 		B048A318238660430028948D /* ShowMyViewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMyViewDetailViewController.swift; sourceTree = "<group>"; };
+		B04ECC1A238CF5DB0068957D /* ShowPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPickerViewController.swift; sourceTree = "<group>"; };
+		B04ECC1C238CF6580068957D /* City.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = City.plist; sourceTree = "<group>"; };
+		B04ECC1E238CF65D0068957D /* Area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Area.plist; sourceTree = "<group>"; };
+		B04ECC20238CF6630068957D /* Province.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Province.plist; sourceTree = "<group>"; };
 		B04F54F12384C80600DB39BD /* ShowDeviceInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDeviceInfoViewController.swift; sourceTree = "<group>"; };
 		B04F54F52384E26000DB39BD /* MyScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScrollViewController.swift; sourceTree = "<group>"; };
 		B04F54F72385135F00DB39BD /* topsiOSPro-bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "topsiOSPro-bridge-Header.h"; sourceTree = "<group>"; };
@@ -203,7 +211,7 @@
 		607FACD21AFB9204008FA782 /* Example for topsiOSPro */ = {
 			isa = PBXGroup;
 			children = (
-				B0437E812387BE8000465F81 /* New Group */,
+				B0437E812387BE8000465F81 /* pickerView */,
 				B048A31523865D5D0028948D /* normalView */,
 				B048A312238613420028948D /* localNoti */,
 				B04F54F02384C6B800DB39BD /* deviceInfo */,
@@ -272,11 +280,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B0437E812387BE8000465F81 /* New Group */ = {
+		B0437E812387BE8000465F81 /* pickerView */ = {
 			isa = PBXGroup;
 			children = (
+				B04ECC20238CF6630068957D /* Province.plist */,
+				B04ECC1E238CF65D0068957D /* Area.plist */,
+				B04ECC1C238CF6580068957D /* City.plist */,
+				B04ECC1A238CF5DB0068957D /* ShowPickerViewController.swift */,
 			);
-			path = "New Group";
+			path = pickerView;
 			sourceTree = "<group>";
 		};
 		B048A312238613420028948D /* localNoti */ = {
@@ -407,7 +419,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				B04ECC1D238CF6580068957D /* City.plist in Resources */,
+				B04ECC21238CF6630068957D /* Province.plist in Resources */,
 				B04F54FF238556A800DB39BD /* Localizable.strings in Resources */,
+				B04ECC1F238CF65D0068957D /* Area.plist in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -563,6 +578,7 @@
 				B04F54F92385208F00DB39BD /* MytableViewViewController.swift in Sources */,
 				B04F54F62384E26000DB39BD /* MyScrollViewController.swift in Sources */,
 				00B47F75229D07B3000A256E /* VerifyDataViewController.swift in Sources */,
+				B04ECC1B238CF5DB0068957D /* ShowPickerViewController.swift in Sources */,
 				00CEE21C22A4C2CF00A51BD3 /* MyListMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

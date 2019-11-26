@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'topsiOSPro'
-  s.version          = '0.1.7.9'
+  s.version          = '0.1.8.0'
   s.summary          = 'A short description of topsiOSPro.'
 
 # This description is used to generate tags and improve search results.
@@ -32,10 +32,9 @@ Pod::Spec.new do |s|
 #  s.source_files = 'topsiOSPro/viewController/**/*'
 #  s.source_files = 'topsiOSPro/utils/**/*'
   s.source_files = 'topsiOSPro/**/*'
-  
-  # s.resource_bundles = {
-  #   'topsiOSPro' => ['topsiOSPro/Assets/*.png']
-  # }
+  s.resource_bundles = {
+     'topsiOSPro' => ['topsiOSPro/Assets/*.png']
+   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
