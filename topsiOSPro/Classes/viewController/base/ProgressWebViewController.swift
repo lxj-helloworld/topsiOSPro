@@ -89,8 +89,10 @@ open class ProgressWebViewController: BaseUIViewViewController {
     }()
     //MARK:---自己替换图片
     lazy  var rotateBarButtonItem: UIBarButtonItem = {
-        let bundle = Bundle(for: ProgressWebViewController.self)
-        return UIBarButtonItem(image: UIImage(named: "screen", in: bundle, compatibleWith: nil), style: .plain, target: self, action: #selector(rotateDidClick(sender:)))
+        let path = Bundle(for: ProgressWebViewController.self).resourcePath! + "/topsiOSPro.bundle"
+        let bundle = Bundle(path: path)!
+        let image =  UIImage(named: "screen", in: bundle, compatibleWith: nil)!
+        return UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(rotateDidClick(sender:)))
     }()
     
     lazy  var reloadBarButtonItem: UIBarButtonItem = {
