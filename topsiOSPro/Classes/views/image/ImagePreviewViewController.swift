@@ -27,6 +27,8 @@ public class ImagePreviewViewController: UIViewController {
     
     public var ImageCountLabel:UILabel!
     
+    open var orientation = UIInterfaceOrientation.portrait
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         //背景色设置为黑色
@@ -91,7 +93,14 @@ public class ImagePreviewViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(),for:UIBarMetrics.default)
         let uiBarButtonItem = UIBarButtonItem(title: "删除", style: .done, target: self, action: #selector(deleteThisImage(_:)))
-        self.navigationItem.setRightBarButton(uiBarButtonItem, animated: true)
+        
+        let path = Bundle(for: ProgressWebViewController.self).resourcePath! + "/topsiOSPro.bundle"
+        let bundle = Bundle(path: path)!
+        let image =  UIImage(named: "screen", in: bundle, compatibleWith: nil)!
+        let rorateButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(rotateDidClick(_:)))
+        ///
+        self.navigationItem.rightBarButtonItems = [rorateButtonItem,uiBarButtonItem]
+//        self.navigationItem.setRightBarButton(uiBarButtonItem, animated: true)
 
         //隐藏导航栏
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -142,6 +151,19 @@ public class ImagePreviewViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
+    @objc public func rotateDidClick(_ sender:UIButton){
+        //转屏
+        switch self.orientation {
+        case .portrait:
+            UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
+            self.orientation = .landscapeRight
+        case .landscapeRight:
+            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+            self.orientation = .portrait
+        default:
+            break;
+        }
+    }
 }
 
 
@@ -181,5 +203,17 @@ extension ImagePreviewViewController:UICollectionViewDelegate, UICollectionViewD
         self.imageUIPageController.currentPage = collectionView.indexPath(for: visibleCell)!.item
         currentIndex = self.imageUIPageController.currentPage
         self.ImageCountLabel.text = "\(currentIndex + 1)/\(imagesArr.count)"
+    }
+}
+//MARK:-子类重写父类关于旋转的方法
+extension ImagePreviewViewController{
+    open override var shouldAutorotate: Bool{
+        return true
+    }
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return .all
+    }
+    open override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
+        return .portrait
     }
 }

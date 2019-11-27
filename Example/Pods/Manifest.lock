@@ -69,7 +69,7 @@ PODS:
   - SnapKit (4.0.1)
   - SwiftDate (5.1.0)
   - SwiftyJSON (4.0.0)
-  - topsiOSPro (0.1.8.1):
+  - topsiOSPro (0.1.8.2):
     - Alamofire (~> 4.7)
     - AlamofireImage
     - DeviceKit
@@ -134,7 +134,7 @@ SPEC CHECKSUMS:
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftDate: 6329e58969a2de31cea7f1ee1143b247693196e7
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
-  topsiOSPro: 03b46bd7d9520e9e54bef45ce05f60e845a396b6
+  topsiOSPro: eb536ae5d2783a27dbbb3569c2961a0276abacea
 
 PODFILE CHECKSUM: 52c78605c762ccac7e90552fa391da2f1ba80826
 
