@@ -106,7 +106,7 @@ class ShowPickerViewController: BaseUIViewViewController {
         case 105:
             // style里面可以更改的和系统的DatePicker属性是一一对应的
             var dateStyle = DatePickerSetting()
-            dateStyle.dateMode = .time
+            dateStyle.dateMode = .dateAndTime
             
             PickerViewManager.showDatePicker("时间选择", datePickerSetting: dateStyle) { (selectedDate) in
                 let formatter = DateFormatter()

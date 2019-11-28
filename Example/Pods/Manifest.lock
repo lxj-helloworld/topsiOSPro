@@ -60,6 +60,7 @@ PODS:
     - ImageSlideshow/Core
   - ImageSlideshow/Core (1.8.1)
   - IQKeyboardManagerSwift (6.3.0)
+  - JXSegmentedView (1.0.2)
   - MJRefresh (3.2.2)
   - QorumLogs (0.9)
   - SDWebImage/Core (4.4.6)
@@ -69,7 +70,7 @@ PODS:
   - SnapKit (4.0.1)
   - SwiftDate (5.1.0)
   - SwiftyJSON (4.0.0)
-  - topsiOSPro (0.1.8.2):
+  - topsiOSPro (0.1.8.3):
     - Alamofire (~> 4.7)
     - AlamofireImage
     - DeviceKit
@@ -79,6 +80,7 @@ PODS:
     - Hero
     - ImageSlideshow/Alamofire
     - IQKeyboardManagerSwift
+    - JXSegmentedView
     - MJRefresh
     - QorumLogs
     - SnapKit (~> 4.0.0)
@@ -108,6 +110,7 @@ SPEC REPOS:
   trunk:
     - DeviceKit
     - ImageSlideshow
+    - JXSegmentedView
     - MJRefresh
     - SwiftDate
 
@@ -128,13 +131,14 @@ SPEC CHECKSUMS:
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   ImageSlideshow: 634865d7d4e96f21e3830a31b51bde768cc94cea
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
+  JXSegmentedView: 2988fe07060a9b91b0112eabd6dee0df0cbca8b3
   MJRefresh: 72a46ecaa2a0feaf48fc5198dff95f25f8bb27c6
   QorumLogs: 9a484df6973a3697ac79fe2273140fde6b36dccc
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftDate: 6329e58969a2de31cea7f1ee1143b247693196e7
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
-  topsiOSPro: eb536ae5d2783a27dbbb3569c2961a0276abacea
+  topsiOSPro: cf1178e46bac25418d587e04d5cb50056318f682
 
 PODFILE CHECKSUM: 52c78605c762ccac7e90552fa391da2f1ba80826
 

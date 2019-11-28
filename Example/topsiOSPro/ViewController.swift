@@ -39,7 +39,8 @@ class ViewController: BaseMenuUICollectionViewViewController {
                          ["title": "基础控制器", "image": "AppIcon"],
                          ["title": "本地推送", "image": "AppIcon"],
                          ["title": "基本视图", "image": "AppIcon"],
-                         ["title": "选择器", "image": "AppIcon"]
+                         ["title": "选择器", "image": "AppIcon"],
+                         ["title": "滑动/点击切换", "image": "AppIcon"]
         ]
         super.viewDidLoad()
         title = "Topscomm"
@@ -75,6 +76,8 @@ class ViewController: BaseMenuUICollectionViewViewController {
             showNormalView()
         case 13:
             showPickerView()
+        case 14:
+            showSegmentView()
         default:
             print("no way to go")
         }
@@ -195,6 +198,12 @@ class ViewController: BaseMenuUICollectionViewViewController {
     //选择器
     func showPickerView(){
         let viewController = ShowPickerViewController()
+        viewController.title = "基本视图"
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    //切换/点击视图
+    func showSegmentView(){
+        let viewController = ShowSegmentViewController()
         viewController.title = "基本视图"
         self.navigationController?.pushViewController(viewController, animated: true)
     }
