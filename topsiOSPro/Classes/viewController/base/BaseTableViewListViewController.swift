@@ -20,7 +20,7 @@ open class BaseTableViewListViewController: BaseUIViewViewController{
     public let footer = MJRefreshAutoNormalFooter() //底部加载
     open var listDataMap:JSON = JSON()
     open var data :JSON = JSON()
-    open var url:String!
+    open var url:String?
     open var rows = ConstantsHelp.rows
     open var parameters:Parameters! =  [
         ConstantsHelp.pageTitle:1,
@@ -215,13 +215,13 @@ open class BaseTableViewListViewController: BaseUIViewViewController{
     @objc func refreshPage() {
         QL1("刷新")
         page = 1
-        loadDataMethod(url:url)
+        loadDataMethod(url:url ?? "")
     }
     
     @objc func loadMore() {
         showLoading(isSupportClick: true)
         page += 1
-        loadDataMethod(url:url)
+        loadDataMethod(url:url ?? "")
     }
     
     func loadDataMethod(url:String) {

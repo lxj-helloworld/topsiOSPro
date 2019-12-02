@@ -11,6 +11,7 @@ import SnapKit
 import Alamofire
 import SwiftyJSON
 import QorumLogs
+import JXSegmentedView
 
 open class BaseUIViewViewController: UIViewController {
 
@@ -385,5 +386,9 @@ extension BaseUIViewViewController{
     }
 
 }
-
-
+//
+//extension BaseUIViewViewController: JXSegmentedListContainerViewListDelegate {
+//   open func listView() -> UIView {
+//        return view
+//    }
+//}

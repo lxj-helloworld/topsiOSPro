@@ -440,7 +440,8 @@ public class CommonViews: NSObject{
     * @param contentTitles           展示内容 包括 'value','allowNull','type'
     * @param leftTitleWidth          左侧宽度
     */
-    public class func getApplyView(contentTitles:[[String:String]],leftTitleWidth:Int = ConstantsHelp.leftTitleWidth) -> UIView{
+    public class func getApplyView(contentTitles:[[String:String]],
+                                   leftTitleWidth:Int = ConstantsHelp.leftTitleWidth) -> UIView{
         let contentView = UIView()
         contentView.isUserInteractionEnabled = true
         var leftLabel = UILabel()
@@ -509,7 +510,9 @@ public class CommonViews: NSObject{
     * @param leftTitleWidth          左侧宽度
     * @param viewTag                 控件的Tag值
     */
-    public class func getApplyWithUIButton(contentTitles:[String:String],leftTitleWidth:Int = ConstantsHelp.leftTitleWidth,viewTag:Int = 1000) -> UIView{
+    public class func getApplyWithUIButton(contentTitles:[String:String],
+                                           leftTitleWidth:Int = ConstantsHelp.leftTitleWidth,
+                                           viewTag:Int = 1000) -> UIView{
         let contentView = UIView()
         contentView.isUserInteractionEnabled = true
         var leftLabel = UILabel()
@@ -564,7 +567,9 @@ public class CommonViews: NSObject{
     * @param leftTitleWidth          左侧宽度
     * @param viewTag                 控件的Tag值
     */
-    public class func getApplyWithUITextField(contentTitles:[String:String],leftTitleWidth:Int = ConstantsHelp.leftTitleWidth,viewTag:Int = 1000) -> UIView{
+    public class func getApplyWithUITextField(contentTitles:[String:String],
+                                              leftTitleWidth:Int = ConstantsHelp.leftTitleWidth,
+                                              viewTag:Int = 1000) -> UIView{
         let contentView = UIView()
         contentView.isUserInteractionEnabled = true
         var leftLabel = UILabel()
@@ -619,7 +624,9 @@ public class CommonViews: NSObject{
     * @param leftTitleWidth          左侧宽度
     * @param viewTag                 控件的Tag值
     */
-    public class func getApplyWithUITextView(contentTitles:[String:String],leftTitleWidth:Int = ConstantsHelp.leftTitleWidth,viewTag:Int = 1000) -> UIView{
+    public class func getApplyWithUITextView(contentTitles:[String:String],
+                                             leftTitleWidth:Int = ConstantsHelp.leftTitleWidth,
+                                             viewTag:Int = 1000) -> UIView{
         let contentView = UIView()
         contentView.isUserInteractionEnabled = true
         var leftLabel = UILabel()
@@ -672,13 +679,22 @@ public class CommonViews: NSObject{
     * @param json                    数据源
     * @param imageSquarIsHidden      方框是否隐藏
     * @param imageSquareColor        方框颜色
+    * @param imageName               方框图片资源
     * @param headerTitle             标题头
     * @param headerTitleIsHidden     标题是否隐藏
     * @param contentTitles           展示内容
     * @param isShowSeparatorUIView   是否展示分割线
     * @param leftTitleWidth          左侧宽度
     */
-    public class func getApplyNormalListView(json:JSON,imageSquarIsHidden:Bool = false,imageSquareColor:UIColor,headerTitle:String?,headerTitleIsHidden:Bool,contentTitles:[[String:String]],isShowSeparatorUIView:Bool = true,leftTitleWidth:Int = ConstantsHelp.leftTitleWidth) -> UIView{
+    public class func getApplyNormalListView(json:JSON,
+                                             imageSquarIsHidden:Bool = false,
+                                             imageSquareColor:UIColor? = nil,
+                                             imageName:String? = nil,
+                                             headerTitle:String?,
+                                             headerTitleIsHidden:Bool,
+                                             contentTitles:[[String:String]],
+                                             isShowSeparatorUIView:Bool = true,
+                                             leftTitleWidth:Int = ConstantsHelp.leftTitleWidth) -> UIView{
         
         let contentView = UIView()
         var leftLabel = UILabel()
@@ -694,9 +710,16 @@ public class CommonViews: NSObject{
                 make.left.equalToSuperview().offset(ConstantsHelp.leftMargin)
                 make.width.height.equalTo(20)
             }
-            imageSquare.layer.cornerRadius = 3.0
-            imageSquare.layer.masksToBounds = true
-            imageSquare.backgroundColor = imageSquareColor
+            if let imageSquareColor = imageSquareColor {
+                imageSquare.layer.cornerRadius = 3.0
+                imageSquare.layer.masksToBounds = true
+                imageSquare.backgroundColor = imageSquareColor
+            }
+            
+            if let imageName = imageName {
+                imageSquare.image = UIImage.init(named: imageName)
+            }
+
         }
         //添加标题
         if (headerTitle != nil){

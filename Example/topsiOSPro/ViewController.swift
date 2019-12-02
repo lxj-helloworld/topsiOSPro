@@ -203,7 +203,7 @@ class ViewController: BaseMenuUICollectionViewViewController {
     }
     //切换/点击视图
     func showSegmentView(){
-        let viewController = ShowSegmentViewController()
+        let viewController = ShowSegmentListViewController()
         viewController.title = "基本视图"
         self.navigationController?.pushViewController(viewController, animated: true)
     }
