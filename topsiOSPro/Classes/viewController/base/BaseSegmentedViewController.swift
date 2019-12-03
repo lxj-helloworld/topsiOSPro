@@ -81,6 +81,7 @@ open class BaseSegmentedViewController: BaseUIViewViewController {
             self.jxSegmentedBaseDataSource = dataSource
         case .titleAndImage:
             let dataSource = JXSegmentedTitleImageDataSource()
+            dataSource.titleSelectedColor = titleSelectedColor
             dataSource.isTitleColorGradientEnabled = true
             dataSource.titles = segmentTitles
             dataSource.titleImageType = .rightImage
@@ -94,12 +95,14 @@ open class BaseSegmentedViewController: BaseUIViewViewController {
             self.jxSegmentedBaseDataSource = dataSource
         case .dot:
             let dataSource = JXSegmentedDotDataSource()
+            dataSource.titleSelectedColor = titleSelectedColor
             dataSource.isTitleColorGradientEnabled = true
             dataSource.titles = segmentTitles
             dataSource.dotStates = dotStates
             self.jxSegmentedBaseDataSource = dataSource
         case .number:
             let dataSource = JXSegmentedNumberDataSource()
+            dataSource.titleSelectedColor = titleSelectedColor
             dataSource.isTitleColorGradientEnabled = true
             dataSource.titles = segmentTitles
             dataSource.numbers = numbers
@@ -115,15 +118,18 @@ open class BaseSegmentedViewController: BaseUIViewViewController {
         case .line:
             let indicator = JXSegmentedIndicatorLineView()
             indicator.indicatorWidth = indicatorWidth
+            indicator.indicatorColor = indicatorColor
             self.jxSegmentedIndicatorBaseView = indicator
         case .autoLine:
             let indicator = JXSegmentedIndicatorLineView()
             indicator.indicatorWidth = JXSegmentedViewAutomaticDimension
+            indicator.indicatorColor = indicatorColor
             self.jxSegmentedIndicatorBaseView = indicator
         case .lengthen:
             let indicator = JXSegmentedIndicatorLineView()
             indicator.indicatorWidth = JXSegmentedViewAutomaticDimension
             indicator.lineStyle = .lengthen
+            indicator.indicatorColor = indicatorColor
             self.jxSegmentedIndicatorBaseView = indicator
         }
         

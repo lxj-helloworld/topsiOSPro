@@ -845,9 +845,18 @@ public class CommonViews: NSObject{
         let separatorUIView = self.getSeparatorUIView()
         contentView.addSubview(separatorUIView)
         separatorUIView.snp.makeConstraints { (make) in
-            make.top.equalTo(rightLabel.snp.bottom).offset(ConstantsHelp.normalPadding)
             make.left.equalToSuperview()
             make.bottom.equalToSuperview().offset(-1)
+        }
+        //根据contentTitles是否存在值约束separatorUIView的top
+        if contentTitles.count == 0 {
+            separatorUIView.snp.makeConstraints { (make) in
+               make.top.equalTo(lineView.snp.bottom).offset(0)
+            }
+        }else{
+            separatorUIView.snp.makeConstraints { (make) in
+               make.top.equalTo(rightLabel.snp.bottom).offset(ConstantsHelp.normalPadding)
+            }
         }
         return contentView
     }

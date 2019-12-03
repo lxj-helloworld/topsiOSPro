@@ -36,23 +36,23 @@ class ShowSegmentViewController: BaseSegmentedViewController {
         case 0:
             self.dataSourceType = .title
             self.indicatorType = .lengthen
-            self.titleSelectedColor = .red
-            self.indicatorColor = .cyan
+            self.titleSelectedColor = .blue
+            self.indicatorColor = .blue
             self.segmentTitles = titles
             self.listContainViewControllerStringArr = array
         case 1:
             self.dataSourceType = .titleAndImage
             self.indicatorType = .lengthen
-            self.titleSelectedColor = .red
-            self.indicatorColor = .cyan
+            self.titleSelectedColor = .green
+            self.indicatorColor = .green
             self.segmentTitles = titles
             self.segmentImages = images
             self.listContainViewControllerStringArr = array
         case 2:
             self.dataSourceType = .dot
             self.indicatorType = .lengthen
-            self.titleSelectedColor = .red
-            self.indicatorColor = .cyan
+            self.titleSelectedColor = .purple
+            self.indicatorColor = .purple
             self.segmentTitles = titles
             self.dotStates = dotStatesArray
             self.listContainViewControllerStringArr = array
@@ -60,19 +60,13 @@ class ShowSegmentViewController: BaseSegmentedViewController {
             self.dataSourceType = .number
             self.indicatorType = .lengthen
             self.titleSelectedColor = .red
-            self.indicatorColor = .cyan
+            self.indicatorColor = .red
             self.segmentTitles = titles
             self.numbers = numbersArray
             self.listContainViewControllerStringArr = array
         default:
             break;
         }
-//        self.dataSourceType = .title
-//        self.indicatorType = .lengthen
-//        self.titleSelectedColor = .red
-//        self.indicatorColor = .cyan
-//        self.segmentTitles = titles
-//        self.listContainViewControllerStringArr = array
     }
 }
 

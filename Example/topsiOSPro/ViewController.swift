@@ -40,7 +40,8 @@ class ViewController: BaseMenuUICollectionViewViewController {
                          ["title": "本地推送", "image": "AppIcon"],
                          ["title": "基本视图", "image": "AppIcon"],
                          ["title": "选择器", "image": "AppIcon"],
-                         ["title": "滑动/点击切换", "image": "AppIcon"]
+                         ["title": "滑动/点击切换", "image": "AppIcon"],
+                         ["title": "搜索+列表", "image": "AppIcon"]
         ]
         super.viewDidLoad()
         title = "Topscomm"
@@ -78,6 +79,8 @@ class ViewController: BaseMenuUICollectionViewViewController {
             showPickerView()
         case 14:
             showSegmentView()
+        case 15:
+            showSearchAndTable()
         default:
             print("no way to go")
         }
@@ -206,6 +209,13 @@ class ViewController: BaseMenuUICollectionViewViewController {
         let viewController = ShowSegmentListViewController()
         viewController.title = "基本视图"
         self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    //搜索+列表
+    func showSearchAndTable() {
+        let viewController = ShowMySearchAndTableViewController()
+        viewController.title = "基本搜索列表"
+        self.navigationController?.pushViewController(viewController, animated: true)
+        
     }
 }
 
