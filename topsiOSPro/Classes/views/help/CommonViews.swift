@@ -860,4 +860,116 @@ public class CommonViews: NSObject{
         }
         return contentView
     }
+    
+    //MARK:-生成筛选框视图
+    /**
+    * 生成筛选框视图
+    * @param headerTitle             标题头
+    * @param contentTitles           展示内容
+    * @param leftTitleWidth          左侧宽度
+    */
+    public class func getFilterView(headerTitle:String,
+                                    contentTitles:[[String:String]],
+                                    leftTitleWidth:Int = ConstantsHelp.leftTitleWidth,
+                                    cancleButtonTitle:String = "取消",
+                                    sureButtonTitle:String = "确定") -> UIView {
+        let contentView = UIView()
+        contentView.backgroundColor = .white
+        let headerL = UILabel()
+        let lineView = CommonViews.getLineView()
+        var leftLabel = UILabel()
+        var rightLabel = UIView()
+        //添加标题
+        headerL.numberOfLines = 0
+        headerL.lineBreakMode = .byWordWrapping
+        headerL.textAlignment = .center
+        headerL.font = UIFont.systemFont(ofSize: 20)
+        headerL.text = headerTitle
+        contentView.addSubview(headerL)
+        headerL.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(ConstantsHelp.topMargin)
+            make.left.equalToSuperview().offset(ConstantsHelp.leftMargin * 3 + ConstantsHelp.littlePadding)
+            make.right.equalToSuperview().offset(ConstantsHelp.rightMargin)
+        }
+        //添加分割线
+        contentView.addSubview(lineView)
+        lineView.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(ConstantsHelp.leftMargin)
+            make.right.equalToSuperview().offset(ConstantsHelp.rightMargin)
+            make.top.equalTo(headerL.snp.bottom).offset(ConstantsHelp.normalPadding)
+        }
+        //添加具体展示项目
+        for (index,value) in contentTitles.enumerated() {
+            leftLabel = UILabel()
+            leftLabel.textAlignment = .right
+            leftLabel.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            leftLabel.text = value["value"]! + NSLocalizedString("colon", comment: "")
+            leftLabel.adjustsFontSizeToFitWidth = true
+            contentView.addSubview(leftLabel)
+            leftLabel.snp.makeConstraints { (make) in
+                make.left.equalToSuperview()
+                make.width.equalTo(leftTitleWidth)
+            }
+            //判断index的情况
+            if index == 0 {
+                leftLabel.snp.makeConstraints { (make) in
+                    make.top.equalTo(lineView.snp.bottom).offset(ConstantsHelp.littlePadding)
+                }
+            }else{
+                leftLabel.snp.makeConstraints { (make) in
+                    make.top.equalTo(rightLabel.snp.bottom).offset(ConstantsHelp.normalPadding)
+                }
+            }
+            switch value["key"] {
+            case ConstantsHelp.UIViewType.uibutton.rawValue:
+                rightLabel = CommonViews.getPickUIButton("请选择\(value["value"]!)")
+            case ConstantsHelp.UIViewType.uitextField.rawValue:
+                rightLabel = CommonViews.getUITextFeild()
+                (rightLabel as! UITextField).placeholder = "请输入\(value["value"]!)"
+            default:
+                break;
+            }
+            contentView.addSubview(rightLabel)
+            rightLabel.tag = 1000+index
+            rightLabel.snp.makeConstraints { (make) in
+                make.left.equalTo(ConstantsHelp.littlePadding + leftTitleWidth)
+                make.right.equalTo(ConstantsHelp.rightMargin*2)
+                make.top.equalTo(leftLabel.snp.top)
+            }
+        }
+        
+        let lineView1 = CommonViews.getLineView()
+        contentView.addSubview(lineView1)
+        lineView1.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(rightLabel.snp.bottom).offset(ConstantsHelp.normalPadding)
+        }
+        
+        let sureUIButton = CommonViews.getSubmitUIButton(sureButtonTitle)
+        sureUIButton.tag = 100100
+        contentView.addSubview(sureUIButton)
+        sureUIButton.snp.remakeConstraints { (make) in
+            make.top.equalTo(lineView1.snp.bottom).offset(15)
+            make.right.equalToSuperview().offset(ConstantsHelp.rightMargin * 2)
+            make.width.equalToSuperview().multipliedBy(0.3)
+        }
+        
+        let cancelUIButton = CommonViews.getSubmitUIButton(cancleButtonTitle)
+        cancelUIButton.tag = 101101
+        cancelUIButton.setTitleColor(.black, for: .normal)
+        cancelUIButton.layer.backgroundColor =  CGColor.CGColorFromRGB(rgbValue: 0xffffff)
+        cancelUIButton.layer.borderColor = CGColor.CGColorFromRGB(rgbValue: 0x737373)
+        contentView.addSubview(cancelUIButton)
+        cancelUIButton.snp.remakeConstraints { (make) in
+            make.top.equalTo(lineView1.snp.bottom).offset(15)
+            make.left.equalToSuperview().offset(ConstantsHelp.normalPadding * 2)
+            make.width.equalToSuperview().multipliedBy(0.3)
+        }
+        
+        contentView.snp.makeConstraints { (make) in
+            make.bottom.equalTo(cancelUIButton.snp.bottom).offset(ConstantsHelp.normalPadding)
+        }
+        contentView.layer.cornerRadius = 8.0
+        return contentView
+    }
 }

@@ -29,6 +29,8 @@
 		B048A3142386137B0028948D /* ShowLocalNotiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048A3132386137B0028948D /* ShowLocalNotiViewController.swift */; };
 		B048A31723865D7D0028948D /* ShowMyViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048A31623865D7D0028948D /* ShowMyViewViewController.swift */; };
 		B048A319238660430028948D /* ShowMyViewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048A318238660430028948D /* ShowMyViewDetailViewController.swift */; };
+		B049D9D9239A577D00E8F4AA /* ShowAVPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049D9D8239A577D00E8F4AA /* ShowAVPlayerViewController.swift */; };
+		B04B9490239B57BD00D9F630 /* ShowFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B948F239B57BC00D9F630 /* ShowFilterViewController.swift */; };
 		B04ECC1B238CF5DB0068957D /* ShowPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04ECC1A238CF5DB0068957D /* ShowPickerViewController.swift */; };
 		B04ECC1D238CF6580068957D /* City.plist in Resources */ = {isa = PBXBuildFile; fileRef = B04ECC1C238CF6580068957D /* City.plist */; };
 		B04ECC1F238CF65D0068957D /* Area.plist in Resources */ = {isa = PBXBuildFile; fileRef = B04ECC1E238CF65D0068957D /* Area.plist */; };
@@ -86,6 +88,8 @@
 		B048A3132386137B0028948D /* ShowLocalNotiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowLocalNotiViewController.swift; sourceTree = "<group>"; };
 		B048A31623865D7D0028948D /* ShowMyViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMyViewViewController.swift; sourceTree = "<group>"; };
 		B048A318238660430028948D /* ShowMyViewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMyViewDetailViewController.swift; sourceTree = "<group>"; };
+		B049D9D8239A577D00E8F4AA /* ShowAVPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAVPlayerViewController.swift; sourceTree = "<group>"; };
+		B04B948F239B57BC00D9F630 /* ShowFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFilterViewController.swift; sourceTree = "<group>"; };
 		B04ECC1A238CF5DB0068957D /* ShowPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPickerViewController.swift; sourceTree = "<group>"; };
 		B04ECC1C238CF6580068957D /* City.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = City.plist; sourceTree = "<group>"; };
 		B04ECC1E238CF65D0068957D /* Area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Area.plist; sourceTree = "<group>"; };
@@ -217,6 +221,8 @@
 		607FACD21AFB9204008FA782 /* Example for topsiOSPro */ = {
 			isa = PBXGroup;
 			children = (
+				B04B948E239B577900D9F630 /* ShowFilterView */,
+				B049D9D7239A574700E8F4AA /* AVPlayer */,
 				B04200742392515400925AC9 /* search+tableview */,
 				B056A431238FBA6A000B4F8B /* segmentView */,
 				B0437E812387BE8000465F81 /* pickerView */,
@@ -322,6 +328,22 @@
 				B048A318238660430028948D /* ShowMyViewDetailViewController.swift */,
 			);
 			path = normalView;
+			sourceTree = "<group>";
+		};
+		B049D9D7239A574700E8F4AA /* AVPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				B049D9D8239A577D00E8F4AA /* ShowAVPlayerViewController.swift */,
+			);
+			path = AVPlayer;
+			sourceTree = "<group>";
+		};
+		B04B948E239B577900D9F630 /* ShowFilterView */ = {
+			isa = PBXGroup;
+			children = (
+				B04B948F239B57BC00D9F630 /* ShowFilterViewController.swift */,
+			);
+			path = ShowFilterView;
 			sourceTree = "<group>";
 		};
 		B04F54F02384C6B800DB39BD /* deviceInfo */ = {
@@ -599,6 +621,7 @@
 				0027F42022CEF810005BC7E6 /* ShowNetImageViewController.swift in Sources */,
 				00B384A022A65A6800C08AB5 /* KeyChainViewController.swift in Sources */,
 				00AC8B10229CC67D0050FBF8 /* StringViewController.swift in Sources */,
+				B04B9490239B57BD00D9F630 /* ShowFilterViewController.swift in Sources */,
 				B0437E832387BF0200465F81 /* MyWebViewController.swift in Sources */,
 				B04F54F22384C80600DB39BD /* ShowDeviceInfoViewController.swift in Sources */,
 				B048A31723865D7D0028948D /* ShowMyViewViewController.swift in Sources */,
@@ -606,6 +629,7 @@
 				00B2A35622CDDCB000B8ECBB /* ShowLocalImageViewController.swift in Sources */,
 				B0294CAE2396444900E0F778 /* ShowMySearchAndTableViewController.swift in Sources */,
 				B04F54F92385208F00DB39BD /* MytableViewViewController.swift in Sources */,
+				B049D9D9239A577D00E8F4AA /* ShowAVPlayerViewController.swift in Sources */,
 				B04F54F62384E26000DB39BD /* MyScrollViewController.swift in Sources */,
 				00B47F75229D07B3000A256E /* VerifyDataViewController.swift in Sources */,
 				B04ECC1B238CF5DB0068957D /* ShowPickerViewController.swift in Sources */,

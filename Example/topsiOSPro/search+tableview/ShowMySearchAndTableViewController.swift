@@ -15,6 +15,7 @@ class ShowMySearchAndTableViewController: BaseSearchAndTableViewController {
         super.viewDidLoad()
         
         setupConfig()
+
     }
     func setupConfig() {
 
@@ -28,12 +29,13 @@ class ShowMySearchAndTableViewController: BaseSearchAndTableViewController {
             
             self.searchBarPlaceholder = "searchBarPlaceholder"
             //MARK:-填充的数据
-//            self.contentTitles = [
-//                ["key":"Mobile","value":"联系电话"],
-//                ["key":"ProductManagerName","value":"负责人吧"]
-//            ]
             self.contentTitles = [
+                ["key":"Mobile","value":"联系电话"],
+                ["key":"ProductManagerName","value":"负责人吧"]
             ]
+            //MARK:-只有标题头
+//            self.contentTitles = [
+//            ]
             self.headerTitleKey = "ProductName"
             self.imageName = "6"
             //MARK:-搜索时可能需要添加的参数
@@ -43,6 +45,8 @@ class ShowMySearchAndTableViewController: BaseSearchAndTableViewController {
             
             self.tableView.mj_header?.beginRefreshing()
         }
+        
     }
+    
 
 }
