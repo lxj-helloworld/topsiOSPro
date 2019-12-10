@@ -23,7 +23,8 @@ public enum ErrorCode{
     case networkUnavailable(String)
 }
 
-public typealias Success = (JSON) -> Void
+public typealias Success<T> = (T) -> Void
+
 public typealias Failure = (ErrorCode) -> Void
 
 public final class NetWorkTools {
@@ -36,7 +37,6 @@ public final class NetWorkTools {
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = 30
         let manger = Alamofire.SessionManager(configuration: config)
-//        manger.retrier = NetWorkRetrier()
         return manger
     }()
     
@@ -59,7 +59,7 @@ extension NetWorkTools {
                                          dataKey: DataKey = .all,
                                          headers: [String:String],
                                          isNeedRetrier: Bool = true,
-                                         success: @escaping Success,
+                                         success: @escaping Success<JSON>,
                                          failure: @escaping Failure) {
         
         if isNeedRetrier {
@@ -90,7 +90,7 @@ extension NetWorkTools {
     }
 
     /**
-     * 基本请求方法
+     * 基本上传方法
      * @param url             请求地址
      * @param keys            参数
      * @param parameters      整个数据
@@ -105,9 +105,9 @@ extension NetWorkTools {
                                          parameters: JSON,
                                          datasArr:[Data],
                                          datasInfoArr:[String],
-                                         isNeedRetrier: Bool = true,
+                                         isNeedRetrier: Bool,
                                          headers: [String:String],
-                                         success: @escaping Success,
+                                         success: @escaping Success<JSON>,
                                          failure: @escaping Failure){
         if isNeedRetrier {
             shared.sessionManger.retrier = NetWorkRetrier()
@@ -123,9 +123,8 @@ extension NetWorkTools {
                 let data = datasArr[index]
                 
                 let withName = !VerifyHelp.checkImageInfo(imageName: datasInfoArr[index]) ? "withName" + String(index) + data.getImageFormat()!: datasInfoArr[index]
-                let fileName = !VerifyHelp.checkImageInfo(imageName: datasInfoArr[index]) ? "fileName" + String(index) + ".png" : datasInfoArr[index]
-               
-                
+                let fileName = !VerifyHelp.checkImageInfo(imageName: datasInfoArr[index]) ? "fileName" + String(index) + data.getImageFormat()! : datasInfoArr[index]
+                               
                 multipartFormData.append(data, withName: withName, fileName: fileName, mimeType: "application/octet-stream")
             }
             if keys.count > 0{
@@ -136,7 +135,67 @@ extension NetWorkTools {
             }
             
         }, to: url, headers: headers) { (result) in
-            
+            switch result {
+            case .success(let upload, _, _):
+                upload.responseJSON { (response) in
+
+                    if let data = response.result.value as? [String : AnyObject] {
+                        let actionResult = JSON(data)[ConstantsHelp.actionReuslt]
+                        if  actionResult[ConstantsHelp.success].boolValue {
+                            success(actionResult)
+                        } else {
+                            let message = (actionResult[ConstantsHelp.message].stringValue)
+                            failure(.sysError(message))
+                        }
+                    }
+                    else {
+                       failure(.networkUnavailable("上传失败，请稍后重试"))
+                    }
+                    
+                }
+            case .failure:
+                 failure(.networkUnavailable("网络连接失败"))
+            }
+        }
+    }
+    /**
+     * 基本下载方法
+     * @param url             请求地址
+     * @param isNeedReConnect 需要重连 默认true 重连3次
+     * @param method          HTTPMethod
+     * @param params          Parameters
+     * @param headers         [String:String]
+     * @param success         成功回调
+     * @param failure         失败回调
+     */
+    public static func downloadFileWith(url: String,
+                                        isNeedRetrier: Bool = true,
+                                        method: HTTPMethod = .post,
+                                        params: Parameters,
+                                        headers: [String:String],
+                                        success: @escaping Success<String>,
+                                        failure: @escaping Failure) {
+        if isNeedRetrier {
+            shared.sessionManger.retrier = NetWorkRetrier()
+        } else {
+            shared.sessionManger.retrier = nil
+        }
+        let destination: DownloadRequest.DownloadFileDestination = { _, response in
+            let documentsURL = FileManager.default.urls(for: .documentDirectory,in: .userDomainMask)[0]
+            let fileURL = documentsURL.appendingPathComponent(response.suggestedFilename!)
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
+        shared.sessionManger.download(url, method: method, parameters: params, encoding: URLEncoding.default, headers: headers, to: destination).responseData { (response) in
+            switch response.result {
+            case .success:
+                if let path = response.destinationURL?.path{
+                      success(path)
+                }else {
+                    failure(.sysError("下载失败，请稍后重试"))
+                }
+            case .failure:
+                failure(.networkUnavailable("网络连接失败"))
+            }
         }
     }
 }

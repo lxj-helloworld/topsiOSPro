@@ -9,6 +9,7 @@
 import UIKit
 import topsiOSPro
 import IQKeyboardManagerSwift
+import Alamofire
 
 class ShowFilterViewController: BaseUIViewViewController,UIGestureRecognizerDelegate {
 
@@ -22,13 +23,25 @@ class ShowFilterViewController: BaseUIViewViewController,UIGestureRecognizerDele
         
         showFilterView()
         
-        self.requestDataWith(url: "www.xxxxx.com", param: [:], method: .post, dataKey: DataKey.all, headers: [:],isNeedRetrier: false, success: { (json) in
-            
-        }) { (errorCode) in
-            print(errorCode)
-        }
+
+//        let parameters:Parameters = ["loginname":"7886",
+//                                     "password":"123456ggg",
+//                                     "uuid":"105DA37F-B657-45DD-AAE4-5F91D79D0B4E",
+//                                     "ismobile":"1",
+//                                     "needToken":"1",
+//                                     "showLoading":"false"
+//            ] as [String : Any]
+//
+//        let url = "http://172.20.3.53:8919/toa/toa/toaMobileLogin_login.json";
+//
+//        self.requestDataWith(url: url, param: parameters, method: .post, dataKey: .dataMap, headers: [:], success: { (json) in
+//            print(json)
+//        }) { (errorCode) in
+//            print(errorCode)
+//        }
         
-        
+        ///
+
         
     }
     func showFilterView() {

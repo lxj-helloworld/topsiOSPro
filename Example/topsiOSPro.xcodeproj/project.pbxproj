@@ -25,6 +25,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		B0294CAE2396444900E0F778 /* ShowMySearchAndTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0294CAD2396444900E0F778 /* ShowMySearchAndTableViewController.swift */; };
+		B038051F239F7ECC00D525C2 /* ShowMyNetWorkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B038051E239F7ECC00D525C2 /* ShowMyNetWorkViewController.swift */; };
 		B0437E832387BF0200465F81 /* MyWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0437E822387BF0200465F81 /* MyWebViewController.swift */; };
 		B048A3142386137B0028948D /* ShowLocalNotiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048A3132386137B0028948D /* ShowLocalNotiViewController.swift */; };
 		B048A31723865D7D0028948D /* ShowMyViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048A31623865D7D0028948D /* ShowMyViewViewController.swift */; };
@@ -84,6 +85,7 @@
 		A990A6ADF99DAAF3A0814CB4 /* Pods-topsiOSPro_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Example.debug.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Example/Pods-topsiOSPro_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A9EBBB1203891DA82F593E7D /* Pods-topsiOSPro_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Tests.debug.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Tests/Pods-topsiOSPro_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B0294CAD2396444900E0F778 /* ShowMySearchAndTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMySearchAndTableViewController.swift; sourceTree = "<group>"; };
+		B038051E239F7ECC00D525C2 /* ShowMyNetWorkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMyNetWorkViewController.swift; sourceTree = "<group>"; };
 		B0437E822387BF0200465F81 /* MyWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWebViewController.swift; sourceTree = "<group>"; };
 		B048A3132386137B0028948D /* ShowLocalNotiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowLocalNotiViewController.swift; sourceTree = "<group>"; };
 		B048A31623865D7D0028948D /* ShowMyViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMyViewViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 		607FACD21AFB9204008FA782 /* Example for topsiOSPro */ = {
 			isa = PBXGroup;
 			children = (
+				B038051D239F7EA500D525C2 /* Network */,
 				B04B948E239B577900D9F630 /* ShowFilterView */,
 				B049D9D7239A574700E8F4AA /* AVPlayer */,
 				B04200742392515400925AC9 /* search+tableview */,
@@ -292,6 +295,14 @@
 				843121EB01BEBF1B36C77B16 /* Pods_topsiOSPro_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B038051D239F7EA500D525C2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B038051E239F7ECC00D525C2 /* ShowMyNetWorkViewController.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		B04200742392515400925AC9 /* search+tableview */ = {
@@ -625,6 +636,7 @@
 				00AC8B10229CC67D0050FBF8 /* StringViewController.swift in Sources */,
 				B04B9490239B57BD00D9F630 /* ShowFilterViewController.swift in Sources */,
 				B0437E832387BF0200465F81 /* MyWebViewController.swift in Sources */,
+				B038051F239F7ECC00D525C2 /* ShowMyNetWorkViewController.swift in Sources */,
 				B04F54F22384C80600DB39BD /* ShowDeviceInfoViewController.swift in Sources */,
 				B048A31723865D7D0028948D /* ShowMyViewViewController.swift in Sources */,
 				B048A319238660430028948D /* ShowMyViewDetailViewController.swift in Sources */,
