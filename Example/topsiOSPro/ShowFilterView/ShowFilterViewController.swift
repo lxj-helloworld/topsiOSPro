@@ -21,6 +21,15 @@ class ShowFilterViewController: BaseUIViewViewController,UIGestureRecognizerDele
         IQKeyboardManager.shared.enable = true
         
         showFilterView()
+        
+        self.requestDataWith(url: "www.xxxxx.com", param: [:], method: .post, dataKey: DataKey.all, headers: [:],isNeedRetrier: false, success: { (json) in
+            
+        }) { (errorCode) in
+            print(errorCode)
+        }
+        
+        
+        
     }
     func showFilterView() {
          filterView = CommonViews.getFilterView(headerTitle: "enenen", contentTitles: [["key":ConstantsHelp.UIViewType.uibutton.rawValue,"value":"uibutton"],                                                                                    ["key":ConstantsHelp.UIViewType.uitextField.rawValue,"value":"uitextField"],                                                                                        ["key":ConstantsHelp.UIViewType.uitextField.rawValue,"value":"uitextField"],

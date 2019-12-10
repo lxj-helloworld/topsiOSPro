@@ -5,6 +5,7 @@
 //  Created by 李桂盛 on 2019/11/20.
 //
 
+/*
 import SystemConfiguration
 import Foundation
 
@@ -293,5 +294,6 @@ extension SCNetworkReachabilityFlags {
         return intersection([.connectionRequired, .transientConnection]) == [.connectionRequired, .transientConnection]
     }
 }
+ */
 
 

@@ -12,6 +12,7 @@ import Alamofire
 import SwiftyJSON
 import QorumLogs
 import JXSegmentedView
+import Reachability
 
 open class BaseUIViewViewController: UIViewController {
 
@@ -21,6 +22,9 @@ open class BaseUIViewViewController: UIViewController {
     open var sord:String = ""
     
     open var baseView: UIView!
+    
+    private var networkTool: NetWorkTools = NetWorkTools.shared
+    private var reachability = try! Reachability()
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -406,9 +410,9 @@ extension BaseUIViewViewController{
     
     ///检测网络是否连接
    open func checkNetWrokReachability(_ url:String,error:Error,isShowErrorInfo:Bool = false){
-        let reachability = Reachability()
+        let reachability = try? Reachability()
         if reachability != nil{
-            if !(reachability?.isReachable)!{
+            if (reachability?.connection == Reachability.Connection.unavailable){
                 self.showAlert(message: "似乎已断开与互联网的连接")
             }else{
                 let resultError = error as NSError
@@ -421,3 +425,44 @@ extension BaseUIViewViewController{
 
 }
 
+extension BaseUIViewViewController {
+    //MARK:-基础请求
+    open func requestDataWith(url: String,
+                              param:Parameters,
+                              method: HTTPMethod,
+                              dataKey: DataKey,
+                              headers: [String:String],
+                              isSupportClick:Bool = true,
+                              isNeedRetrier: Bool = true,
+                              success: @escaping Success,
+                              failure: @escaping Failure) {
+        
+        showLoading(isSupportClick: isSupportClick)
+        
+        
+        NetWorkTools.getNormalRequestWith(url: url,
+                                          param: param,
+                                          method: method,
+                                          dataKey: dataKey,
+                                          headers: headers,
+                                          isNeedRetrier: isNeedRetrier,
+                                          success: { (json) in
+                                            self.hideHUD()
+                                            success(json)
+        }) { (errorCode) in
+            switch errorCode {
+                
+            case .sysError(let message):
+                self.hideHUD()
+                self.showAlert(message: message)
+            case .networkUnavailable(let errorCode):
+                ///重连
+                self.hideHUD()
+                self.showAlert(message: errorCode.description)
+
+            }
+        }
+        
+        
+    }
+}

@@ -63,6 +63,7 @@ PODS:
   - JXSegmentedView (1.0.2)
   - MJRefresh (3.2.2)
   - QorumLogs (0.9)
+  - ReachabilitySwift (5.0.0)
   - SDWebImage/Core (4.4.6)
   - SDWebImage/GIF (4.4.6):
     - FLAnimatedImage (~> 1.0)
@@ -70,7 +71,7 @@ PODS:
   - SnapKit (4.0.1)
   - SwiftDate (5.1.0)
   - SwiftyJSON (4.0.0)
-  - topsiOSPro (0.1.8.6):
+  - topsiOSPro (0.1.8.7):
     - Alamofire (~> 4.7)
     - AlamofireImage
     - DeviceKit
@@ -83,6 +84,7 @@ PODS:
     - JXSegmentedView
     - MJRefresh
     - QorumLogs
+    - ReachabilitySwift
     - SnapKit (~> 4.0.0)
     - SwiftDate (~> 5.1.0)
     - SwiftyJSON (~> 4.0)
@@ -112,6 +114,7 @@ SPEC REPOS:
     - ImageSlideshow
     - JXSegmentedView
     - MJRefresh
+    - ReachabilitySwift
     - SwiftDate
 
 EXTERNAL SOURCES:
@@ -134,11 +137,12 @@ SPEC CHECKSUMS:
   JXSegmentedView: 2988fe07060a9b91b0112eabd6dee0df0cbca8b3
   MJRefresh: 72a46ecaa2a0feaf48fc5198dff95f25f8bb27c6
   QorumLogs: 9a484df6973a3697ac79fe2273140fde6b36dccc
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftDate: 6329e58969a2de31cea7f1ee1143b247693196e7
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
-  topsiOSPro: 2523d351e9f54194366172e2700766ff77b48e11
+  topsiOSPro: 4c58a28b8562e42cb9aaa7dd97a47f0b0674a509
 
 PODFILE CHECKSUM: 52c78605c762ccac7e90552fa391da2f1ba80826
 

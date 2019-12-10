@@ -1,6 +1,6 @@
 {
   "name": "topsiOSPro",
-  "version": "0.1.8.6",
+  "version": "0.1.8.7",
   "summary": "A short description of topsiOSPro.",
   "description": "青岛鼎信通讯iOS开发平台下通用组件库 Copyright © 2019 topscomm.com. All rights reserved.",
   "homepage": "https://github.com/lxj-helloworld/topsiOSPro",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/lxj-helloworld/topsiOSPro.git",
-    "tag": "0.1.8.6"
+    "tag": "0.1.8.7"
   },
   "platforms": {
     "ios": "8.0"
@@ -68,6 +68,9 @@
       "~> 5.1.0"
     ],
     "JXSegmentedView": [
+
+    ],
+    "ReachabilitySwift": [
 
     ]
   }
