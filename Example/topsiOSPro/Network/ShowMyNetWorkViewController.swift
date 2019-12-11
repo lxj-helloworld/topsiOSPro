@@ -9,6 +9,7 @@
 import UIKit
 import topsiOSPro
 import SwiftyJSON
+import Alamofire
 
 class ShowMyNetWorkViewController: BaseUIViewViewController {
 
@@ -36,11 +37,25 @@ class ShowMyNetWorkViewController: BaseUIViewViewController {
     @objc func btnClick(_ sender:UIButton) {
         switch sender.tag {
         case 100: ///重连
-            self.requestDataWith(url: "www.xxxxx.com", param: [:], method: .post, dataKey: DataKey.all, headers: [:],isNeedRetrier: true, success: { (json) in
-                
+            let parameters:Parameters = ["loginname":"7886",
+                                         "password":"123456",
+                                         "uuid":"105DA37F-B657-45DD-AAE4-5F91D79D0B4E",
+                                         "ismobile":"1",
+                                         "needToken":"1",
+                                         "showLoading":"false"
+                ]
+            
+            let url = "http://172.20.3.53:8919/toa/toa/toaMobileLogin_login.json";
+            self.requestDataWith(url: url, param: parameters, method: .post, dataKey: .dataMap, headers: [:],isNeedRetrier: false ,success: { (json) in
+                    print(json)
             }) { (errorCode) in
                 print(errorCode)
             }
+//            self.requestDataWith(url: "https://api.apiopen.top/EmailSearch", param: ["number":1012002], method: .post, dataKey: DataKey.all, headers: [:],isNeedRetrier: false, success: { (json) in
+//
+//            }) { (errorCode) in
+//                print(errorCode)
+//            }
         case 101:
             let keys = ["excessreason", "invoicetype", "amount", "invoiceamount", "remark", "invoicedate"]
             let dic = ["amount" : "3",

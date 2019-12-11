@@ -423,7 +423,7 @@ extension BaseUIViewViewController {
     //MARK:-基础请求
     open func requestDataWith(url: String,
                               param:Parameters,
-                              method: HTTPMethod,
+                              method: HTTPMethod = .post,
                               dataKey: DataKey,
                               headers: [String:String],
                               isSupportClick:Bool = true,
@@ -524,8 +524,14 @@ extension BaseUIViewViewController {
 extension BaseUIViewViewController {
     open func dealWith(errorCode:ErrorCode) {
         switch errorCode {
-        case .networkUnavailable(let errorCode):
-            self.showAlert(message: errorCode.description)
+        case .invalidResponse(let message):
+            self.showAlert(message: message)
+        case .networkUnavailable(let errorMessage,let statusCode):
+            //MARK:-处理
+            if let errorMessage = errorMessage {
+                QL1(statusCode)
+                self.showAlert(message: errorMessage)
+            }
         case .sysError(let message):
             self.showAlert(message: message)
         }

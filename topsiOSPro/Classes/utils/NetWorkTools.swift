@@ -19,8 +19,12 @@ public enum DataKey: String {
 }
 //MARK:- 错误码
 public enum ErrorCode{
+    //200...299
+    case invalidResponse(String)
+    //actionResult中的 ’success‘为false
     case sysError(String)
-    case networkUnavailable(String)
+    //其他错误 如 ‘failure’ 返回HTTP状态码 以及 错误信息描述
+    case networkUnavailable(String?,Int?)
 }
 
 public typealias Success<T> = (T) -> Void
@@ -69,8 +73,13 @@ extension NetWorkTools {
         }
         
         shared.sessionManger.request(url, method: method, parameters: param, encoding: URLEncoding.default, headers: headers)
-            .validate()
+            .validate() //200...299
             .responseJSON { (response) in
+                //在200...299之外
+                if let error = response.error {
+                    failure(.invalidResponse(error.localizedDescription))
+                }
+                
                 switch response.result {
                 case .success:
                     if let data = response.data{
@@ -80,11 +89,13 @@ extension NetWorkTools {
                             success(json)
                         } else {
                             let message = (actionReuslt[ConstantsHelp.message].stringValue)
-                            failure(.sysError(message))                            
+                                failure(.sysError(message))
                         }
                     }
-                case .failure:
-                    failure(.networkUnavailable("网络连接失败"))
+                case .failure(let error):
+                    if let error = error as? AFError {
+                        failure(.networkUnavailable(error.localizedDescription, error._code))
+                    }
                 }
         }
     }
@@ -136,7 +147,7 @@ extension NetWorkTools {
             
         }, to: url, headers: headers) { (result) in
             switch result {
-            case .success(let upload, _, _):
+            case .success(let upload, _ , _):
                 upload.responseJSON { (response) in
 
                     if let data = response.result.value as? [String : AnyObject] {
@@ -149,12 +160,16 @@ extension NetWorkTools {
                         }
                     }
                     else {
-                       failure(.networkUnavailable("上传失败，请稍后重试"))
+                       if let error = response.error {
+                           failure(.invalidResponse(error.localizedDescription))
+                       }
                     }
                     
                 }
-            case .failure:
-                 failure(.networkUnavailable("网络连接失败"))
+            case .failure(let error):
+                if let error = error as? AFError {
+                    failure(.networkUnavailable(error.localizedDescription, error._code))
+                }
             }
         }
     }
@@ -193,8 +208,10 @@ extension NetWorkTools {
                 }else {
                     failure(.sysError("下载失败，请稍后重试"))
                 }
-            case .failure:
-                failure(.networkUnavailable("网络连接失败"))
+            case .failure(let error):
+                if let error = error as? AFError {
+                    failure(.networkUnavailable(error.localizedDescription, error._code))
+                }
             }
         }
     }
