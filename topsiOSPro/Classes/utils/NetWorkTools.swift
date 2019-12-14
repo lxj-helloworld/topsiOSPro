@@ -10,12 +10,26 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+//MARK: - headers 
+let networkStaticHeaderKey = "topscommToken"
+let Authorization = "Authorization"
+let token = "token"
+
 //MARK:- 获取需要数据节点名称
 public enum DataKey: String {
+    
     case all = "all"
     case dataMap = "dataMap"
     case dataList = "dataList"
     case listDataMap = "listDataMap"
+    case actionResult = "actionResult"
+    case none = "none"
+}
+//MARK:-网络请求类型
+public enum NetWorkType {
+    case normalRequest
+    case upload
+    case download
 }
 //MARK:- 错误码
 public enum ErrorCode{
@@ -25,6 +39,23 @@ public enum ErrorCode{
     case sysError(String)
     //其他错误 如 ‘failure’ 返回HTTP状态码 以及 错误信息描述
     case networkUnavailable(String?,Int?)
+    //重试
+    /** @param URLRequest  失败的request
+     * @param NetWorkType 请求类型
+     * @param DataKey     获取数据的参数
+     * @param String      错误信息
+     */
+    case needRetrier(URLRequest,NetWorkType,DataKey?,String)
+    /**
+     * 上传失败 回调参数
+     * @param String           请求地址
+     * @param [String]         参数
+     * @param JSON             整个数据
+     * @param [Data]           数据信息
+     * @param [String]         数据信息描述
+     * @param String?          错误信息
+     */
+    case uploadError(String,[String],JSON,[Data],[String],String?)
 }
 
 public typealias Success<T> = (T) -> Void
@@ -36,6 +67,7 @@ public final class NetWorkTools {
     private init() {}
     
     static let shared = NetWorkTools()
+    
     
     var sessionManger: SessionManager = {
         let config = URLSessionConfiguration.default
@@ -59,42 +91,51 @@ extension NetWorkTools {
      */
     public static func getNormalRequestWith(url: String,
                                          param: Parameters,
-                                         method: HTTPMethod,
+                                         networkType:NetWorkType,
+                                         method: HTTPMethod = .post,
                                          dataKey: DataKey = .all,
-                                         headers: [String:String],
-                                         isNeedRetrier: Bool = true,
                                          success: @escaping Success<JSON>,
                                          failure: @escaping Failure) {
         
-        if isNeedRetrier {
-            shared.sessionManger.retrier = NetWorkRetrier()
-        } else {
-            shared.sessionManger.retrier = nil
+        var headers: [String:String] {
+            if let headerValue = UserDefaults.standard.value(forKey: networkStaticHeaderKey) as? String {
+                return [Authorization : headerValue]
+            }
+            return [:]
         }
         
         shared.sessionManger.request(url, method: method, parameters: param, encoding: URLEncoding.default, headers: headers)
             .validate() //200...299
             .responseJSON { (response) in
-                //在200...299之外
-                if let error = response.error {
-                    failure(.invalidResponse(error.localizedDescription))
-                }
-                
+
                 switch response.result {
                 case .success:
                     if let data = response.data{
                         let actionReuslt = JSON(data)[ConstantsHelp.actionReuslt]
                         if actionReuslt[ConstantsHelp.success].boolValue {
                             let json = JSON(data)[dataKey.rawValue]
+                            //MARK:-存token
+                            if  !JSON(data)[ConstantsHelp.dataMap][token].stringValue.isEmpty {
+                                UserDefaults.standard.set(JSON(data)[ConstantsHelp.dataMap][token].stringValue, forKey: networkStaticHeaderKey)
+                            }
                             success(json)
                         } else {
                             let message = (actionReuslt[ConstantsHelp.message].stringValue)
-                                failure(.sysError(message))
+                            failure(.sysError(message))
+                            
                         }
                     }
                 case .failure(let error):
-                    if let error = error as? AFError {
-                        failure(.networkUnavailable(error.localizedDescription, error._code))
+                    if let code = response.response?.statusCode {
+                        if code == 500 || code == 502 || code == 503 || code == 504{
+                            if let request = response.request {
+                                failure(.needRetrier(request, networkType, dataKey, error.localizedDescription))
+                            }
+                        } else {
+                            failure(.sysError(error.localizedDescription))
+                        }
+                    } else {
+                        failure(.sysError(error.localizedDescription))
                     }
                 }
         }
@@ -115,17 +156,17 @@ extension NetWorkTools {
                                          keys: [String],
                                          parameters: JSON,
                                          datasArr:[Data],
+                                         dataKey: DataKey = .actionResult,
                                          datasInfoArr:[String],
-                                         isNeedRetrier: Bool,
-                                         headers: [String:String],
+                                         networkType:NetWorkType,
                                          success: @escaping Success<JSON>,
                                          failure: @escaping Failure){
-        if isNeedRetrier {
-            shared.sessionManger.retrier = NetWorkRetrier()
-        } else {
-            shared.sessionManger.retrier = nil
+        var headers: [String:String] {
+            if let headerValue = UserDefaults.standard.value(forKey: networkStaticHeaderKey) as? String {
+                return [Authorization : headerValue]
+            }
+            return [:]
         }
-        
         shared.sessionManger.upload(multipartFormData: { (multipartFormData) in
             //拼接数据
             var count = datasArr.count
@@ -145,31 +186,43 @@ extension NetWorkTools {
                 }
             }
             
-        }, to: url, headers: headers) { (result) in
-            switch result {
+            multipartFormData.append(URL(string:"sss")!, withName: "ss", fileName: "ssd", mimeType: "jpeg/jpg")
+            
+        }, to: url, headers: headers) { (request) in
+            switch request {
             case .success(let upload, _ , _):
                 upload.responseJSON { (response) in
-
-                    if let data = response.result.value as? [String : AnyObject] {
-                        let actionResult = JSON(data)[ConstantsHelp.actionReuslt]
-                        if  actionResult[ConstantsHelp.success].boolValue {
-                            success(actionResult)
+                    //是否存在错误
+                    if let error = response.error {
+                        if let code = response.response?.statusCode {
+                            if code == 500 || code == 502 || code == 503 || code == 504 || code == 404{
+                                if let request = response.request {
+                                    failure(.needRetrier(request, networkType, dataKey, error.localizedDescription))
+                                }
+                            } else {
+                                failure(.sysError(error.localizedDescription))
+                            }
                         } else {
-                            let message = (actionResult[ConstantsHelp.message].stringValue)
-                            failure(.sysError(message))
+                            //offline 无状态码
+                            failure(.networkUnavailable(error.localizedDescription, nil))
+                        }
+
+                    } else {
+                        //成功
+                        if let data = response.result.value as? [String : AnyObject] {
+                            let actionResult = JSON(data)[ConstantsHelp.actionReuslt]
+                            if  actionResult[ConstantsHelp.success].boolValue {
+                                success(actionResult)
+                            } else {
+                                let message = (actionResult[ConstantsHelp.message].stringValue)
+                                failure(.sysError(message))
+                            }
                         }
                     }
-                    else {
-                       if let error = response.error {
-                           failure(.invalidResponse(error.localizedDescription))
-                       }
-                    }
-                    
                 }
-            case .failure(let error):
-                if let error = error as? AFError {
-                    failure(.networkUnavailable(error.localizedDescription, error._code))
-                }
+                //MARK:- 验证准备上传的数据是否合法
+            case .failure:
+                failure(.sysError("上传的数据不合法"))
             }
         }
     }
@@ -184,17 +237,19 @@ extension NetWorkTools {
      * @param failure         失败回调
      */
     public static func downloadFileWith(url: String,
-                                        isNeedRetrier: Bool = true,
                                         method: HTTPMethod = .post,
+                                        dataKey: DataKey = .none,
                                         params: Parameters,
-                                        headers: [String:String],
+                                        networkType:NetWorkType,
                                         success: @escaping Success<String>,
                                         failure: @escaping Failure) {
-        if isNeedRetrier {
-            shared.sessionManger.retrier = NetWorkRetrier()
-        } else {
-            shared.sessionManger.retrier = nil
+        var headers: [String:String] {
+            if let headerValue = UserDefaults.standard.value(forKey: networkStaticHeaderKey) as? String {
+                return [Authorization : headerValue]
+            }
+            return [:]
         }
+        
         let destination: DownloadRequest.DownloadFileDestination = { _, response in
             let documentsURL = FileManager.default.urls(for: .documentDirectory,in: .userDomainMask)[0]
             let fileURL = documentsURL.appendingPathComponent(response.suggestedFilename!)
@@ -204,30 +259,165 @@ extension NetWorkTools {
             switch response.result {
             case .success:
                 if let path = response.destinationURL?.path{
-                      success(path)
+                    if path.hasSuffix("action") {
+                        failure(.sysError("下载的文件不存在"))
+                    } else {
+                        success(path)
+                    }
                 }else {
-                    failure(.sysError("下载失败，请稍后重试"))
+                    if let error = response.error {
+                        if let code = response.response?.statusCode {
+                            if code == 500 || code == 502 || code == 503 || code == 504 ||  code == 504{
+                                if let request = response.request {
+                                    failure(.needRetrier(request, networkType, dataKey, error.localizedDescription))
+                                }
+                            } else {
+                                failure(.sysError(error.localizedDescription))
+                            }
+                        }
+                    }
                 }
             case .failure(let error):
-                if let error = error as? AFError {
-                    failure(.networkUnavailable(error.localizedDescription, error._code))
+                if let code = response.response?.statusCode {
+                    if code == 500 || code == 502 || code == 503 || code == 504 ||  code == 504{
+                        if let request = response.request {
+                            failure(.needRetrier(request, networkType, dataKey, error.localizedDescription))
+                        }
+                    } else {
+                        failure(.sysError(error.localizedDescription))
+                    }
+                } else {
+                    failure(.sysError(error.localizedDescription))
                 }
             }
         }
     }
+    
+    //MARK:- 重试方法
+    public static  func getRetrierRequest(request:URLRequest,
+                                           dataKey: DataKey?,
+                                           networkType: NetWorkType,
+                                           success: @escaping Success<Any>,
+                                           failure: @escaping Failure) {
+        
+        switch networkType {
+        case .normalRequest:
+            shared.sessionManger.request(request).validate().responseJSON { (response) in
+                //在200...299之外
+                if let error = response.error {
+                    failure(.invalidResponse(error.localizedDescription))
+                }
+                switch response.result {
+                case .success:
+                    if let data = response.data{
+                        let actionReuslt = JSON(data)[ConstantsHelp.actionReuslt]
+                        if actionReuslt[ConstantsHelp.success].boolValue {
+                            let json = JSON(data)[dataKey!.rawValue]
+                            success(json)
+                        } else {
+                            let message = (actionReuslt[ConstantsHelp.message].stringValue)
+                            failure(.sysError(message))
+                        }
+                    }
+                case .failure(let error):
+                    if let code = response.response?.statusCode {
+                        if code == 500 || code == 502 || code == 503 || code == 504 {
+                            if let request = response.request {
+                                failure(.needRetrier(request, networkType, dataKey, error.localizedDescription))
+                            }
+                        } else {
+                            failure(.sysError(error.localizedDescription))
+                        }
+                    } else {
+                        failure(.sysError(error.localizedDescription))
+                    }
+                }
+            }
+        case .download:
+            let destination: DownloadRequest.DownloadFileDestination = { _, response in
+                let documentsURL = FileManager.default.urls(for: .documentDirectory,in: .userDomainMask)[0]
+                let fileURL = documentsURL.appendingPathComponent(response.suggestedFilename!)
+                return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+            }
+            
+            shared.sessionManger.download(request, to: destination).validate().responseData { (response) in
+                switch response.result {
+                case .success:
+                    if let path = response.destinationURL?.path{
+                        if path.hasSuffix("action") {
+                            failure(.sysError("下载的文件不存在"))
+                        } else {
+                            success(path)
+                        }
+                    }else {
+                        if let error = response.error {
+                            if let code = response.response?.statusCode {
+                                if code == 500 || code == 502 || code == 503 || code == 504 ||  code == 504{
+                                    if let request = response.request {
+                                        failure(.needRetrier(request, networkType, dataKey, error.localizedDescription))
+                                    }
+                                } else {
+                                    failure(.sysError(error.localizedDescription))
+                                }
+                            }
+                        }
+                    }
+                case .failure(let error):
+                    if let code = response.response?.statusCode {
+                        if code == 500 || code == 502 || code == 503 || code == 504{
+                            if let request = response.request {
+                                failure(.needRetrier(request, networkType, dataKey, error.localizedDescription))
+                            }
+                        } else {
+                            failure(.sysError(error.localizedDescription))
+                        }
+                    } else {
+                        failure(.sysError(error.localizedDescription))
+                    }
+                }
+            }
+        default:
+            break;
+        }
+        
+//        shared.sessionManger.request(request).responseJSON { (response) in
+//            switch response.result {
+//            case .success:
+//                if let data = response.data{
+//                    let actionReuslt = JSON(data)[ConstantsHelp.actionReuslt]
+//                    print(actionReuslt)
+//                    if actionReuslt[ConstantsHelp.success].boolValue {
+//                        let json = JSON(data)[dataKey.rawValue]
+////                        success(json)
+//                    } else {
+//                        let message = (actionReuslt[ConstantsHelp.message].stringValue)
+//                        //                                failure(.sysError(message))
+////                        failure(.needRetrier)
+//                        //                            response.request
+//                    }
+//                }
+//            case .failure(let error):
+//                if let error = error as? AFError {
+////                    failure(.networkUnavailable(error.localizedDescription, error._code))
+//                }
+//            }
+//        }
+    }
+    
 }
 //MARK:-RequestRetrier
-class NetWorkRetrier: RequestRetrier {
-    
-    private var count : Int = 0
-    
-    func should(_ manager: SessionManager, retry request: Request, with error: Error, completion: @escaping RequestRetryCompletion) {
-        if count < 3 {
-            completion(true,1)
-            count += 1
-            print(count)
-        } else {
-            completion(false, 0)
-        }
-    }
-}
+//class NetWorkRetrier: RequestRetrier {
+//
+//    private var count : Int = 0
+//
+//    func should(_ manager: SessionManager, retry request: Request, with error: Error, completion: @escaping RequestRetryCompletion) {
+//        if count < 3 {
+//            completion(true,1)
+//            count += 1
+//            print(count)
+//        } else {
+//            completion(false, 0)
+//        }
+//    }
+//
+//}

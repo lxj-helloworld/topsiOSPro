@@ -426,8 +426,8 @@ extension BaseUIViewViewController {
                               method: HTTPMethod = .post,
                               dataKey: DataKey,
                               headers: [String:String],
+                              networkType: NetWorkType = .normalRequest,
                               isSupportClick:Bool = true,
-                              isNeedRetrier: Bool = true,
                               success: @escaping Success<JSON>,
                               failure: @escaping Failure) {
         
@@ -436,10 +436,9 @@ extension BaseUIViewViewController {
         
         NetWorkTools.getNormalRequestWith(url: url,
                                           param: param,
+                                          networkType: networkType,
                                           method: method,
                                           dataKey: dataKey,
-                                          headers: headers,
-                                          isNeedRetrier: isNeedRetrier,
                                           success: { (json) in
                                             self.hideHUD()
                                             success(json)
@@ -464,9 +463,8 @@ extension BaseUIViewViewController {
                                parameters: JSON,
                                datasArr:[Data],
                                datasInfoArr:[String],
-                               isNeedRetrier: Bool = true,
                                isSupportClick:Bool = true,
-                               headers: [String:String],
+                               networkType: NetWorkType = .upload,
                                success: @escaping Success<JSON>,
                                failure: @escaping Failure) {
         
@@ -477,8 +475,8 @@ extension BaseUIViewViewController {
                                        parameters: parameters,
                                        datasArr: datasArr,
                                        datasInfoArr: datasInfoArr,
-                                       isNeedRetrier: isNeedRetrier,
-                                       headers: headers, success: { (json) in
+                                       networkType: networkType,
+                                       success: { (json) in
                                         
                                         self.hideHUD()
                                         success(json)
@@ -500,9 +498,8 @@ extension BaseUIViewViewController {
     open func downloadFileWith(url: String,
                                method: HTTPMethod = .post,
                                params: Parameters,
-                               headers: [String:String],
                                isSupportClick:Bool = true,
-                               isNeedRetrier: Bool = true,
+                               networkType: NetWorkType = .download,
                                success: @escaping Success<String>,
                                failure: @escaping Failure) {
         
@@ -510,7 +507,7 @@ extension BaseUIViewViewController {
         
         NetWorkTools.downloadFileWith(url: url,
                                       params: params,
-                                      headers: headers,
+                                      networkType: networkType,
                                       success: { (path) in
                                         self.hideHUD()
                                         success(path)
@@ -519,9 +516,47 @@ extension BaseUIViewViewController {
             self.dealWith(errorCode: errorCode)
         }
     }
+    /**
+     * 重试
+     * @param url             请求地址
+     * @param isNeedReConnect 需要重连 默认true 重连3次
+     * @param method          HTTPMethod
+     * @param params          Parameters
+     * @param headers         [String:String]
+     * @param success         成功回调
+     * @param failure         失败回调
+     */
+
+    open func requestRetrierWith(isSupportClick:Bool = true,
+                                 request:URLRequest,
+                                 dataKey: DataKey?,
+                                 networkType: NetWorkType,
+                                 success: @escaping Success<Any>,
+                                 failure: @escaping Failure) {
+        showLoading(isSupportClick: isSupportClick)
+        
+        NetWorkTools.getRetrierRequest(request: request, dataKey: dataKey, networkType: networkType, success: { (data) in
+            self.hideHUD()
+            switch networkType {
+            case .download:
+                if let data = data as? String {
+                    success(data)
+                }
+            default :
+                if let data = data as? JSON {
+                    success(data)
+                }
+            }
+            success(data)
+        }) { (errorCode) in
+            self.hideHUD()
+            self.dealWith(errorCode: errorCode)
+        }
+    }
 }
 
 extension BaseUIViewViewController {
+    
     open func dealWith(errorCode:ErrorCode) {
         switch errorCode {
         case .invalidResponse(let message):
@@ -534,6 +569,45 @@ extension BaseUIViewViewController {
             }
         case .sysError(let message):
             self.showAlert(message: message)
+            
+        case .needRetrier(let request,let networkType,let dataKey,let message):
+            let alvc = UIAlertController(title: message, message: "请求失败 需要重试吗?", preferredStyle: .alert)
+            let ac = UIAlertAction(title: "OK", style: .default) { (_) in
+                switch networkType {
+                case .normalRequest, .download:
+                    
+                    self.requestRetrierWith(isSupportClick: true, request: request, dataKey: dataKey, networkType: networkType, success: { (aa) in
+                         print(aa)
+                    }) { (errorCode) in
+                        self.dealWith(errorCode: errorCode)
+                    }
+                    
+                default:
+                    break;
+                }
+            }
+            let ac1 = UIAlertAction(title: "Cancle", style: .cancel, handler: nil)
+            alvc.addAction(ac)
+            alvc.addAction(ac1)
+            self.present(alvc, animated: true, completion: nil)
+
+        case .uploadError(let url,let keys,let parameters,let datasArr,let datasInfoArr,let message):
+            let alvc = UIAlertController(title: message ?? "上传失败", message: "上传失败了,需要重试吗", preferredStyle: .alert)
+            let ac = UIAlertAction(title: "OK", style: .default) { (_) in
+                self.uploadFileWith(url: url, keys: keys, parameters: parameters, datasArr: datasArr, datasInfoArr: datasInfoArr,  success: { (json) in
+                    print(json)
+                }) { (errorCode) in
+                    self.dealWith(errorCode: errorCode)
+                }
+            }
+            let ac1 = UIAlertAction(title: "Cancle", style: .cancel, handler: nil)
+            alvc.addAction(ac)
+            alvc.addAction(ac1)
+            self.present(alvc, animated: true, completion: nil)
+        default:
+            break;
         }
     }
+    
+    
 }

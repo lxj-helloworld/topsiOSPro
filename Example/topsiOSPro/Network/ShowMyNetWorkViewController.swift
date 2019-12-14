@@ -44,18 +44,13 @@ class ShowMyNetWorkViewController: BaseUIViewViewController {
                                          "needToken":"1",
                                          "showLoading":"false"
                 ]
-            
+
             let url = "http://172.20.3.53:8919/toa/toa/toaMobileLogin_login.json";
-            self.requestDataWith(url: url, param: parameters, method: .post, dataKey: .dataMap, headers: [:],isNeedRetrier: false ,success: { (json) in
+            self.requestDataWith(url: url, param: parameters, method: .post, dataKey: .dataMap, headers: [:] ,success: { (json) in
                     print(json)
             }) { (errorCode) in
                 print(errorCode)
             }
-//            self.requestDataWith(url: "https://api.apiopen.top/EmailSearch", param: ["number":1012002], method: .post, dataKey: DataKey.all, headers: [:],isNeedRetrier: false, success: { (json) in
-//
-//            }) { (errorCode) in
-//                print(errorCode)
-//            }
         case 101:
             let keys = ["excessreason", "invoicetype", "amount", "invoiceamount", "remark", "invoicedate"]
             let dic = ["amount" : "3",
@@ -63,22 +58,20 @@ class ShowMyNetWorkViewController: BaseUIViewViewController {
             "remark" : "这",
             "excessreason" : "噢",
             "invoiceamount" : "3",
-            "invoicedate" : "2019-12-10"]
+//            "invoicedate" : "2019-12-10"
+            ]
             let params = JSON(dic)
             let image = UIImage(named: "2")!
             let data = UIImagePNGRepresentation(image)!
-            if UserDefaults.standard.value(forKey: "token") == nil {
-                self.showAlert(message: "在http请求里登陆一下")
-                return
-            }
-            let headers = ["Authorization" : UserDefaults.standard.value(forKey: "token")as! String]
-            self.uploadFileWith(url: "http://172.20.3.53:8924/er/er/erInvoice_commitInvoice.json", keys: keys, parameters: params, datasArr: [data], datasInfoArr: ["aa.png"], headers: headers , success: { (json) in
+            
+            self.uploadFileWith(url: "http://172.20.3.53:8924/er/er/erInvoice_commitInvoice.json", keys: keys, parameters: params, datasArr: [data], datasInfoArr: ["aa.png"], success: { (json) in
                 print("1111")
             }) { (errorCode) in
                 print(errorCode)
             }
         case 102:
-            self.downloadFileWith(url: "http://172.20.3.53:8924/er/cbo/cboAttachment_download.action?attachmentId=19120600000003", params: [:], headers: [:], success: { (path) in
+            ///19120600000003
+            self.downloadFileWith(url: "http://172.20.3.53:8924/er/cbo/cboAttachment_download.action?attachmentId=19120600003", params: [:], success: { (path) in
                 print(path)
             }) { (errorCode) in
                 print(errorCode)
