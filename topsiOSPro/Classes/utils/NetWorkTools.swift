@@ -195,7 +195,7 @@ extension NetWorkTools {
                     //是否存在错误
                     if let error = response.error {
                         if let code = response.response?.statusCode {
-                            if code == 500 || code == 502 || code == 503 || code == 504 || code == 404{
+                            if code == 500 || code == 502 || code == 503 || code == 504 {
                                 if let request = response.request {
                                     failure(.needRetrier(request, networkType, dataKey, error.localizedDescription))
                                 }
@@ -267,7 +267,7 @@ extension NetWorkTools {
                 }else {
                     if let error = response.error {
                         if let code = response.response?.statusCode {
-                            if code == 500 || code == 502 || code == 503 || code == 504 ||  code == 504{
+                            if code == 500 || code == 502 || code == 503 || code == 504{
                                 if let request = response.request {
                                     failure(.needRetrier(request, networkType, dataKey, error.localizedDescription))
                                 }
@@ -279,7 +279,7 @@ extension NetWorkTools {
                 }
             case .failure(let error):
                 if let code = response.response?.statusCode {
-                    if code == 500 || code == 502 || code == 503 || code == 504 ||  code == 504{
+                    if code == 500 || code == 502 || code == 503 || code == 504{
                         if let request = response.request {
                             failure(.needRetrier(request, networkType, dataKey, error.localizedDescription))
                         }
@@ -352,7 +352,7 @@ extension NetWorkTools {
                     }else {
                         if let error = response.error {
                             if let code = response.response?.statusCode {
-                                if code == 500 || code == 502 || code == 503 || code == 504 ||  code == 504{
+                                if code == 500 || code == 502 || code == 503 || code == 504{
                                     if let request = response.request {
                                         failure(.needRetrier(request, networkType, dataKey, error.localizedDescription))
                                     }
@@ -380,44 +380,6 @@ extension NetWorkTools {
             break;
         }
         
-//        shared.sessionManger.request(request).responseJSON { (response) in
-//            switch response.result {
-//            case .success:
-//                if let data = response.data{
-//                    let actionReuslt = JSON(data)[ConstantsHelp.actionReuslt]
-//                    print(actionReuslt)
-//                    if actionReuslt[ConstantsHelp.success].boolValue {
-//                        let json = JSON(data)[dataKey.rawValue]
-////                        success(json)
-//                    } else {
-//                        let message = (actionReuslt[ConstantsHelp.message].stringValue)
-//                        //                                failure(.sysError(message))
-////                        failure(.needRetrier)
-//                        //                            response.request
-//                    }
-//                }
-//            case .failure(let error):
-//                if let error = error as? AFError {
-////                    failure(.networkUnavailable(error.localizedDescription, error._code))
-//                }
-//            }
-//        }
     }
-    
 }
-//MARK:-RequestRetrier
-//class NetWorkRetrier: RequestRetrier {
-//
-//    private var count : Int = 0
-//
-//    func should(_ manager: SessionManager, retry request: Request, with error: Error, completion: @escaping RequestRetryCompletion) {
-//        if count < 3 {
-//            completion(true,1)
-//            count += 1
-//            print(count)
-//        } else {
-//            completion(false, 0)
-//        }
-//    }
-//
-//}
+
