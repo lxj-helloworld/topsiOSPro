@@ -45,6 +45,7 @@ class ViewController: BaseMenuUICollectionViewViewController {
                          ["title": "视频播放", "image": "AppIcon"],
                          ["title": "筛选框", "image": "AppIcon"],
                          ["title": "NetWork网络请求", "image": "AppIcon"],
+                         ["title": "PDFKit", "image": "AppIcon"],
         ]
         super.viewDidLoad()
         title = "Topscomm"
@@ -90,6 +91,8 @@ class ViewController: BaseMenuUICollectionViewViewController {
             showFilter()
         case 18:
             showNetwork()
+        case 19:
+            showPDF()
         default:
             print("no way to go")
         }
@@ -243,6 +246,18 @@ class ViewController: BaseMenuUICollectionViewViewController {
         let viewController = ShowMyNetWorkViewController()
         viewController.title = "Network"
         self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    //showPDF
+    func showPDF() {
+        
+        if #available(iOS 11.0, *) {
+            let viewController = ShowPDFViewController()
+            viewController.title = "showPDF"
+            self.navigationController?.pushViewController(viewController, animated: true)
+        } else {
+           
+        }
+
     }
 }
 

@@ -26,7 +26,7 @@ class MyWebViewController: ProgressWebViewController {
 //        
 //        self.cookies = [HTTPCookie(properties: cookieProperties)!]
         //NARK:-设置headers
-        self.headers = ["Authorization":"90d67db63b0a4653983c18ff783afd77"]
+        self.headers = ["Authorization":UserDefaults.standard.value(forKey: "token") as! String]
         // Do any additional setup after loading the view.
     }
 //    override func rotateDidClick(sender: AnyObject) {

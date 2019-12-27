@@ -43,6 +43,7 @@
 		B04F54FF238556A800DB39BD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B04F5501238556A800DB39BD /* Localizable.strings */; };
 		B056A433238FBAB4000B4F8B /* ShowSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056A432238FBAB4000B4F8B /* ShowSegmentViewController.swift */; };
 		B056A437238FBCF2000B4F8B /* ListBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056A436238FBCF2000B4F8B /* ListBaseViewController.swift */; };
+		B08AB5A923B5CBB600B39840 /* ShowPDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AB5A823B5CBB600B39840 /* ShowPDFViewController.swift */; };
 		F59648A9CB7A6021213E36DD /* Pods_topsiOSPro_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0713674B85490B52D2335BE0 /* Pods_topsiOSPro_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		B04F55022385570500DB39BD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B056A432238FBAB4000B4F8B /* ShowSegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSegmentViewController.swift; sourceTree = "<group>"; };
 		B056A436238FBCF2000B4F8B /* ListBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBaseViewController.swift; sourceTree = "<group>"; };
+		B08AB5A823B5CBB600B39840 /* ShowPDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPDFViewController.swift; sourceTree = "<group>"; };
 		BAEAE84D20FA55631EA6E967 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		ECE62669330B8BB4C3B90D13 /* Pods-topsiOSPro_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-topsiOSPro_Example.release.xcconfig"; path = "Target Support Files/Pods-topsiOSPro_Example/Pods-topsiOSPro_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,6 +225,7 @@
 		607FACD21AFB9204008FA782 /* Example for topsiOSPro */ = {
 			isa = PBXGroup;
 			children = (
+				B08AB5A723B5CB7700B39840 /* PDFKit */,
 				B038051D239F7EA500D525C2 /* Network */,
 				B04B948E239B577900D9F630 /* ShowFilterView */,
 				B049D9D7239A574700E8F4AA /* AVPlayer */,
@@ -372,6 +375,14 @@
 				B056A436238FBCF2000B4F8B /* ListBaseViewController.swift */,
 			);
 			path = segmentView;
+			sourceTree = "<group>";
+		};
+		B08AB5A723B5CB7700B39840 /* PDFKit */ = {
+			isa = PBXGroup;
+			children = (
+				B08AB5A823B5CBB600B39840 /* ShowPDFViewController.swift */,
+			);
+			path = PDFKit;
 			sourceTree = "<group>";
 		};
 		F6E1EC22396F2DD1B329449E /* Pods */ = {
@@ -629,6 +640,7 @@
 				B056A437238FBCF2000B4F8B /* ListBaseViewController.swift in Sources */,
 				B048A3142386137B0028948D /* ShowLocalNotiViewController.swift in Sources */,
 				00F2204E22A10D8300498DC0 /* RequestViewController.swift in Sources */,
+				B08AB5A923B5CBB600B39840 /* ShowPDFViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				00CEE24822A5023600A51BD3 /* DateHelpViewController.swift in Sources */,
 				0027F42022CEF810005BC7E6 /* ShowNetImageViewController.swift in Sources */,

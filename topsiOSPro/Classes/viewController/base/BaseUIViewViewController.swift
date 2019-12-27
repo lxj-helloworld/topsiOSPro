@@ -301,6 +301,7 @@ extension BaseUIViewViewController{
                         if fileType.hasSuffix("pdf"){
     //                        UserDefaults.standard.set(path, forKey:url)
                             backToInfoFunc(path)
+                            self.hideHUD()
                         } else {
                             self.loginAgain()
                         }
@@ -608,6 +609,4 @@ extension BaseUIViewViewController {
             break;
         }
     }
-    
-    
 }

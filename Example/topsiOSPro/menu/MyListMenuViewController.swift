@@ -51,7 +51,9 @@ class MyListMenuViewController: BaseGroupedTableViewViewController {
             let viewcontroller = MyWebViewController()
             //Pdf
             viewcontroller.fileType = .pdf
-            viewcontroller.url = URL.init(string: "http://172.20.3.53:8919/toa/cbo/cboAttachment_download.action?attachmentId=19091600001003")!
+//
+            viewcontroller.url = URL.init(string: "https://www.tutorialspoint.com/ios/ios_tutorial.pdf")!
+//            viewcontroller.url = URL.init(string: "http://172.20.3.53:8919/toa/cbo/cboAttachment_download.action?attachmentId=19091600001003")!
             self.navigationController?.pushViewController(viewcontroller, animated: true)
         case 7:
             let viewcontroller = MyWebViewController()
