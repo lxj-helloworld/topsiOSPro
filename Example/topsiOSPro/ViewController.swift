@@ -46,6 +46,7 @@ class ViewController: BaseMenuUICollectionViewViewController {
                          ["title": "筛选框", "image": "AppIcon"],
                          ["title": "NetWork网络请求", "image": "AppIcon"],
                          ["title": "PDFKit", "image": "AppIcon"],
+                         ["title": "RealmDB", "image": "AppIcon"],
         ]
         super.viewDidLoad()
         title = "Topscomm"
@@ -93,6 +94,8 @@ class ViewController: BaseMenuUICollectionViewViewController {
             showNetwork()
         case 19:
             showPDF()
+        case 20:
+            showRealmDB()
         default:
             print("no way to go")
         }
@@ -258,6 +261,12 @@ class ViewController: BaseMenuUICollectionViewViewController {
            
         }
 
+    }
+    //showRealmDB()
+    func showRealmDB() {
+        let viewController = RealmDBViewController()
+        viewController.title = "RealmDB"
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

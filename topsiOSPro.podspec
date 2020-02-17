@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'topsiOSPro'
-  s.version          = '0.1.9.2'
+  s.version          = '0.1.9.3'
   s.summary          = 'A short description of topsiOSPro.'
 
 # This description is used to generate tags and improve search results.
@@ -55,5 +55,6 @@ Pod::Spec.new do |s|
   s.dependency 'SwiftDate', '~> 5.1.0'  #时间工具
   s.dependency 'JXSegmentedView' #切换滚动式图 https://github.com/pujiaxin33/JXSegmentedView
   s.dependency 'ReachabilitySwift'
+  s.dependency 'RealmSwift' #Realm 数据库
 end
 

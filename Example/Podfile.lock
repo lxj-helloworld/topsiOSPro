@@ -64,6 +64,11 @@ PODS:
   - MJRefresh (3.2.2)
   - QorumLogs (0.9)
   - ReachabilitySwift (5.0.0)
+  - Realm (4.3.0):
+    - Realm/Headers (= 4.3.0)
+  - Realm/Headers (4.3.0)
+  - RealmSwift (4.3.0):
+    - Realm (= 4.3.0)
   - SDWebImage/Core (4.4.6)
   - SDWebImage/GIF (4.4.6):
     - FLAnimatedImage (~> 1.0)
@@ -71,7 +76,7 @@ PODS:
   - SnapKit (4.0.1)
   - SwiftDate (5.1.0)
   - SwiftyJSON (4.0.0)
-  - topsiOSPro (0.1.9.1):
+  - topsiOSPro (0.1.9.2):
     - Alamofire (~> 4.7)
     - AlamofireImage
     - DeviceKit
@@ -85,6 +90,7 @@ PODS:
     - MJRefresh
     - QorumLogs
     - ReachabilitySwift
+    - RealmSwift
     - SnapKit (~> 4.0.0)
     - SwiftDate (~> 5.1.0)
     - SwiftyJSON (~> 4.0)
@@ -94,28 +100,29 @@ DEPENDENCIES:
   - topsiOSPro (from `../`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
     - Alamofire
     - AlamofireImage
     - CropViewController
+    - DeviceKit
     - DKCamera
     - DKImagePickerController
     - DKPhotoGallery
     - FBSnapshotTestCase
     - FLAnimatedImage
     - Hero
-    - IQKeyboardManagerSwift
-    - QorumLogs
-    - SDWebImage
-    - SnapKit
-    - SwiftyJSON
-  trunk:
-    - DeviceKit
     - ImageSlideshow
+    - IQKeyboardManagerSwift
     - JXSegmentedView
     - MJRefresh
+    - QorumLogs
     - ReachabilitySwift
+    - Realm
+    - RealmSwift
+    - SDWebImage
+    - SnapKit
     - SwiftDate
+    - SwiftyJSON
 
 EXTERNAL SOURCES:
   topsiOSPro:
@@ -138,12 +145,14 @@ SPEC CHECKSUMS:
   MJRefresh: 72a46ecaa2a0feaf48fc5198dff95f25f8bb27c6
   QorumLogs: 9a484df6973a3697ac79fe2273140fde6b36dccc
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  Realm: 9357c3589555793e1860a7104a7412bca4a48d99
+  RealmSwift: 402f1e379a8ef82c635313037b043f0f06de880c
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftDate: 6329e58969a2de31cea7f1ee1143b247693196e7
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
-  topsiOSPro: afbba99c0179174a39001c13b6087a9dcc8ca0be
+  topsiOSPro: 7d803cc92aa31af058106ff9698af6dcd91e7f24
 
-PODFILE CHECKSUM: 52c78605c762ccac7e90552fa391da2f1ba80826
+PODFILE CHECKSUM: 47331863ac2f9caa6b58783b1c8b650795e07598
 
 COCOAPODS: 1.8.4

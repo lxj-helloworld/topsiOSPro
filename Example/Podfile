@@ -4,6 +4,7 @@ use_frameworks!
 #workspace '../NAME'
 
 target 'topsiOSPro_Example' do
+  source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
   pod 'topsiOSPro',:path => '../'
 #  pod 'topsiOSPro', :podspec => '../topsiOSPro.podspec'
 
