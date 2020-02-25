@@ -47,6 +47,7 @@ class ViewController: BaseMenuUICollectionViewViewController {
                          ["title": "NetWork网络请求", "image": "AppIcon"],
                          ["title": "PDFKit", "image": "AppIcon"],
                          ["title": "RealmDB", "image": "AppIcon"],
+                         ["title": "登录加密", "image": "AppIcon"],
         ]
         super.viewDidLoad()
         title = "Topscomm"
@@ -96,6 +97,8 @@ class ViewController: BaseMenuUICollectionViewViewController {
             showPDF()
         case 20:
             showRealmDB()
+        case 21:
+            showCrypto()
         default:
             print("no way to go")
         }
@@ -267,6 +270,16 @@ class ViewController: BaseMenuUICollectionViewViewController {
         let viewController = RealmDBViewController()
         viewController.title = "RealmDB"
         self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    //showCrypto()
+    func showCrypto() {
+        
+        let viewController = UIStoryboard(name: "Main", bundle: nil)
+        .instantiateViewController(withIdentifier: "Crypto") as UIViewController
+        viewController.title = "Crypto"
+//        print(viewController.view.subviews)
+        self.navigationController?.pushViewController(viewController, animated: true)
+        
     }
 }
 

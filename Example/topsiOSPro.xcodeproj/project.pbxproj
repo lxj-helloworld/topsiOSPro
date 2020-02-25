@@ -43,6 +43,7 @@
 		B04F54FF238556A800DB39BD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B04F5501238556A800DB39BD /* Localizable.strings */; };
 		B056A433238FBAB4000B4F8B /* ShowSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056A432238FBAB4000B4F8B /* ShowSegmentViewController.swift */; };
 		B056A437238FBCF2000B4F8B /* ListBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056A436238FBCF2000B4F8B /* ListBaseViewController.swift */; };
+		B06B4DA22404C3460043DB58 /* CryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B4DA12404C3460043DB58 /* CryptoViewController.swift */; };
 		B0753E8423F6A33B0019DF37 /* RealmDBWirhJSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0753E8323F6A33B0019DF37 /* RealmDBWirhJSONViewController.swift */; };
 		B07C2AB823F534E00043B8A3 /* RealmDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C2AB723F534E00043B8A3 /* RealmDBViewController.swift */; };
 		B08AB5A923B5CBB600B39840 /* ShowPDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AB5A823B5CBB600B39840 /* ShowPDFViewController.swift */; };
@@ -108,6 +109,7 @@
 		B04F55022385570500DB39BD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B056A432238FBAB4000B4F8B /* ShowSegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSegmentViewController.swift; sourceTree = "<group>"; };
 		B056A436238FBCF2000B4F8B /* ListBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBaseViewController.swift; sourceTree = "<group>"; };
+		B06B4DA12404C3460043DB58 /* CryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewController.swift; sourceTree = "<group>"; };
 		B0753E8323F6A33B0019DF37 /* RealmDBWirhJSONViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBWirhJSONViewController.swift; sourceTree = "<group>"; };
 		B07C2AB723F534E00043B8A3 /* RealmDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBViewController.swift; sourceTree = "<group>"; };
 		B08AB5A823B5CBB600B39840 /* ShowPDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPDFViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		607FACD21AFB9204008FA782 /* Example for topsiOSPro */ = {
 			isa = PBXGroup;
 			children = (
+				B06B4DA02404C3340043DB58 /* Crypto */,
 				B07C2AB623F534C00043B8A3 /* RealmDB */,
 				B08AB5A723B5CB7700B39840 /* PDFKit */,
 				B038051D239F7EA500D525C2 /* Network */,
@@ -380,6 +383,14 @@
 				B056A436238FBCF2000B4F8B /* ListBaseViewController.swift */,
 			);
 			path = segmentView;
+			sourceTree = "<group>";
+		};
+		B06B4DA02404C3340043DB58 /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				B06B4DA12404C3460043DB58 /* CryptoViewController.swift */,
+			);
+			path = Crypto;
 			sourceTree = "<group>";
 		};
 		B07C2AB623F534C00043B8A3 /* RealmDB */ = {
@@ -553,6 +564,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DKCamera/DKCamera.framework",
 				"${BUILT_PRODUCTS_DIR}/DKImagePickerController/DKImagePickerController.framework",
 				"${BUILT_PRODUCTS_DIR}/DKPhotoGallery/DKPhotoGallery.framework",
@@ -578,6 +590,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CropViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKCamera.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKImagePickerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKPhotoGallery.framework",
@@ -673,6 +686,7 @@
 				B048A31723865D7D0028948D /* ShowMyViewViewController.swift in Sources */,
 				B048A319238660430028948D /* ShowMyViewDetailViewController.swift in Sources */,
 				00B2A35622CDDCB000B8ECBB /* ShowLocalImageViewController.swift in Sources */,
+				B06B4DA22404C3460043DB58 /* CryptoViewController.swift in Sources */,
 				B0294CAE2396444900E0F778 /* ShowMySearchAndTableViewController.swift in Sources */,
 				B04F54F92385208F00DB39BD /* MytableViewViewController.swift in Sources */,
 				B049D9D9239A577D00E8F4AA /* ShowAVPlayerViewController.swift in Sources */,
