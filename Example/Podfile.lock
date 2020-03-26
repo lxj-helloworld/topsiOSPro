@@ -77,7 +77,7 @@ PODS:
   - SnapKit (4.0.1)
   - SwiftDate (5.1.0)
   - SwiftyJSON (4.0.0)
-  - topsiOSPro (0.1.9.3):
+  - topsiOSPro (0.1.9.4):
     - Alamofire (~> 4.7)
     - AlamofireImage
     - CryptoSwift
@@ -102,9 +102,7 @@ DEPENDENCIES:
   - topsiOSPro (from `../`)
 
 SPEC REPOS:
-  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
-    - Alamofire
-    - AlamofireImage
+  https://github.com/CocoaPods/Specs.git:
     - CropViewController
     - CryptoSwift
     - DeviceKit
@@ -126,6 +124,9 @@ SPEC REPOS:
     - SnapKit
     - SwiftDate
     - SwiftyJSON
+  trunk:
+    - Alamofire
+    - AlamofireImage
 
 EXTERNAL SOURCES:
   topsiOSPro:
@@ -155,8 +156,8 @@ SPEC CHECKSUMS:
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftDate: 6329e58969a2de31cea7f1ee1143b247693196e7
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
-  topsiOSPro: 3b537886a69a995f15a17b6a2df8fa3b4bb1f663
+  topsiOSPro: cb24a598ca8efc4c8b3f097401ad56c2241b0bec
 
-PODFILE CHECKSUM: 78d3c3542601d48bc72d629b086d6cd9fec868d0
+PODFILE CHECKSUM: 72fcfe691ea7543193de0f3b965dfcd3338197e0
 
 COCOAPODS: 1.8.4

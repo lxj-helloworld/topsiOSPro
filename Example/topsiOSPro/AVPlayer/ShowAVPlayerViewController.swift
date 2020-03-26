@@ -15,7 +15,7 @@ class ShowAVPlayerViewController: BaseAVPlayerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        url = "http://172.20.3.53:8924/er/cbo/cboAttachment_download.action?attachmentId=19120600000003"
+        url = "https://media.w3.org/2010/05/sintel/trailer.mp4"
         type = .MP4
     }
     

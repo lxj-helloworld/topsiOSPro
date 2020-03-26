@@ -190,7 +190,21 @@ public class CommonViews: NSObject{
         }
         return editUiTextView
     }
-    
+    //获取较高UITextView 并且允许添加placeholder
+    public class func getBiggerEditJHTextView() -> UITextView{
+        let editUiTextView = JHTextView()
+        editUiTextView.font = UIFont.systemFont(ofSize: ConstantsHelp.smallFontSize)
+        editUiTextView.layer.borderColor = ConstantsHelp.borderCGColor
+        editUiTextView.returnKeyType = .done
+        editUiTextView.layer.borderWidth = 0.5
+        editUiTextView.layer.cornerRadius = 5
+        editUiTextView.textColor = UIColor.black
+        editUiTextView.backgroundColor = ConstantsHelp.backgroundUIColor
+        editUiTextView.snp.makeConstraints { (make) in
+            make.height.equalTo(ConstantsHelp.uiTextFieldBigHeight)
+        }
+        return editUiTextView
+    }
     
     //获取右侧值UILabel
     public class func getRightUILabel(title :String) -> UILabel{
@@ -626,11 +640,11 @@ public class CommonViews: NSObject{
     */
     public class func getApplyWithUITextView(contentTitles:[String:String],
                                              leftTitleWidth:Int = ConstantsHelp.leftTitleWidth,
-                                             viewTag:Int = 1000) -> UIView{
+                                             viewTag:Int = 1000,placeholder: String = "") -> UIView{
         let contentView = UIView()
         contentView.isUserInteractionEnabled = true
         var leftLabel = UILabel()
-        var rightUI = UIView()
+        var rightUI = JHTextView()
         //添加具体申请项
         if (contentTitles[ConstantsHelp.isAllowNull] != nil){
             leftLabel = UILabel()
@@ -655,7 +669,10 @@ public class CommonViews: NSObject{
         }
         
         //右侧类型(tag 默认1000)
-        rightUI = self.getBiggerEditUITextView()
+//        rightUI = self.getBiggerEditUITextView()
+        rightUI = (self.getBiggerEditJHTextView()) as! JHTextView
+        rightUI.placeHolder = placeholder
+//        rightUI.
         contentView.addSubview(rightUI)
         rightUI.tag = 1000
         

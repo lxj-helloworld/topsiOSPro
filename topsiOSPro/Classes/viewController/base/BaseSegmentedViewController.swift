@@ -167,14 +167,12 @@ extension BaseSegmentedViewController: JXSegmentedListContainerViewDataSource {
         return 0
     }
 
-    public func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
-        
+    public func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {        
         let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
-        guard let viewcontrollerType  = NSClassFromString(namespace + "." + listContainViewControllerStringArr[index]) as? BaseSegmentTableViewViewController.Type else{
-            return BaseSegmentTableViewViewController()
+        guard let viewcontrollerType  = NSClassFromString(namespace + "." + listContainViewControllerStringArr[index]) as? BaseUIViewViewController.Type else{
+            return BaseUIViewViewController()
         }
         let viewcontroller = viewcontrollerType.init()
-        
         return viewcontroller
     }
 }

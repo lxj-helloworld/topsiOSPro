@@ -43,6 +43,7 @@
 		B04F54FF238556A800DB39BD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B04F5501238556A800DB39BD /* Localizable.strings */; };
 		B056A433238FBAB4000B4F8B /* ShowSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056A432238FBAB4000B4F8B /* ShowSegmentViewController.swift */; };
 		B056A437238FBCF2000B4F8B /* ListBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056A436238FBCF2000B4F8B /* ListBaseViewController.swift */; };
+		B05AC883242C4F93001E446F /* ListBaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05AC882242C4F92001E446F /* ListBaseUIViewController.swift */; };
 		B06B4DA22404C3460043DB58 /* CryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B4DA12404C3460043DB58 /* CryptoViewController.swift */; };
 		B0753E8423F6A33B0019DF37 /* RealmDBWirhJSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0753E8323F6A33B0019DF37 /* RealmDBWirhJSONViewController.swift */; };
 		B07C2AB823F534E00043B8A3 /* RealmDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C2AB723F534E00043B8A3 /* RealmDBViewController.swift */; };
@@ -109,6 +110,7 @@
 		B04F55022385570500DB39BD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B056A432238FBAB4000B4F8B /* ShowSegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSegmentViewController.swift; sourceTree = "<group>"; };
 		B056A436238FBCF2000B4F8B /* ListBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBaseViewController.swift; sourceTree = "<group>"; };
+		B05AC882242C4F92001E446F /* ListBaseUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBaseUIViewController.swift; sourceTree = "<group>"; };
 		B06B4DA12404C3460043DB58 /* CryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewController.swift; sourceTree = "<group>"; };
 		B0753E8323F6A33B0019DF37 /* RealmDBWirhJSONViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBWirhJSONViewController.swift; sourceTree = "<group>"; };
 		B07C2AB723F534E00043B8A3 /* RealmDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBViewController.swift; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 			children = (
 				B056A432238FBAB4000B4F8B /* ShowSegmentViewController.swift */,
 				B056A436238FBCF2000B4F8B /* ListBaseViewController.swift */,
+				B05AC882242C4F92001E446F /* ListBaseUIViewController.swift */,
 			);
 			path = segmentView;
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				B0753E8423F6A33B0019DF37 /* RealmDBWirhJSONViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				00CEE24822A5023600A51BD3 /* DateHelpViewController.swift in Sources */,
+				B05AC883242C4F93001E446F /* ListBaseUIViewController.swift in Sources */,
 				0027F42022CEF810005BC7E6 /* ShowNetImageViewController.swift in Sources */,
 				00B384A022A65A6800C08AB5 /* KeyChainViewController.swift in Sources */,
 				00AC8B10229CC67D0050FBF8 /* StringViewController.swift in Sources */,

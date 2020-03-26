@@ -94,15 +94,12 @@ class ShowMyViewDetailViewController: BaseUIViewViewController {
             let dic = ["value":"填写年龄","type":ConstantsHelp.UIViewType.uibutton.rawValue,ConstantsHelp.isAllowNull:"oooo"]
                        
             
-            let view = CommonViews.getApplyWithUITextView(contentTitles: dic, leftTitleWidth: ConstantsHelp.leftTitleWidth)
+            let view = CommonViews.getApplyWithUITextView(contentTitles: dic, leftTitleWidth: ConstantsHelp.leftTitleWidth, placeholder: "write something...")
             baseView.addSubview(view)
             view.snp.makeConstraints { (make) in
                 make.left.right.equalToSuperview()
                 make.top.equalToSuperview().offset(190)
             }
-            ///取属性 赋值
-            let uitextview = baseView.viewWithTag(1000) as! UITextView
-            uitextview.text = "placeholder"
             
         default:
             break;
