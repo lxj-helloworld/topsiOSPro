@@ -62,7 +62,7 @@ class ShowMyNetWorkViewController: BaseUIViewViewController {
             ]
             let params = JSON(dic)
             let image = UIImage(named: "2")!
-            let data = UIImagePNGRepresentation(image)!
+            let data = image.pngData()!
             
             self.uploadFileWith(url: "http://172.20.3.53:8924/er/er/erInvoice_commitInvoice.json", keys: keys, parameters: params, datasArr: [data], datasInfoArr: ["aa.png"], success: { (json) in
                 print("1111")
