@@ -2,34 +2,13 @@ PODS:
   - Alamofire (5.0.5)
   - AlamofireImage (4.0.3):
     - Alamofire (< 6.0.0, >= 5.0.2)
-  - CropViewController (2.5.2)
   - CryptoSwift (1.3.0)
   - DeviceKit (3.1.0)
   - DKCamera (1.6.7)
-  - DKImagePickerController (4.1.4):
-    - DKImagePickerController/Camera (= 4.1.4)
-    - DKImagePickerController/Core (= 4.1.4)
-    - DKImagePickerController/ImageDataManager (= 4.1.4)
-    - DKImagePickerController/InlineCamera (= 4.1.4)
-    - DKImagePickerController/PhotoEditor (= 4.1.4)
-    - DKImagePickerController/PhotoGallery (= 4.1.4)
-    - DKImagePickerController/Resource (= 4.1.4)
-  - DKImagePickerController/Camera (4.1.4):
-    - DKCamera
-    - DKImagePickerController/Core
   - DKImagePickerController/Core (4.1.4):
     - DKImagePickerController/ImageDataManager
     - DKImagePickerController/Resource
   - DKImagePickerController/ImageDataManager (4.1.4)
-  - DKImagePickerController/InlineCamera (4.1.4):
-    - DKCamera
-    - DKImagePickerController/Core
-  - DKImagePickerController/PhotoEditor (4.1.4):
-    - CropViewController (~> 2.4)
-    - DKImagePickerController/Core
-  - DKImagePickerController/PhotoGallery (4.1.4):
-    - DKImagePickerController/Core
-    - DKPhotoGallery
   - DKImagePickerController/Resource (4.1.4)
   - DKPhotoGallery (0.0.14):
     - DKPhotoGallery/Core (= 0.0.14)
@@ -78,7 +57,7 @@ PODS:
   - SDWebImageFLPlugin (0.4.0):
     - FLAnimatedImage (>= 1.0.11)
     - SDWebImage/Core (~> 5.6)
-  - SnapKit (4.0.1)
+  - SnapKit (5.0.1)
   - SwiftDate (5.1.0)
   - SwiftyJSON (4.3.0)
   - topsiOSPro (0.1.9.6):
@@ -87,7 +66,7 @@ PODS:
     - CryptoSwift
     - DeviceKit
     - DKCamera
-    - DKImagePickerController (<= 4.1.4)
+    - DKImagePickerController/Core (<= 4.1.4)
     - DKPhotoGallery
     - Hero
     - ImageSlideshow/Core (~> 1.8.3)
@@ -97,7 +76,7 @@ PODS:
     - QorumLogs
     - ReachabilitySwift
     - RealmSwift
-    - SnapKit (~> 4.0.0)
+    - SnapKit (~> 5.0.0)
     - SwiftDate (~> 5.1.0)
     - SwiftyJSON (~> 4.0)
 
@@ -109,7 +88,6 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - AlamofireImage
-    - CropViewController
     - CryptoSwift
     - DeviceKit
     - DKCamera
@@ -139,7 +117,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
   AlamofireImage: 3d1a2010519e58675318735580eb856e88840ff7
-  CropViewController: 1aac40093c5739e60d992b04724a55d12a689a4c
   CryptoSwift: 1283821600233bdbeb96d7b389c3288c3bf77211
   DeviceKit: b9a28acbad6b8dbccf456814b6f95bef17a6654f
   DKCamera: a902b66921fca14b7a75266feb8c7568aa7caa71
@@ -158,10 +135,10 @@ SPEC CHECKSUMS:
   RealmSwift: 33656a42bd300959a081fc13347376bc478071af
   SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
   SDWebImageFLPlugin: 6c2295fb1242d44467c6c87dc5db6b0a13228fd8
-  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftDate: 6329e58969a2de31cea7f1ee1143b247693196e7
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
-  topsiOSPro: 683dc76e628716e4614318813bdc8e7668e405c2
+  topsiOSPro: 49a044fb5b74c267a57eb1edc9e46534100909e0
 
 PODFILE CHECKSUM: 72fcfe691ea7543193de0f3b965dfcd3338197e0
 

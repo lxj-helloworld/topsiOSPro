@@ -35,7 +35,7 @@
 
     ],
     "SnapKit": [
-      "~> 4.0.0"
+      "~> 5.0.0"
     ],
     "Hero": [
 
@@ -52,7 +52,7 @@
     "DKPhotoGallery": [
 
     ],
-    "DKImagePickerController": [
+    "DKImagePickerController/Core": [
       "<= 4.1.4"
     ],
     "DeviceKit": [

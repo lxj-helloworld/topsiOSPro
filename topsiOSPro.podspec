@@ -44,14 +44,14 @@ Pod::Spec.new do |s|
   s.dependency 'Alamofire', '~> 5.0' #网络请求
   s.dependency 'SwiftyJSON', '~> 4.0' #Json数据处理
   s.dependency 'QorumLogs'
-  s.dependency 'SnapKit', '~> 4.0.0' #自动布局'
+  s.dependency 'SnapKit', '~> 5.0.0' #自动布局'
   s.dependency 'Hero'
   s.dependency 'IQKeyboardManagerSwift'
   s.dependency 'AlamofireImage','~> 4.0'
 #  s.dependency 'SDWebImage'
   s.dependency 'DKCamera'
   s.dependency 'DKPhotoGallery' #照片选取(包含SDWebImage)
-  s.dependency 'DKImagePickerController', '<= 4.1.4' #照片选取
+  s.dependency 'DKImagePickerController/Core', '<= 4.1.4' #照片选取
   s.dependency 'DeviceKit'               #设备信息
   s.dependency 'ImageSlideshow/Core','~> 1.8.3'
   s.dependency 'MJRefresh' #上拉刷新 下拉加载
