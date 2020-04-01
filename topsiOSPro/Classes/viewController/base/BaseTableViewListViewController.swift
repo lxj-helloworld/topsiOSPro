@@ -112,7 +112,8 @@ open class BaseTableViewListViewController: BaseUIViewViewController{
          QL1("tokenHeder\(AlamofireManager.getToken())")
         QL1("url = \(url)")
         QL1(parameters)
-        AlamofireManager.sharedSessionManager.request(url, method:HTTPMethod.post,parameters:parameters,headers:AlamofireManager.getToken()).validate().responseJSON{ response in
+
+        AlamofireManager.sharedSessionManager.request(url, method:HTTPMethod.post,parameters:parameters,headers: HTTPHeaders(AlamofireManager.getToken())).validate().responseJSON{ response in
             self.hideHUD()
             switch response.result{
             case .success:

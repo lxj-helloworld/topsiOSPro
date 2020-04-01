@@ -1,6 +1,6 @@
 {
   "name": "topsiOSPro",
-  "version": "0.1.9.4",
+  "version": "0.1.9.6",
   "summary": "A short description of topsiOSPro.",
   "description": "青岛鼎信通讯iOS开发平台下通用组件库 Copyright © 2019 topscomm.com. All rights reserved.",
   "homepage": "https://github.com/lxj-helloworld/topsiOSPro",
@@ -13,10 +13,10 @@
   },
   "source": {
     "git": "https://github.com/lxj-helloworld/topsiOSPro.git",
-    "tag": "0.1.9.4"
+    "tag": "0.1.9.6"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "10.0"
   },
   "source_files": "topsiOSPro/Classes/**/*",
   "resource_bundles": {
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "Alamofire": [
-      "~> 4.7"
+      "~> 5.0"
     ],
     "SwiftyJSON": [
       "~> 4.0"
@@ -44,7 +44,7 @@
 
     ],
     "AlamofireImage": [
-
+      "~> 4.0"
     ],
     "DKCamera": [
 
@@ -58,8 +58,8 @@
     "DeviceKit": [
 
     ],
-    "ImageSlideshow/Alamofire": [
-
+    "ImageSlideshow/Core": [
+      "~> 1.8.3"
     ],
     "MJRefresh": [
 

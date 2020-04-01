@@ -10,10 +10,10 @@ import Foundation
 import Alamofire
 
 class AlamofireManager: NSObject {
-    static let sharedSessionManager: Alamofire.SessionManager = {
+    static let sharedSessionManager: Session = {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 30 //超时时间为30秒
-        return Alamofire.SessionManager(configuration: configuration)
+        return Session(configuration: configuration)
     }()
 
     /// 获取token

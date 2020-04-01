@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'topsiOSPro'
-  s.version          = '0.1.9.5'
+  s.version          = '0.1.9.6'
   s.summary          = 'A short description of topsiOSPro.'
 
 # This description is used to generate tags and improve search results.
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/lxj-helloworld/topsiOSPro.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.0'
 
 #  s.source_files = 'topsiOSPro/views/**/*'
 #  s.source_files = 'topsiOSPro/viewController/**/*'
@@ -38,19 +38,22 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'Alamofire', '~> 4.7' #网络请求
+  
+  #####适配swift5.0下‘ImageSlideshow/Core’和 ‘AlamofireImage’有冲突,那么只引用ImageSlideshow核心库,其他添加Development Pods中
+  
+  s.dependency 'Alamofire', '~> 5.0' #网络请求
   s.dependency 'SwiftyJSON', '~> 4.0' #Json数据处理
   s.dependency 'QorumLogs'
   s.dependency 'SnapKit', '~> 4.0.0' #自动布局'
   s.dependency 'Hero'
   s.dependency 'IQKeyboardManagerSwift'
-  s.dependency 'AlamofireImage'
+  s.dependency 'AlamofireImage','~> 4.0'
 #  s.dependency 'SDWebImage'
   s.dependency 'DKCamera'
   s.dependency 'DKPhotoGallery' #照片选取(包含SDWebImage)
   s.dependency 'DKImagePickerController', '<= 4.1.4' #照片选取
   s.dependency 'DeviceKit'               #设备信息
-  s.dependency 'ImageSlideshow/Alamofire'
+  s.dependency 'ImageSlideshow/Core','~> 1.8.3'
   s.dependency 'MJRefresh' #上拉刷新 下拉加载
   s.dependency 'SwiftDate', '~> 5.1.0'  #时间工具
   s.dependency 'JXSegmentedView' #切换滚动式图 https://github.com/pujiaxin33/JXSegmentedView

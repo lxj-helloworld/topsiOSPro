@@ -1,11 +1,11 @@
 PODS:
-  - Alamofire (4.8.2)
-  - AlamofireImage (3.5.2):
-    - Alamofire (~> 4.8)
-  - CropViewController (2.5.0)
+  - Alamofire (5.0.5)
+  - AlamofireImage (4.0.3):
+    - Alamofire (< 6.0.0, >= 5.0.2)
+  - CropViewController (2.5.2)
   - CryptoSwift (1.3.0)
-  - DeviceKit (2.3.0)
-  - DKCamera (1.6.4)
+  - DeviceKit (3.1.0)
+  - DKCamera (1.6.7)
   - DKImagePickerController (4.1.4):
     - DKImagePickerController/Camera (= 4.1.4)
     - DKImagePickerController/Core (= 4.1.4)
@@ -31,62 +31,66 @@ PODS:
     - DKImagePickerController/Core
     - DKPhotoGallery
   - DKImagePickerController/Resource (4.1.4)
-  - DKPhotoGallery (0.0.12):
-    - DKPhotoGallery/Core (= 0.0.12)
-    - DKPhotoGallery/Model (= 0.0.12)
-    - DKPhotoGallery/Preview (= 0.0.12)
-    - DKPhotoGallery/Resource (= 0.0.12)
-    - SDWebImage/GIF
-  - DKPhotoGallery/Core (0.0.12):
+  - DKPhotoGallery (0.0.14):
+    - DKPhotoGallery/Core (= 0.0.14)
+    - DKPhotoGallery/Model (= 0.0.14)
+    - DKPhotoGallery/Preview (= 0.0.14)
+    - DKPhotoGallery/Resource (= 0.0.14)
+    - SDWebImage
+    - SDWebImageFLPlugin
+  - DKPhotoGallery/Core (0.0.14):
     - DKPhotoGallery/Model
     - DKPhotoGallery/Preview
-    - SDWebImage/GIF
-  - DKPhotoGallery/Model (0.0.12):
-    - SDWebImage/GIF
-  - DKPhotoGallery/Preview (0.0.12):
+    - SDWebImage
+    - SDWebImageFLPlugin
+  - DKPhotoGallery/Model (0.0.14):
+    - SDWebImage
+    - SDWebImageFLPlugin
+  - DKPhotoGallery/Preview (0.0.14):
     - DKPhotoGallery/Model
     - DKPhotoGallery/Resource
-    - SDWebImage/GIF
-  - DKPhotoGallery/Resource (0.0.12):
-    - SDWebImage/GIF
+    - SDWebImage
+    - SDWebImageFLPlugin
+  - DKPhotoGallery/Resource (0.0.14):
+    - SDWebImage
+    - SDWebImageFLPlugin
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
   - FLAnimatedImage (1.0.12)
-  - Hero (1.4.0)
-  - ImageSlideshow/Alamofire (1.8.1):
-    - AlamofireImage (~> 3.0)
-    - ImageSlideshow/Core
-  - ImageSlideshow/Core (1.8.1)
-  - IQKeyboardManagerSwift (6.3.0)
-  - JXSegmentedView (1.0.2)
-  - MJRefresh (3.2.2)
+  - Hero (1.5.0)
+  - ImageSlideshow/Core (1.8.3)
+  - IQKeyboardManagerSwift (6.5.5)
+  - JXSegmentedView (1.0.5)
+  - MJRefresh (3.3.1)
   - QorumLogs (0.9)
   - ReachabilitySwift (5.0.0)
-  - Realm (4.3.2):
-    - Realm/Headers (= 4.3.2)
-  - Realm/Headers (4.3.2)
-  - RealmSwift (4.3.2):
-    - Realm (= 4.3.2)
-  - SDWebImage/Core (4.4.6)
-  - SDWebImage/GIF (4.4.6):
-    - FLAnimatedImage (~> 1.0)
-    - SDWebImage/Core
+  - Realm (4.4.0):
+    - Realm/Headers (= 4.4.0)
+  - Realm/Headers (4.4.0)
+  - RealmSwift (4.4.0):
+    - Realm (= 4.4.0)
+  - SDWebImage (5.6.1):
+    - SDWebImage/Core (= 5.6.1)
+  - SDWebImage/Core (5.6.1)
+  - SDWebImageFLPlugin (0.4.0):
+    - FLAnimatedImage (>= 1.0.11)
+    - SDWebImage/Core (~> 5.6)
   - SnapKit (4.0.1)
   - SwiftDate (5.1.0)
-  - SwiftyJSON (4.0.0)
-  - topsiOSPro (0.1.9.4):
-    - Alamofire (~> 4.7)
-    - AlamofireImage
+  - SwiftyJSON (4.3.0)
+  - topsiOSPro (0.1.9.6):
+    - Alamofire (~> 5.0)
+    - AlamofireImage (~> 4.0)
     - CryptoSwift
     - DeviceKit
     - DKCamera
     - DKImagePickerController (<= 4.1.4)
     - DKPhotoGallery
     - Hero
-    - ImageSlideshow/Alamofire
+    - ImageSlideshow/Core (~> 1.8.3)
     - IQKeyboardManagerSwift
     - JXSegmentedView
     - MJRefresh
@@ -103,6 +107,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - AlamofireImage
     - CropViewController
     - CryptoSwift
     - DeviceKit
@@ -121,42 +127,41 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - SDWebImage
+    - SDWebImageFLPlugin
     - SnapKit
     - SwiftDate
     - SwiftyJSON
-  trunk:
-    - Alamofire
-    - AlamofireImage
 
 EXTERNAL SOURCES:
   topsiOSPro:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
-  CropViewController: 6c962d6fb264cc5cb325b622d5029d50c6c43e72
+  Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
+  AlamofireImage: 3d1a2010519e58675318735580eb856e88840ff7
+  CropViewController: 1aac40093c5739e60d992b04724a55d12a689a4c
   CryptoSwift: 1283821600233bdbeb96d7b389c3288c3bf77211
-  DeviceKit: da103891aa928d89f64ea8dd8aca738c5f3d8ac0
-  DKCamera: 61fa47629a39354e5111bca1fe96695de020dcb9
+  DeviceKit: b9a28acbad6b8dbccf456814b6f95bef17a6654f
+  DKCamera: a902b66921fca14b7a75266feb8c7568aa7caa71
   DKImagePickerController: 1b21dd7ba0eb488ef0869d1eb6f23b3534b69bb5
-  DKPhotoGallery: 1b4d65d9a485dfdd2002f22daa5b955eafb350ea
+  DKPhotoGallery: 0290d32343574f06eaa4c26f8f2f8a1035e916be
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
-  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
-  ImageSlideshow: 634865d7d4e96f21e3830a31b51bde768cc94cea
-  IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
-  JXSegmentedView: 2988fe07060a9b91b0112eabd6dee0df0cbca8b3
-  MJRefresh: 72a46ecaa2a0feaf48fc5198dff95f25f8bb27c6
+  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
+  ImageSlideshow: 4694d7d699a1549582e7cc631fb392d8f91630f3
+  IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
+  JXSegmentedView: 46262e0ec86c951fd1be4a0b91de3d9b10cb9fff
+  MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
   QorumLogs: 9a484df6973a3697ac79fe2273140fde6b36dccc
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
-  Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
-  RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
-  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
+  Realm: e125f464884cda953ebefe70c671b75b03b81b9b
+  RealmSwift: 33656a42bd300959a081fc13347376bc478071af
+  SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
+  SDWebImageFLPlugin: 6c2295fb1242d44467c6c87dc5db6b0a13228fd8
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftDate: 6329e58969a2de31cea7f1ee1143b247693196e7
-  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
-  topsiOSPro: cb24a598ca8efc4c8b3f097401ad56c2241b0bec
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  topsiOSPro: 683dc76e628716e4614318813bdc8e7668e405c2
 
 PODFILE CHECKSUM: 72fcfe691ea7543193de0f3b965dfcd3338197e0
 

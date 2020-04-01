@@ -128,7 +128,7 @@ extension BaseUIViewViewController{
     
     //根据请求地址和请求参数请求ActionResult，
     open func getResultActionOnly(urlRequest :String,parameters:Parameters?,backToActionResultFunc : @escaping (_ actionResult:JSON) -> Void)  {
-        Alamofire.request(urlRequest, method: HTTPMethod.post,parameters: parameters).validate().responseJSON{
+        AlamofireManager.sharedSessionManager.request(urlRequest, method: HTTPMethod.post,parameters: parameters).validate().responseJSON{
             response in
             switch response.result{
             case .success:
@@ -158,7 +158,7 @@ extension BaseUIViewViewController{
         }else{
             showLoading(isSupportClick: isSupportClick)
         }
-        Alamofire.request(urlRequest, method: HTTPMethod.post, parameters: parameters).validate().responseJSON{
+        AlamofireManager.sharedSessionManager.request(urlRequest, method: HTTPMethod.post, parameters: parameters).validate().responseJSON{
             response in
             switch response.result{
             case .success:
@@ -190,7 +190,7 @@ extension BaseUIViewViewController{
         }else{
             showLoading(isSupportClick: true)
         }
-        Alamofire.request(urlRequest, method: HTTPMethod.post,parameters: parameters).validate().responseJSON{
+        AlamofireManager.sharedSessionManager.request(urlRequest, method: HTTPMethod.post,parameters: parameters).validate().responseJSON{
             response in
             switch response.result{
             case .success:
@@ -223,7 +223,7 @@ extension BaseUIViewViewController{
     //根据请求地址和参数请求dataList类数据
     open func getResultListMap(urlRequest :String,parameters:Parameters,backToListMapFunc : @escaping (_ list:JSON) -> Void)  {
         showLoading(isSupportClick: true)
-        Alamofire.request(urlRequest, method: HTTPMethod.post,parameters: parameters).validate().responseJSON{
+        AlamofireManager.sharedSessionManager.request(urlRequest, method: HTTPMethod.post,parameters: parameters).validate().responseJSON{
             response in
             switch response.result{
             case .success:
@@ -253,7 +253,7 @@ extension BaseUIViewViewController{
     //根据请求地址和参数请求listDataMap类数据
     open func getResultlistDataMap(urlRequest :String,parameters:Parameters,backToListMapFunc : @escaping (_ list:JSON) -> Void)  {
         showLoading(isSupportClick: true)
-        Alamofire.request(urlRequest, method: HTTPMethod.post,parameters: parameters).validate().responseJSON{
+        AlamofireManager.sharedSessionManager.request(urlRequest, method: HTTPMethod.post,parameters: parameters).validate().responseJSON{
             response in
             switch response.result{
             case .success:
@@ -278,25 +278,25 @@ extension BaseUIViewViewController{
             }
         }
     }
-        /// 只限下载pdf文件
+    /// 只限下载pdf文件
       open  func downloadPDF(url:String,isShowLoading:Bool = true,backToInfoFunc:@escaping (_ url:String) -> Void) {
             QL1(url)
             if isShowLoading {
                 showLoading(isSupportClick: true)
             }
-            let destination: DownloadRequest.DownloadFileDestination = { _, response in
+            let destination: DownloadRequest.Destination = { _, response in
                 let documentsURL = FileManager.default.urls(for: .documentDirectory,in: .userDomainMask)[0]
                 let fileURL = documentsURL.appendingPathComponent(response.suggestedFilename!)
                 return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
             }
 
-            AlamofireManager.sharedSessionManager.download(url,method:.post,headers:AlamofireManager.getToken(),to:destination).responseData { response in
+            AlamofireManager.sharedSessionManager.download(url,method:.post,headers:HTTPHeaders(AlamofireManager.getToken()),to:destination).responseData { response in
                 switch response.result {
                 case .success:
                     if isShowLoading{
                         self.hideHUD()
                     }
-                    if let path = response.destinationURL?.path{
+                    if let path = response.fileURL?.path{
                         let fileType = StringUtils.getSignBackStr(str:path,sign:".").lowercased()
                         if fileType.hasSuffix("pdf"){
     //                        UserDefaults.standard.set(path, forKey:url)
@@ -321,18 +321,19 @@ extension BaseUIViewViewController{
             if isShowLoading {
                 showLoading(isSupportClick: true)
             }
-            let destination: DownloadRequest.DownloadFileDestination = { _, response in
+            let destination: DownloadRequest.Destination = { _, response in
                 let documentsURL = FileManager.default.urls(for: .documentDirectory,in: .userDomainMask)[0]
                 let fileURL = documentsURL.appendingPathComponent(response.suggestedFilename!)
                 return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
             }
-            AlamofireManager.sharedSessionManager.download(url,method:.post,headers:AlamofireManager.getToken(),to:destination).responseData { response in
+        
+            AlamofireManager.sharedSessionManager.download(url,method:.post,headers: HTTPHeaders(AlamofireManager.getToken()) ,to:destination).responseData { response in
                 switch response.result {
                 case .success:
                     if isShowLoading{
                         self.hideHUD()
                     }
-                    if let path = response.destinationURL?.path{
+                    if let path = response.fileURL?.path{
                             backToInfoFunc(path)
                     }
                 case .failure(let error):
@@ -349,8 +350,8 @@ extension BaseUIViewViewController{
         if isShowLoading{
             showLoading(isSupportClick: true)
         }
-        Alamofire.upload(multipartFormData: { (multipartFormData) in
-            var count = imagesArr.count
+        AlamofireManager.sharedSessionManager.upload(multipartFormData: { (multipartFormData) in
+                        var count = imagesArr.count
             if imagesArr.count != imagesInfoArr.count{
                 count = imagesArr.count < imagesInfoArr.count ? imagesArr.count:imagesInfoArr.count // 获取最小值，取最小值，避免两者数量不一致时下面方法取照片时数组越界
             }
@@ -366,41 +367,100 @@ extension BaseUIViewViewController{
                     multipartFormData.append(data, withName:value)
                 }
             }
-        },  to: urlRequest,
-            encodingCompletion: { encodingResult in
-                switch encodingResult {
-                case .success(let upload, _, _):
-                    upload.responseJSON { response in
-                        if let value = response.result.value as? [String: AnyObject]{
-                            if isShowLoading{
-                                self.hideHUD()
-                            }
-                            let json = JSON(value)
-                            let actionResult = json["actionResult"]
-                            if actionResult["success"].boolValue {
-                                backToInfoFunc(actionResult)
+        }, to: urlRequest)
+            .responseJSON { (response) in
+                debugPrint(response.result)
+                switch response.result {
+                case .success(let data):
+                    if let value = data as? [String: AnyObject] {
+                        debugPrint(value)
+                        if isShowLoading{
+                            self.hideHUD()
+                        }
+                        let json = JSON(value)
+                        let actionResult = json["actionResult"]
+                        if actionResult["success"].boolValue {
+                            backToInfoFunc(actionResult)
+                        }else{
+                            if json[ConstantsHelp.timeout].boolValue{ //登陆超时
+                                self.loginAgain()
                             }else{
-                                if json[ConstantsHelp.timeout].boolValue{ //登陆超时
-                                    self.loginAgain()
-                                }else{
-                                    backToInfoFunc(actionResult)
-                                    if isShowLoading{
-                                        self.showAlertOne(title: "", message: "提交失败：\(actionResult["message"])")
-                                    }
+                                backToInfoFunc(actionResult)
+                                if isShowLoading{
+                                    self.showAlertOne(title: "", message: "提交失败：\(actionResult["message"])")
                                 }
                             }
                         }
-                        if  response.error != nil,response.error!._code == NSURLErrorTimedOut{
-//                            self.hideHUD()
-                            self.showAlert(message: "网络连接超时!\n请检查网络后重试")
+                    }
+                case .failure(let error):
+                    debugPrint(error.localizedDescription)
+//                    if error._code == NSURLErrorTimedOut {
+                        self.showAlert(message: "\(error.localizedDescription)")
+//                    }
+                }
+                /*
+                if let value = response.result.value as? [String: AnyObject]{
+                    if isShowLoading{
+                        self.hideHUD()
+                    }
+                    let json = JSON(value)
+                    let actionResult = json["actionResult"]
+                    if actionResult["success"].boolValue {
+                        backToInfoFunc(actionResult)
+                    }else{
+                        if json[ConstantsHelp.timeout].boolValue{ //登陆超时
+                            self.loginAgain()
+                        }else{
+                            backToInfoFunc(actionResult)
+                            if isShowLoading{
+                                self.showAlertOne(title: "", message: "提交失败：\(actionResult["message"])")
+                            }
                         }
                     }
-                case .failure(let encodingError):
-                    self.hideHUD()
-                    self.showAlert(message:"提交失败,错误原因为:\(encodingError)")
-                    QL1(encodingError)
                 }
-        })
+                if  response.error != nil,response.error!._code == NSURLErrorTimedOut{
+                    //                            self.hideHUD()
+                    self.showAlert(message: "网络连接超时!\n请检查网络后重试")
+                }
+                */
+        }
+//        AlamofireManager.sharedSessionManager.upload(multipartFormData: { (multipartFormData) in
+//
+//        },  to: urlRequest,
+//            encodingCompletion: { encodingResult in
+//                switch encodingResult {
+//                case .success(let upload, _, _):
+//                    upload.responseJSON { response in
+//                        if let value = response.result.value as? [String: AnyObject]{
+//                            if isShowLoading{
+//                                self.hideHUD()
+//                            }
+//                            let json = JSON(value)
+//                            let actionResult = json["actionResult"]
+//                            if actionResult["success"].boolValue {
+//                                backToInfoFunc(actionResult)
+//                            }else{
+//                                if json[ConstantsHelp.timeout].boolValue{ //登陆超时
+//                                    self.loginAgain()
+//                                }else{
+//                                    backToInfoFunc(actionResult)
+//                                    if isShowLoading{
+//                                        self.showAlertOne(title: "", message: "提交失败：\(actionResult["message"])")
+//                                    }
+//                                }
+//                            }
+//                        }
+//                        if  response.error != nil,response.error!._code == NSURLErrorTimedOut{
+////                            self.hideHUD()
+//                            self.showAlert(message: "网络连接超时!\n请检查网络后重试")
+//                        }
+//                    }
+//                case .failure(let encodingError):
+//                    self.hideHUD()
+//                    self.showAlert(message:"提交失败,错误原因为:\(encodingError)")
+//                    QL1(encodingError)
+//                }
+//        })
     }
     
     ///检测网络是否连接

@@ -32,7 +32,7 @@ public enum NetWorkType {
     case download
 }
 //MARK:- 错误码
-public enum ErrorCode{
+public enum ErrorCode: Error{
     //200...299
     case invalidResponse(String)
     //actionResult中的 ’success‘为false
@@ -57,7 +57,24 @@ public enum ErrorCode{
      */
     case uploadError(String,[String],JSON,[Data],[String],String?)
 }
-
+/*
+extension ErrorCode: LocalizedError {
+    var localizedDescription: String {
+        switch self {
+        case .invalidResponse(let errorMessage):
+            return "状态码错误:具体信息为\(errorMessage)"
+        case .sysError(let errorMessage):
+            return "系统错误:具体信息为\(errorMessage)"
+        case .networkUnavailable(let errorMessage,_):
+            return "网络错误:具体信息为\(errorMessage ?? "")"
+        case .needRetrier(_, _, _, let errorMessage):
+            return "重试错误:具体信息为\(errorMessage)"
+        case .uploadError(_, _, _, _, _, let errorMessage):
+            return "上传错误:具体信息为\(errorMessage ?? "")"
+        }
+    }
+}
+*/
 public typealias Success<T> = (T) -> Void
 
 public typealias Failure = (ErrorCode) -> Void
@@ -69,10 +86,10 @@ public final class NetWorkTools {
     static let shared = NetWorkTools()
     
     
-    var sessionManger: SessionManager = {
+    var sessionManger: Session = {
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = 30
-        let manger = Alamofire.SessionManager(configuration: config)
+        let manger = Session(configuration: config)
         return manger
     }()
     
@@ -104,7 +121,7 @@ extension NetWorkTools {
             return [:]
         }
         
-        shared.sessionManger.request(url, method: method, parameters: param, encoding: URLEncoding.default, headers: headers)
+        shared.sessionManger.request(url, method: method, parameters: param, encoding: URLEncoding.default, headers: HTTPHeaders(headers))
             .validate() //200...299
             .responseJSON { (response) in
 
@@ -176,7 +193,7 @@ extension NetWorkTools {
                 
                 let withName = !VerifyHelp.checkImageInfo(imageName: datasInfoArr[index]) ? "withName" + String(index) + data.getImageFormat()!: datasInfoArr[index]
                 let fileName = !VerifyHelp.checkImageInfo(imageName: datasInfoArr[index]) ? "fileName" + String(index) + data.getImageFormat()! : datasInfoArr[index]
-                               
+                
                 multipartFormData.append(data, withName: withName, fileName: fileName, mimeType: "application/octet-stream")
             }
             if keys.count > 0{
@@ -185,45 +202,41 @@ extension NetWorkTools {
                     multipartFormData.append(data, withName:value)
                 }
             }
-            
-            multipartFormData.append(URL(string:"sss")!, withName: "ss", fileName: "ssd", mimeType: "jpeg/jpg")
-            
-        }, to: url, headers: headers) { (request) in
-            switch request {
-            case .success(let upload, _ , _):
-                upload.responseJSON { (response) in
-                    //是否存在错误
-                    if let error = response.error {
-                        if let code = response.response?.statusCode {
-                            if code == 500 || code == 502 || code == 503 || code == 504 {
-                                if let request = response.request {
-                                    failure(.needRetrier(request, networkType, dataKey, error.localizedDescription))
-                                }
-                            } else {
-                                failure(.sysError(error.localizedDescription))
+//            multipartFormData.append(URL(string:"sss")!, withName: "ss", fileName: "ssd", mimeType: "jpeg/jpg")
+        }, to: url, headers: HTTPHeaders(headers))
+            .validate()
+            .responseJSON { (response) in
+                debugPrint(response)
+                switch response.result {
+                case .success:
+                    if let data = response.data{
+                        let actionReuslt = JSON(data)[ConstantsHelp.actionReuslt]
+                        if actionReuslt[ConstantsHelp.success].boolValue {
+                            let json = JSON(data)[dataKey.rawValue]
+                            //MARK:-存token
+                            if  !JSON(data)[ConstantsHelp.dataMap][token].stringValue.isEmpty {
+                                UserDefaults.standard.set(JSON(data)[ConstantsHelp.dataMap][token].stringValue, forKey: networkStaticHeaderKey)
                             }
+                            success(json)
                         } else {
-                            //offline 无状态码
-                            failure(.networkUnavailable(error.localizedDescription, nil))
-                        }
-
-                    } else {
-                        //成功
-                        if let data = response.result.value as? [String : AnyObject] {
-                            let actionResult = JSON(data)[ConstantsHelp.actionReuslt]
-                            if  actionResult[ConstantsHelp.success].boolValue {
-                                success(actionResult)
-                            } else {
-                                let message = (actionResult[ConstantsHelp.message].stringValue)
-                                failure(.sysError(message))
-                            }
+                            let message = (actionReuslt[ConstantsHelp.message].stringValue)
+                            failure(.sysError(message))
+                            
                         }
                     }
+                case .failure(let error):
+                    if let code = response.response?.statusCode {
+                        if code == 500 || code == 502 || code == 503 || code == 504{
+                            if let request = response.request {
+                                failure(.needRetrier(request, networkType, dataKey, error.localizedDescription))
+                            }
+                        } else {
+                            failure(.sysError(error.localizedDescription))
+                        }
+                    } else {
+                        failure(.sysError(error.localizedDescription))
+                    }
                 }
-                //MARK:- 验证准备上传的数据是否合法
-            case .failure:
-                failure(.sysError("上传的数据不合法"))
-            }
         }
     }
     /**
@@ -250,15 +263,15 @@ extension NetWorkTools {
             return [:]
         }
         
-        let destination: DownloadRequest.DownloadFileDestination = { _, response in
+        let destination: DownloadRequest.Destination = { _, response in
             let documentsURL = FileManager.default.urls(for: .documentDirectory,in: .userDomainMask)[0]
             let fileURL = documentsURL.appendingPathComponent(response.suggestedFilename!)
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
-        shared.sessionManger.download(url, method: method, parameters: params, encoding: URLEncoding.default, headers: headers, to: destination).responseData { (response) in
+        shared.sessionManger.download(url, method: method, parameters: params, encoding: URLEncoding.default, headers: HTTPHeaders(headers), to: destination).responseData { (response) in
             switch response.result {
             case .success:
-                if let path = response.destinationURL?.path{
+                if let path = response.fileURL?.path{
                     if path.hasSuffix("action") {
                         failure(.sysError("下载的文件不存在"))
                     } else {
@@ -334,7 +347,7 @@ extension NetWorkTools {
                 }
             }
         case .download:
-            let destination: DownloadRequest.DownloadFileDestination = { _, response in
+            let destination: DownloadRequest.Destination = { _, response in
                 let documentsURL = FileManager.default.urls(for: .documentDirectory,in: .userDomainMask)[0]
                 let fileURL = documentsURL.appendingPathComponent(response.suggestedFilename!)
                 return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
@@ -343,7 +356,7 @@ extension NetWorkTools {
             shared.sessionManger.download(request, to: destination).validate().responseData { (response) in
                 switch response.result {
                 case .success:
-                    if let path = response.destinationURL?.path{
+                    if let path = response.fileURL?.path{
                         if path.hasSuffix("action") {
                             failure(.sysError("下载的文件不存在"))
                         } else {

@@ -48,33 +48,38 @@ class ShowMyNetWorkViewController: BaseUIViewViewController {
             let url = "http://172.20.3.53:8919/toa/toa/toaMobileLogin_login.json";
             self.requestDataWith(url: url, param: parameters, method: .post, dataKey: .dataMap, headers: [:] ,success: { (json) in
                     print(json)
+                self.showAlert(message: "\(json)")
             }) { (errorCode) in
-                print(errorCode)
+                print(errorCode.localizedDescription)
             }
         case 101:
-            let keys = ["excessreason", "invoicetype", "amount", "invoiceamount", "remark", "invoicedate"]
-            let dic = ["amount" : "3",
-            "invoicetype" : "transportInvoice",
-            "remark" : "这",
-            "excessreason" : "噢",
-            "invoiceamount" : "3",
-//            "invoicedate" : "2019-12-10"
-            ]
-            let params = JSON(dic)
-            let image = UIImage(named: "2")!
-            let data = UIImagePNGRepresentation(image)!
-            
-            self.uploadFileWith(url: "http://172.20.3.53:8924/er/er/erInvoice_commitInvoice.json", keys: keys, parameters: params, datasArr: [data], datasInfoArr: ["aa.png"], success: { (json) in
-                print("1111")
-            }) { (errorCode) in
-                print(errorCode)
+            let keys = ["carid", "datarq", "isinsurance", "dueto", "sgxz", "isrepair", "kycl", "addr", "notes", "flowid", "description"]
+            let dic =  ["datarq" : "2020-03-31",
+             "flowid" : 19110800000006,
+             "addr" : "1",
+             "sgxz" : "0",
+             "dueto" : "0",
+             "carid" : 7,
+             "description" : "3",
+             "notes" : "2",
+             "isinsurance" : "1"] as [String : Any]
+            let parameters = JSON(dic)
+            let image = UIImage(named: "1")!
+            let data = image.pngData()!
+            let url = "http://172.20.3.53:89dd19/toa/toa/toaMobileCarAccidentRecord_apply.json"
+            self.uploadFileWith(url: url, keys: keys, parameters: parameters, datasArr: [data], datasInfoArr: ["qwqwq"], success: { (json) in
+                self.showAlert(message: "\(json)")
+            }) { (error) in
+                self.showAlert(message: "\(error.localizedDescription)")
             }
         case 102:
             ///19120600000003
-            self.downloadFileWith(url: "http://172.20.3.53:8924/er/cbo/cboAttachment_download.action?attachmentId=19120600003", params: [:], success: { (path) in
+            self.downloadFileWith(url: "https://www.tutorialspoint.com/ios/ios_tutorial.pdf", params: [:], success: { (path) in
                 print(path)
+                self.showAlert(message: path)
             }) { (errorCode) in
                 print(errorCode)
+//                self.showAlert(message: errorCode)
             }
         default:
             break;
