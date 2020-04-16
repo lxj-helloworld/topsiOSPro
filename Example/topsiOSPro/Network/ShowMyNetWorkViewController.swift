@@ -38,7 +38,7 @@ class ShowMyNetWorkViewController: BaseUIViewViewController {
         switch sender.tag {
         case 100: ///重连
             let parameters:Parameters = ["loginname":"7886",
-                                         "password":"123456",
+                                         "password":"12345678",
                                          "uuid":"105DA37F-B657-45DD-AAE4-5F91D79D0B4E",
                                          "ismobile":"1",
                                          "needToken":"1",

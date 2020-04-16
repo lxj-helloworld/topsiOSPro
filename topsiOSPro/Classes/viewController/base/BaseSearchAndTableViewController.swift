@@ -12,7 +12,7 @@ import Alamofire
 
 open class BaseSearchAndTableViewController: BaseTableViewListViewController,UITableViewDataSource,UITableViewDelegate,UISearchResultsUpdating {
 
-    private var searchController:UISearchController = UISearchController()
+    private var searchController:UISearchController = UISearchController(searchResultsController: nil)
     //MARK:-上一次的关键词
     private var lastSearchBarText:String = ""
     //MARK:-搜索框placeholder
@@ -26,8 +26,12 @@ open class BaseSearchAndTableViewController: BaseTableViewListViewController,UIT
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        
         setupTableviewAndSearchController()
+    }
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.searchController.isActive = false
+        self.searchController.view.removeFromSuperview()
     }
     //MARK:-设置tableview以及searchcontroller
     func setupTableviewAndSearchController(){
@@ -38,6 +42,7 @@ open class BaseSearchAndTableViewController: BaseTableViewListViewController,UIT
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
+//        searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
@@ -51,8 +56,10 @@ open class BaseSearchAndTableViewController: BaseTableViewListViewController,UIT
         } else {
             let uiView:UIView = UIView(frame: CGRect(x: 0,y: 0,width: UIScreen.main.bounds.width,height: 45))
             uiView.addSubview(searchController.searchBar)
+            debugPrint(searchController.searchBar.frame)
             searchController.searchBar.backgroundColor = ConstantsHelp.normalTableViewUIColor
             self.tableView.tableHeaderView = uiView
+            
         }
     }
     //MARK:-点击
@@ -97,7 +104,6 @@ open class BaseSearchAndTableViewController: BaseTableViewListViewController,UIT
     }
     //MARK:-处理（添加或去掉搜索的参数）
     public func setupParamWith(value: String) {
-
         if value == ""{
              self.parameters.removeValue(forKey: paramKey)
         }else{

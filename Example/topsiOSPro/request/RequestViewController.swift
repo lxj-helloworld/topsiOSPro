@@ -93,7 +93,7 @@ class RequestViewController: BaseUIViewViewController {
     @objc func loginTo(){
         print("loingTo")
         let parameters:Parameters = ["loginname":"7886",
-                                    "password":"123456",
+                                    "password":"12345678",
                                     "uuid":"105DA37F-B657-45DD-AAE4-5F91D79D0B4E",
                                     "ismobile":"1",
                                     "needToken":"1",
@@ -159,7 +159,7 @@ class RequestViewController: BaseUIViewViewController {
         let image = UIImage(named: "1")!
         let data = image.pngData()!
         //http://172.20.3.53:8919/toa/toa/toaMobileCarAccidentRecord_apply.json
-        self.postImageList(urlRequest: "http://172.20.3.53:8919/toa/toa/toaMobileCarAccidentRecord_apply.json", keys: keys, parameters: parameters, imagesArr: [data], imagesInfoArr: ["11111"]) { (json) in
+        self.postImageList(urlRequest: "http://172.20.3.53:8919/toa/toa/toaMobileCarAccidentRecord_apply.json", keys: keys, parameters: parameters, imagesArr: [data], imagesInfoArr: ["11111"], isShowLoading: true) { (json) in
             self.showAlert(message: "\(json)")
         }
     }

@@ -55,7 +55,7 @@ Pod::Spec.new do |s|
   s.dependency 'DeviceKit'               #设备信息
   s.dependency 'ImageSlideshow/Core','~> 1.8.3'
   s.dependency 'MJRefresh' #上拉刷新 下拉加载
-  s.dependency 'SwiftDate', '~> 5.1.0'  #时间工具
+  s.dependency 'SwiftDate', '~> 6.0.0'  #时间工具
   s.dependency 'JXSegmentedView' #切换滚动式图 https://github.com/pujiaxin33/JXSegmentedView
   s.dependency 'ReachabilitySwift'
   s.dependency 'RealmSwift' #Realm 数据库

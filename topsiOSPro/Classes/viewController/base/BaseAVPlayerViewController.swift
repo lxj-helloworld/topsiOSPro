@@ -39,7 +39,7 @@ open class BaseAVPlayerViewController: BaseUIViewViewController {
     private var containner: UIView = UIView()
     private var timeLabel: UILabel = UILabel()
     private var playBtn: UIButton = UIButton()
-    private var slider: UISlider = UISlider()
+    private var slider: UISlider = CustomSlider()
     private var sliding: Bool = false
     private var isPlaying: Bool = true
     private var progress: UIProgressView = UIProgressView()
@@ -130,6 +130,7 @@ open class BaseAVPlayerViewController: BaseUIViewViewController {
             make.left.equalToSuperview().offset(ConstantsHelp.normalPadding * 2)
             make.height.equalToSuperview()
             make.width.equalTo(35)
+            make.centerY.equalTo(containner.snp.centerY)
         }
         playBtn.setImage(UIImage(named: "pause", in: bundle, compatibleWith: nil), for: .normal)
         playBtn.addTarget(self, action: #selector(playBtnClick(_ :)), for: .touchUpInside)
@@ -140,6 +141,7 @@ open class BaseAVPlayerViewController: BaseUIViewViewController {
         self.timeLabel.snp.makeConstraints { (make) in
             make.right.equalTo(containner.snp.right).offset(ConstantsHelp.rightMargin * 2)
             make.height.equalToSuperview()
+            make.centerY.equalTo(containner.snp.centerY)
         }
         
         self.containner.addSubview(progress)
@@ -150,6 +152,7 @@ open class BaseAVPlayerViewController: BaseUIViewViewController {
             make.left.equalTo(playBtn.snp.right).offset(ConstantsHelp.normalPadding * 2)
             make.right.equalTo(timeLabel.snp.left).offset(ConstantsHelp.rightMargin * 2)
             make.centerY.equalTo(containner.snp.centerY)
+            make.height.equalTo(2)
         }
         
         self.containner.addSubview(slider)
@@ -173,9 +176,12 @@ open class BaseAVPlayerViewController: BaseUIViewViewController {
         
         slider.snp.makeConstraints { (make) in
             make.left.equalTo(progress.snp.left)
-            make.right.equalTo(timeLabel.snp.left).offset(ConstantsHelp.rightMargin)
+//            make.right.equalTo(timeLabel.snp.left).offset(ConstantsHelp.rightMargin)
+//            make.centerY.equalTo(progress.snp.centerY)
+//            make.height.equalTo(2)
+            make.right.equalTo(progress.snp.right)
             make.centerY.equalTo(progress.snp.centerY)
-            make.height.equalTo(2)
+//            make.height.equalTo(progress.snp.height)
         }        
         
     }
@@ -297,3 +303,35 @@ extension BaseAVPlayerViewController{
         return .portrait
     }
 }
+
+
+ 
+class CustomSlider: UISlider {
+    
+    var height: CGFloat = 3.0
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    override func minimumValueImageRect(forBounds bounds: CGRect) -> CGRect {
+        return self.bounds
+    }
+    
+    override func maximumValueImageRect(forBounds bounds: CGRect) -> CGRect {
+        return self.bounds
+    }
+    // 控制slider的宽和高，这个方法才是真正的改变slider滑道的高的
+    override func trackRect(forBounds bounds: CGRect) -> CGRect {
+        let rect = super.trackRect(forBounds: bounds)
+        return CGRect.init(x: rect.origin.x, y: (bounds.size.height-height)/2, width: bounds.size.width, height: height)
+    }
+    // 改变滑块的触摸范围
+    override func thumbRect(forBounds bounds: CGRect, trackRect rect: CGRect, value: Float) -> CGRect {
+        return super.thumbRect(forBounds: bounds, trackRect: rect, value: value)
+    }
+ 
+}
+

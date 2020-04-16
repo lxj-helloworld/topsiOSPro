@@ -15,7 +15,11 @@ class AlamofireManager: NSObject {
         configuration.timeoutIntervalForRequest = 30 //超时时间为30秒
         return Session(configuration: configuration)
     }()
-
+    static let downloadSessionManger: Session = {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 120 //超时时间为120秒
+        return Session(configuration: configuration)
+    }()
     /// 获取token
     static func getToken() -> [String:String]{
         let token = UserDefaults.standard.string(forKey: "token")

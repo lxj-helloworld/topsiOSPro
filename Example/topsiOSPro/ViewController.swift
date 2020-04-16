@@ -48,6 +48,7 @@ class ViewController: BaseMenuUICollectionViewViewController {
                          ["title": "PDFKit", "image": "AppIcon"],
                          ["title": "RealmDB", "image": "AppIcon"],
                          ["title": "登录加密", "image": "AppIcon"],
+                         ["title": "瀑布流", "image": "AppIcon"],
         ]
         super.viewDidLoad()
         title = "Topscomm"
@@ -99,6 +100,8 @@ class ViewController: BaseMenuUICollectionViewViewController {
             showRealmDB()
         case 21:
             showCrypto()
+        case 22:
+            showWaterfall()
         default:
             print("no way to go")
         }
@@ -200,7 +203,7 @@ class ViewController: BaseMenuUICollectionViewViewController {
     }
     //基础视图
     func showMyList(){
-        let viewController = MyListMenuViewController()
+        let viewController = NormalViewController()
         viewController.title = "基础控制器"
         self.navigationController?.pushViewController(viewController, animated: true)
     }
@@ -225,7 +228,7 @@ class ViewController: BaseMenuUICollectionViewViewController {
     //切换/点击视图
     func showSegmentView(){
         let viewController = ShowSegmentListViewController()
-        viewController.title = "基本视图"
+        viewController.title = "切换/点击视图"
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     //搜索+列表
@@ -261,7 +264,7 @@ class ViewController: BaseMenuUICollectionViewViewController {
             viewController.title = "showPDF"
             self.navigationController?.pushViewController(viewController, animated: true)
         } else {
-           
+            self.showAlert(message: "iOS11一下的设备，请使用下载的方式打开")
         }
 
     }
@@ -280,6 +283,12 @@ class ViewController: BaseMenuUICollectionViewViewController {
 //        print(viewController.view.subviews)
         self.navigationController?.pushViewController(viewController, animated: true)
         
+    }
+    //showWaterfall
+    func showWaterfall() {
+        let viewController = ShowSearchAndWaterfallViewController()
+        viewController.title = "showWaterfall"
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

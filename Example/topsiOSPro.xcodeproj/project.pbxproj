@@ -45,7 +45,9 @@
 		B056A437238FBCF2000B4F8B /* ListBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056A436238FBCF2000B4F8B /* ListBaseViewController.swift */; };
 		B05AC883242C4F93001E446F /* ListBaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05AC882242C4F92001E446F /* ListBaseUIViewController.swift */; };
 		B06B4DA22404C3460043DB58 /* CryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B4DA12404C3460043DB58 /* CryptoViewController.swift */; };
+		B074F7E92447F607001D1C58 /* NormalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B074F7E82447F607001D1C58 /* NormalViewController.swift */; };
 		B0753E8423F6A33B0019DF37 /* RealmDBWirhJSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0753E8323F6A33B0019DF37 /* RealmDBWirhJSONViewController.swift */; };
+		B07753042435755000BEBDCA /* ShowSearchAndWaterfallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07753032435755000BEBDCA /* ShowSearchAndWaterfallViewController.swift */; };
 		B07C2AB823F534E00043B8A3 /* RealmDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C2AB723F534E00043B8A3 /* RealmDBViewController.swift */; };
 		B08AB5A923B5CBB600B39840 /* ShowPDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AB5A823B5CBB600B39840 /* ShowPDFViewController.swift */; };
 		F59648A9CB7A6021213E36DD /* Pods_topsiOSPro_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0713674B85490B52D2335BE0 /* Pods_topsiOSPro_Example.framework */; };
@@ -112,7 +114,9 @@
 		B056A436238FBCF2000B4F8B /* ListBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBaseViewController.swift; sourceTree = "<group>"; };
 		B05AC882242C4F92001E446F /* ListBaseUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBaseUIViewController.swift; sourceTree = "<group>"; };
 		B06B4DA12404C3460043DB58 /* CryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewController.swift; sourceTree = "<group>"; };
+		B074F7E82447F607001D1C58 /* NormalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalViewController.swift; sourceTree = "<group>"; };
 		B0753E8323F6A33B0019DF37 /* RealmDBWirhJSONViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBWirhJSONViewController.swift; sourceTree = "<group>"; };
+		B07753032435755000BEBDCA /* ShowSearchAndWaterfallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSearchAndWaterfallViewController.swift; sourceTree = "<group>"; };
 		B07C2AB723F534E00043B8A3 /* RealmDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBViewController.swift; sourceTree = "<group>"; };
 		B08AB5A823B5CBB600B39840 /* ShowPDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPDFViewController.swift; sourceTree = "<group>"; };
 		BAEAE84D20FA55631EA6E967 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 		607FACD21AFB9204008FA782 /* Example for topsiOSPro */ = {
 			isa = PBXGroup;
 			children = (
+				B074F7E72447F5B0001D1C58 /* normalViewController */,
+				B07753022435751800BEBDCA /* WaterfallUIcollectionView */,
 				B06B4DA02404C3340043DB58 /* Crypto */,
 				B07C2AB623F534C00043B8A3 /* RealmDB */,
 				B08AB5A723B5CB7700B39840 /* PDFKit */,
@@ -394,6 +400,22 @@
 				B06B4DA12404C3460043DB58 /* CryptoViewController.swift */,
 			);
 			path = Crypto;
+			sourceTree = "<group>";
+		};
+		B074F7E72447F5B0001D1C58 /* normalViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B074F7E82447F607001D1C58 /* NormalViewController.swift */,
+			);
+			path = normalViewController;
+			sourceTree = "<group>";
+		};
+		B07753022435751800BEBDCA /* WaterfallUIcollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				B07753032435755000BEBDCA /* ShowSearchAndWaterfallViewController.swift */,
+			);
+			path = WaterfallUIcollectionView;
 			sourceTree = "<group>";
 		};
 		B07C2AB623F534C00043B8A3 /* RealmDB */ = {
@@ -667,6 +689,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B04F54FC2385417000DB39BD /* MyAutoTableViewController.swift in Sources */,
+				B074F7E92447F607001D1C58 /* NormalViewController.swift in Sources */,
 				B056A433238FBAB4000B4F8B /* ShowSegmentViewController.swift in Sources */,
 				00B47F78229D07BC000A256E /* VerifyDataViewController.swift in Sources */,
 				00F2205522A1256100498DC0 /* MyMenuViewController.swift in Sources */,
@@ -687,6 +710,7 @@
 				B0437E832387BF0200465F81 /* MyWebViewController.swift in Sources */,
 				B038051F239F7ECC00D525C2 /* ShowMyNetWorkViewController.swift in Sources */,
 				B04F54F22384C80600DB39BD /* ShowDeviceInfoViewController.swift in Sources */,
+				B07753042435755000BEBDCA /* ShowSearchAndWaterfallViewController.swift in Sources */,
 				B048A31723865D7D0028948D /* ShowMyViewViewController.swift in Sources */,
 				B048A319238660430028948D /* ShowMyViewDetailViewController.swift in Sources */,
 				00B2A35622CDDCB000B8ECBB /* ShowLocalImageViewController.swift in Sources */,

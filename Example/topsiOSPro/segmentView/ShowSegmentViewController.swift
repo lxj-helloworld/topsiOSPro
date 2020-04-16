@@ -90,10 +90,11 @@ class ShowSegmentListViewController:BaseUIViewViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.automaticallyAdjustsScrollViewInsets = false
         setupUI()
     }
     func setupUI(){
+        baseView.backgroundColor = .green
         baseView.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()

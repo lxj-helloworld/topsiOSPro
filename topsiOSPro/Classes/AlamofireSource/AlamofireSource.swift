@@ -12,7 +12,9 @@
  */
 
 import UIKit
+//#if SWIFT_PACKAGE
 import ImageSlideshow
+//#endif
 import Alamofire
 import AlamofireImage
 
@@ -48,21 +50,21 @@ public class AlamofireSource: NSObject, InputSource {
     }
 
     public func load(to imageView: UIImageView, with callback: @escaping (UIImage?) -> Void) {
-        imageView.af_setImage(withURL: self.url, placeholderImage: placeholder, filter: nil, progress: nil) { [weak self] (response) in
+        imageView.af.setImage(withURL: self.url, placeholderImage: placeholder, filter: nil, progress: nil) { [weak self] (response) in
             switch response.result {
-            case .success(let image):
-                callback(image)
-            case .failure(_):
-                if let strongSelf = self {
-                callback(strongSelf.placeholder)
-            } else {
-                callback(nil)
+                case .success(let image):
+                    callback(image)
+                case .failure(_):
+                    if let strongSelf = self {
+                    callback(strongSelf.placeholder)
+                } else {
+                    callback(nil)
+                }
             }
         }
     }
-    }
 
     public func cancelLoad(on imageView: UIImageView) {
-        imageView.af_cancelImageRequest()
+        imageView.af.cancelImageRequest()
     }
 }

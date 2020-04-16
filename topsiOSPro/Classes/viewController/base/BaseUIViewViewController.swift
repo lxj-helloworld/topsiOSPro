@@ -327,7 +327,7 @@ extension BaseUIViewViewController{
                 return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
             }
         
-            AlamofireManager.sharedSessionManager.download(url,method:.post,headers: HTTPHeaders(AlamofireManager.getToken()) ,to:destination).responseData { response in
+            AlamofireManager.downloadSessionManger.download(url,method:.post,headers: HTTPHeaders(AlamofireManager.getToken()) ,to:destination).responseData { response in
                 switch response.result {
                 case .success:
                     if isShowLoading{
